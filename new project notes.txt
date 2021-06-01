@@ -1,0 +1,21 @@
+technologies:
+
+- nextjs
+
+- twilio - for sms
+- prisma - orm
+- auth0 or nextAuth?
+- docker - host mongo db in a container
+
+
+routes:
+- /api/user
+	- for login and signup
+
+
+pages:
+- /pages/login
+- /pages/signup
+- /pages/admin/
+	-/dashboard
+	-/manage
