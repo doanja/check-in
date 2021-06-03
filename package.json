@@ -7,7 +7,7 @@
     "build": "npm run build:tailwind && next build",
     "build:tailwind": "tailwindcss build styles/globals.css -o styles/globals.tailwind.output.css",
     "start": "next start",
-    "test": "jest"
+    "test": "jest --watch"
   },
   "dependencies": {
     "next": "10.2.3",
@@ -22,9 +22,7 @@
     "@types/react": "17.0.8",
     "autoprefixer": "^10.2.6",
     "babel-jest": "^27.0.2",
-    "identity-obj-proxy": "^3.0.0",
     "jest": "^27.0.3",
-    "jest-dom": "^4.0.0",
     "postcss": "^8.3.0",
     "tailwindcss": "^2.1.2",
     "typescript": "4.3.2"
