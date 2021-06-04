@@ -1,4 +1,4 @@
-import 'tailwindcss/tailwind.css';
+// import 'tailwindcss/tailwind.css';
 
 export default function Home() {
   return (

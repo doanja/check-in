@@ -1,25 +1,25 @@
 import { render } from '@testing-library/react';
 import Home from '../pages/index';
 
-describe('App', () => {
+describe('App with react testing library', () => {
   it('renders Home without crashing', () => {
-    const home = render(<Home />);
+    const { getByText } = render(<Home />);
 
-    const heading = home.getByText('Home');
-
-    expect(heading).toBeInTheDocument();
+    getByText('Home');
   });
 });
 
-// import { render } from '@testing-library/react';
+import { shallow } from 'enzyme';
 
-// function SomeComp() {
-//   return <div>Hello</div>;
-// }
+describe('App With Enzyme', () => {
+  it('renders Home without crashing', () => {
+    shallow(<Home />);
+  });
 
-// describe('SomeComp', () => {
-//   it('renders Hello', () => {
-//     const { getByText } = render(<SomeComp />);
-//     expect(getByText('Hello')).toBeInTheDocument();
-//   });
-// });
+  it('Home text is displayed properly', () => {
+    const wrapper = shallow(<Home />);
+
+    const header = wrapper.find('h1').text();
+    expect(header).toEqual('Home');
+  });
+});
