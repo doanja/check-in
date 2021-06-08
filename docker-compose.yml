@@ -5,19 +5,64 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    container_name: check-in
+    container_name: check-in-app
     restart: always
     volumes:
       - ./:/usr/src/app
     ports:
       - '3000:3000'
     depends_on:
-      - mongo
-  mongo:
-    container_name: mongo
-    image: mongo
-    restart: always
-    volumes:
-      - ./data:/data/db
+      - mysql
+  mysql:
+    container_name: mysql
     ports:
-      - '27017:27017'
+      - '3306:3306'
+    image: mysql
+    restart: always
+    environment:
+      MYSQL_DATABASE: prisma
+      MYSQL_ROOT_PASSWORD: prisma
+    volumes:
+      - mysql:/var/lib/mysql
+  # prisma:
+  #   links:
+  #     - mysql
+  #   depends_on:
+  #     - mysql
+  #   container_name: prisma
+  #   ports:
+  #     - '5555:5555'
+  #   build:
+  #     context: backend/prisma
+  #     dockerfile: Dockerfile
+  #   volumes:
+  #     - /app/prisma
+  # backend:
+  #   links:
+  #     - mysql
+  #   depends_on:
+  #     - mysql
+  #   container_name: backend
+  #   ports:
+  #     - '4000:4000'
+  #   build:
+  #     context: backend
+  #     dockerfile: Dockerfile
+  #   volumes:
+  #     - ./backend:/app
+  #     - /app/node_modules
+  #     - /app/prisma
+  # frontend:
+  #   container_name: frontend
+  #   ports:
+  #     - '3000:3000'
+  #   build:
+  #     context: frontend
+  #     dockerfile: Dockerfile
+  #   volumes:
+  #     - ./frontend:/app
+  #     - /app/node_modules
+  #     - /app/.next
+
+volumes: #define our mysql volume used above
+  mysql:
