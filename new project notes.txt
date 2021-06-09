@@ -26,3 +26,8 @@ pages:
 	- name
 	- phone
 	- birthday
+
+
+NOTES:
+- run npx prisma migrate dev everytime schema.prisma is changed
+- run npx prisma studio to open prisma in browser

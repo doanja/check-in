@@ -10,20 +10,20 @@ generator client {
   provider = "prisma-client-js"
 }
 
-model Customer {
+model User {
   id          String    @id @default(cuid())
   name        String
   email       String?   @unique
-  phoneNumber Int       @unique
+  phoneNumber String    @unique
   birthday    DateTime?
   points      Int       @default(0)
   checkins    Int       @default(0)
   createdAt   DateTime  @default(now())
-  role        Role      @default(USER)
+  role        Role      @default(CUSTOMER)
 }
 
 enum Role {
-  USER
+  CUSTOMER
   ADMIN
   DEVELOPER
 }
