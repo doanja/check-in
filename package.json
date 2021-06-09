@@ -3,9 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
-    "build": "npm run build:tailwind && next build",
-    "build:tailwind": "tailwindcss build styles/globals.css -o styles/globals.tailwind.output.css",
+    "dev": "next",
+    "build": "next build",
     "start": "next start",
     "test": "jest"
   },
