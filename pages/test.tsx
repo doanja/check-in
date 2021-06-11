@@ -3,6 +3,8 @@ import Head from 'next/head';
 import { PrismaClient, User, Prisma } from '@prisma/client';
 import AddUserForm from './../components/AddUserForm';
 
+import UserCard from '../components/UserCard';
+
 const prisma = new PrismaClient();
 
 export async function getServerSideProps() {
@@ -26,12 +28,13 @@ async function saveUser(user: Prisma.UserCreateInput) {
   return await response.json();
 }
 
-interface testProps {
+interface TestProps {
   initialUsers: User[];
 }
 
-export default function test({ initialUsers }: testProps) {
+export default function test({ initialUsers }: TestProps) {
   const [users, setUsers] = useState<User[]>(initialUsers);
+
   return (
     <>
       <Head>
@@ -44,13 +47,13 @@ export default function test({ initialUsers }: testProps) {
             <h2 className='text-3xl text-white'>Add a User</h2>
           </div>
           <AddUserForm
-            onSubmit={async (data, e) => {
+            onSubmit={async (data: any, e: any) => {
               try {
                 await saveUser(data);
                 setUsers([...users, data]);
                 e.target.reset();
               } catch (err) {
-                console.log(err);
+                throw new Error(err);
               }
             }}
           />
@@ -59,6 +62,11 @@ export default function test({ initialUsers }: testProps) {
           <div className='mb-3'>
             <h2 className='text-3xl text-gray-700'>Users</h2>
           </div>
+          {users.map((user: User, i: number) => (
+            <div className='mb-3' key={i}>
+              <UserCard user={user} />
+            </div>
+          ))}
         </section>
       </div>
     </>

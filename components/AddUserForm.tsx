@@ -10,10 +10,10 @@ interface AddContactFormProps {
 }
 
 type FormInputs = {
-  firstName: string;
-  lastName: string;
+  name: string;
+  phoneNumber: string;
   email: string;
-  avatar: string;
+  birthday: string;
 };
 
 // npm install @hookform/resolvers
@@ -28,20 +28,20 @@ const AddContactForm = (props: AddContactFormProps) => {
   return (
     <form className='flex flex-col' onSubmit={handleSubmit(props.onSubmit)}>
       <div className='mb-3'>
-        <FormInput placeholder='First Name' name='firstName' formRef={register('firstName')} />
-        {errors.firstName && <FormError errorMessage='First Name is required' />}
+        <FormInput placeholder='name' name='name' formRef={register('name')} />
+        {errors.name && <FormError errorMessage='Name is required' />}
       </div>
       <div className='mb-3'>
-        <FormInput placeholder='Last Name' name='lastName' formRef={register('lastName')} />
-        {errors.lastName && <FormError errorMessage='Last Name is required' />}
+        <FormInput placeholder='phone number' name='phoneNumber' formRef={register('phoneNumber')} />
+        {errors.phoneNumber && <FormError errorMessage='Phone number is required' />}
       </div>
       <div className='mb-3'>
-        <FormInput placeholder='Email' name='email' formRef={register('email')} />
+        <FormInput placeholder='email' name='email' formRef={register('email')} />
         {errors.email && <FormError errorMessage='Email is required' />}
       </div>
       <div className='mb-3'>
-        <FormInput placeholder='Avatar' name='avatar' formRef={register('avatar')} />
-        {errors.avatar && <FormError errorMessage='Avatar is required' />}
+        <FormInput placeholder='birthday' name='birthday' formRef={register('birthday')} />
+        {errors.birthday && <FormError errorMessage='Birthday is required' />}
       </div>
 
       <button className='bg-blue-500 rounded-md p-4 text-blue-100' type='submit'>
