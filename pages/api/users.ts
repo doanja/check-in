@@ -13,6 +13,6 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
     const savedUser = await prisma.user.create({ data: user });
     res.status(200).json(savedUser);
   } catch (err) {
-    res.status(400).json({ message: 'Something went wrong' });
+    res.status(400).json({ message: 'Something went wrong', err });
   }
 };

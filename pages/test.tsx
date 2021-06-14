@@ -1,22 +1,22 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import Head from 'next/head';
 import { PrismaClient, User, Prisma } from '@prisma/client';
 import AddUserForm from './../components/AddUserForm';
-
 import UserCard from '../components/UserCard';
 
 const prisma = new PrismaClient();
 
-export async function getServerSideProps() {
+// wtf does this do?
+export const getServerSideProps = async () => {
   const users: User[] = await prisma.user.findMany();
   return {
     props: {
       initialUsers: users,
     },
   };
-}
+};
 
-async function saveUser(user: Prisma.UserCreateInput) {
+const saveUser = async (user: Prisma.UserCreateInput) => {
   const response = await fetch('/api/users', {
     method: 'POST',
     body: JSON.stringify(user),
@@ -26,7 +26,7 @@ async function saveUser(user: Prisma.UserCreateInput) {
     throw new Error(response.statusText);
   }
   return await response.json();
-}
+};
 
 interface TestProps {
   initialUsers: User[];
@@ -34,6 +34,17 @@ interface TestProps {
 
 export default function test({ initialUsers }: TestProps) {
   const [users, setUsers] = useState<User[]>(initialUsers);
+
+  const onSubmit = async (data: User, e: any) => {
+    try {
+      await saveUser(data);
+      setUsers([...users, data]);
+      e.target.reset();
+    } catch (err) {
+      console.log(`err`, err);
+      throw new Error(err);
+    }
+  };
 
   return (
     <>
@@ -47,15 +58,19 @@ export default function test({ initialUsers }: TestProps) {
             <h2 className='text-3xl text-white'>Add a User</h2>
           </div>
           <AddUserForm
-            onSubmit={async (data: any, e: any) => {
-              try {
-                await saveUser(data);
-                setUsers([...users, data]);
-                e.target.reset();
-              } catch (err) {
-                throw new Error(err);
-              }
-            }}
+            onSubmit={
+              onSubmit
+              //   async (data: any, e: any) => {
+              //   try {
+              //     await saveUser(data);
+              //     setUsers([...users, data]);
+              //     e.target.reset();
+              //   } catch (err) {
+              //     console.log(`err`, err);
+              //     throw new Error(err);
+              //   }
+              // }
+            }
           />
         </section>
         <section className='w-2/3 h-screen p-8'>

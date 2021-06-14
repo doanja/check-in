@@ -10,7 +10,7 @@ const UserCard = ({ user }: UserCardProps) => {
       <div className='ml-4'>
         <p className='text-xl text-gray-700'>{user.name}</p>
         <p className='text-gray-500'>Email: {user.email}</p>
-        <p className='text-gray-500'>Phone: {user.phoneNumber}</p>
+        <p className='text-gray-500'>Phone: {user.phone}</p>
         <p className='text-gray-500'>Birthday: {user.birthday}</p>
         <p className='text-gray-500'>Points: {user.points}</p>
         <p className='text-gray-500'>Checkins: {user.checkins}</p>

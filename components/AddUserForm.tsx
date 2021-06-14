@@ -1,5 +1,5 @@
 import { useForm } from 'react-hook-form';
-import FormInput from './FormInput';
+import FormInput from './FormInputWrap';
 
 const FormError = ({ errorMessage }: { errorMessage: string }) => {
   return <p className='text-red-300 mt-1'>{errorMessage}</p>;
@@ -11,13 +11,12 @@ interface AddContactFormProps {
 
 type FormInputs = {
   name: string;
-  phoneNumber: string;
+  phone: string;
   email: string;
   birthday: string;
 };
 
-// npm install @hookform/resolvers
-// npm i yup
+// todo add validation
 
 const AddContactForm = (props: AddContactFormProps) => {
   const {
@@ -25,24 +24,28 @@ const AddContactForm = (props: AddContactFormProps) => {
     handleSubmit,
     formState: { errors },
   } = useForm<FormInputs>();
+
   return (
     <form className='flex flex-col' onSubmit={handleSubmit(props.onSubmit)}>
-      <div className='mb-3'>
-        <FormInput placeholder='name' name='name' formRef={register('name')} />
+      <FormInput textFor={'name'} labelText={'name'}>
+        <input className='rounded p-4 text-xl w-full' {...register('name')} placeholder='name' type='text' />
         {errors.name && <FormError errorMessage='Name is required' />}
-      </div>
-      <div className='mb-3'>
-        <FormInput placeholder='phone number' name='phoneNumber' formRef={register('phoneNumber')} />
-        {errors.phoneNumber && <FormError errorMessage='Phone number is required' />}
-      </div>
-      <div className='mb-3'>
-        <FormInput placeholder='email' name='email' formRef={register('email')} />
+      </FormInput>
+
+      <FormInput textFor={'phone'} labelText={'phone'}>
+        <input className='rounded p-4 text-xl w-full' {...register('phone')} placeholder='phone' type='tel' />
+        {errors.phone && <FormError errorMessage='Phone number is required' />}
+      </FormInput>
+
+      <FormInput textFor={'email'} labelText={'email'}>
+        <input className='rounded p-4 text-xl w-full' {...register('email')} placeholder='email' type='email' />
         {errors.email && <FormError errorMessage='Email is required' />}
-      </div>
-      <div className='mb-3'>
-        <FormInput placeholder='birthday' name='birthday' formRef={register('birthday')} />
+      </FormInput>
+
+      <FormInput textFor={'birthday'} labelText={'birthday'}>
+        <input className='rounded p-4 text-xl w-full' {...register('birthday')} placeholder='birthday' type='date' />
         {errors.birthday && <FormError errorMessage='Birthday is required' />}
-      </div>
+      </FormInput>
 
       <button className='bg-blue-500 rounded-md p-4 text-blue-100' type='submit'>
         Submit

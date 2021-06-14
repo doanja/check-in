@@ -22,7 +22,6 @@ services:
     environment:
       MYSQL_DATABASE: prisma
       MYSQL_ROOT_PASSWORD: prisma
-      MYSQL_USER: root
       MYSQL_PASSWORD: prisma
     volumes:
       - mysql:/var/lib/mysql
