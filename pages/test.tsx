@@ -1,31 +1,24 @@
 import React, { useState } from 'react';
 import Head from 'next/head';
+import Router from 'next/router';
+
 import { PrismaClient, User, Prisma } from '@prisma/client';
+
+import axios from 'axios';
+
 import AddUserForm from './../components/AddUserForm';
 import UserCard from '../components/UserCard';
 
-const prisma = new PrismaClient();
-
-// wtf does this do?
+// wtf does this do? -- gets data from the backend and stores it as props?
 export const getServerSideProps = async () => {
+  const prisma = new PrismaClient();
   const users: User[] = await prisma.user.findMany();
+  await prisma.$disconnect();
   return {
     props: {
       initialUsers: users,
     },
   };
-};
-
-const saveUser = async (user: Prisma.UserCreateInput) => {
-  const response = await fetch('/api/users', {
-    method: 'POST',
-    body: JSON.stringify(user),
-  });
-
-  if (!response.ok) {
-    throw new Error(response.statusText);
-  }
-  return await response.json();
 };
 
 interface TestProps {
@@ -35,16 +28,55 @@ interface TestProps {
 export default function test({ initialUsers }: TestProps) {
   const [users, setUsers] = useState<User[]>(initialUsers);
 
-  const onSubmit = async (data: User, e: any) => {
+  const saveUser = async (user: Prisma.UserCreateInput, e: React.SyntheticEvent) => {
+    e.preventDefault();
     try {
-      await saveUser(data);
-      setUsers([...users, data]);
-      e.target.reset();
-    } catch (err) {
-      console.log(`err`, err);
-      throw new Error(err);
+      // const res = await fetch('/api/users', {
+      //   method: 'POST',
+      //   headers: { 'Content-Type': 'application/json' },
+      //   body: JSON.stringify(user),
+      // });
+
+      // if (!res.ok) {
+      //   console.log(`res.statusText`, res.statusText);
+      //   console.log(`res.json()`, await res.json());
+      //   throw new Error(res.statusText);
+      // }
+
+      // console.log(`res.json()`, res.json());
+      // return await res.json();
+
+      // await Router.push('/');
+
+      const res = await axios.post('/api/users', { user });
+
+      console.log(`res`, res);
+    } catch (error) {
+      // console.error(error);
+      console.log(error.response.status);
     }
   };
+
+  const deleteUser = () => {
+    try {
+      const res = await axios.delete('/api/users', { user });
+
+      console.log(`res`, res);
+    } catch (error) {
+      // console.error(error);
+      console.log(error.response.status);
+    }
+  };
+  // const onSubmit = async (data: User, e: any) => {
+  //   try {
+  //     await saveUser(data);
+  //     setUsers([...users, data]);
+  //     e.target.reset();
+  //   } catch (err) {
+  //     console.log(`err`, err);
+  //     throw new Error(err);
+  //   }
+  // };
 
   return (
     <>
@@ -59,7 +91,7 @@ export default function test({ initialUsers }: TestProps) {
           </div>
           <AddUserForm
             onSubmit={
-              onSubmit
+              saveUser
               //   async (data: any, e: any) => {
               //   try {
               //     await saveUser(data);
@@ -83,6 +115,10 @@ export default function test({ initialUsers }: TestProps) {
             </div>
           ))}
         </section>
+
+        <button className='bg-blue-500 rounded-md p-4 text-blue-100' type='button' onClick={async (user: Prisma.UserCreateInput) => {}}>
+          Delete user
+        </button>
       </div>
     </>
   );

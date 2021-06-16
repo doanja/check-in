@@ -8,7 +8,8 @@ const UserCard = ({ user }: UserCardProps) => {
   return (
     <div className='border rounded-lg p-4 flex'>
       <div className='ml-4'>
-        <p className='text-xl text-gray-700'>{user.name}</p>
+        <p className='text-xl text-gray-700'>Name: {user.name}</p>
+        <p className='text-gray-500'>ID: {user.id}</p>
         <p className='text-gray-500'>Email: {user.email}</p>
         <p className='text-gray-500'>Phone: {user.phone}</p>
         <p className='text-gray-500'>Birthday: {user.birthday}</p>

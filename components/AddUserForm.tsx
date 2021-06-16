@@ -5,13 +5,6 @@ interface AddContactFormProps {
   onSubmit: any;
 }
 
-type FormValues = {
-  name: string;
-  phone: string;
-  email: string;
-  birthday: string;
-};
-
 const AddContactForm = (props: AddContactFormProps) => {
   const {
     register,
@@ -73,6 +66,13 @@ const AddContactForm = (props: AddContactFormProps) => {
 };
 
 export default AddContactForm;
+
+type FormValues = {
+  name: string;
+  phone: string;
+  email: string;
+  birthday: string;
+};
 
 const FormError = ({ errorMessage }: { errorMessage: string | undefined }) => {
   return <p className='text-red-300 mt-1'>{errorMessage ? errorMessage : 'Error with input value'}</p>;
