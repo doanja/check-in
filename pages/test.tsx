@@ -53,6 +53,7 @@ export default function test({ initialUsers }: TestProps) {
   const deleteUser = async (userId: string) => {
     try {
       const res = await userService.deleteUser(userId);
+      // const res = await userService.deleteTest();
 
       console.log(`res`, res);
     } catch (error) {

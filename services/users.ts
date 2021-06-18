@@ -13,4 +13,8 @@ export default class UserService {
   public deleteUser(userId: string): Promise<AxiosResponse<any>> {
     return axios.delete<any>(`/api/users/${userId}`);
   }
+
+  // public deleteTest(): Promise<AxiosResponse<any>> {
+  //   return axios.delete<any>(`/api/users`);
+  // }
 }

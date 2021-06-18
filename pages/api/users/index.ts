@@ -24,7 +24,7 @@ const getUsers = async (req: NextApiRequest, res: NextApiResponse, prisma: Prism
 
     res.status(200).json({ data: users });
   } catch (error) {
-    res.status(500).json({ error: 'Error getting users from database' });
+    res.status(500).json({ error });
   } finally {
     await prisma.$disconnect();
   }
@@ -33,21 +33,11 @@ const getUsers = async (req: NextApiRequest, res: NextApiResponse, prisma: Prism
 const createUser = async (req: NextApiRequest, res: NextApiResponse, prisma: PrismaClient) => {
   try {
     const user: Prisma.UserCreateInput = JSON.parse(req.body);
-    console.log(`user`, user);
-    const savedUser = await prisma.user.create({ data: user });
-    res.status(200).json(savedUser);
+    const newUser = await prisma.user.create({ data: user });
+
+    res.status(200).json({ data: newUser });
   } catch (error) {
-    // console.log(`error:`, error);
-
-    if (error instanceof Prisma.PrismaClientKnownRequestError) {
-      if (error.code === 'P2002') {
-        console.log('There is a unique constraint violation, a new user cannot be created with this email');
-
-        res.status(400).json({ error: 'There is a unique constraint violation, a new user cannot be created with this email' });
-      }
-    }
-
-    res.status(500).json({ error: 'Unable to save user to database', message: error });
+    res.status(500).json({ error });
   } finally {
     await prisma.$disconnect();
   }
