@@ -34,7 +34,7 @@ const createUser = async (req: NextApiRequest, res: NextApiResponse, prisma: Pri
   try {
     const user: Prisma.UserCreateInput = JSON.parse(req.body);
     const newUser = await prisma.user.create({ data: user });
-
+    console.log(`user`, user);
     res.status(200).json({ data: newUser });
   } catch (error) {
     res.status(500).json({ error });

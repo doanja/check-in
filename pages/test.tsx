@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Head from 'next/head';
 import Router from 'next/router';
 
-import { User, Prisma } from '@prisma/client';
+import { PrismaClient, User, Prisma } from '@prisma/client';
 
 import AddUserForm from './../components/AddUserForm';
 import UserCard from '../components/UserCard';
@@ -12,21 +12,20 @@ const userService = new UserService();
 
 // wtf does this do? -- gets data from the backend and stores it as props?
 export const getServerSideProps = async () => {
-  try {
-    const res = await userService.getUsers();
+  //   const res = await userService.getUsers();
+  //   console.log(`res.data.data`, res.data.data);
+  //   return {
+  //     props: {
+  //       initialUsers: [],
+  //     },
+  //   };
 
-    return {
-      props: {
-        initialUsers: res.data.data,
-      },
-    };
-  } catch (error) {
-    console.log(`error`, error);
-  }
+  const prisma = new PrismaClient();
 
+  const users: User[] = await prisma.user.findMany();
   return {
     props: {
-      initialUsers: [],
+      initialUsers: users,
     },
   };
 };
@@ -43,7 +42,7 @@ export default function test({ initialUsers }: TestProps) {
     try {
       const res = await userService.createUser(user);
 
-      console.log(`res`, res);
+      console.log(`res.data`, res.data);
     } catch (error) {
       // console.error(error);
       console.log(error.response.status);
