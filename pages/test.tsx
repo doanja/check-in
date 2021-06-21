@@ -1,12 +1,9 @@
 import React, { useState } from 'react';
 import Head from 'next/head';
-import Router from 'next/router';
-
+// import Router from 'next/router';
 import { PrismaClient, User, Prisma } from '@prisma/client';
-
-import AddUserForm from './../components/AddUserForm';
-import UserCard from '../components/UserCard';
-import UserService from '../services/users';
+import { AddUserForm, UserCard } from 'components';
+import { UserService } from 'services';
 
 const userService = new UserService();
 

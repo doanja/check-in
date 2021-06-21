@@ -1,5 +1,5 @@
 import { useForm } from 'react-hook-form';
-import FormInput from './FormInputWrap';
+import { FormInput } from 'components';
 
 interface AddContactFormProps {
   onSubmit: any;
