@@ -9,17 +9,11 @@ const userService = new UserService();
 
 // wtf does this do? -- gets data from the backend and stores it as props?
 export const getServerSideProps = async () => {
-  //   const res = await userService.getUsers();
-  //   console.log(`res.data.data`, res.data.data);
-  //   return {
-  //     props: {
-  //       initialUsers: [],
-  //     },
-  //   };
-
   const prisma = new PrismaClient();
 
   const users: User[] = await prisma.user.findMany();
+  await prisma.$disconnect();
+
   return {
     props: {
       initialUsers: users,
@@ -38,10 +32,8 @@ export default function test({ initialUsers }: TestProps) {
     e.preventDefault();
     try {
       const res = await userService.createUser(user);
-
-      console.log(`res.data`, res.data);
+      setUsers([...users, res.data.data]);
     } catch (error) {
-      // console.error(error);
       console.log(error.response.status);
     }
   };
