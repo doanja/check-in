@@ -1,5 +1,5 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
-import { PrismaClient, Prisma, User } from '@prisma/client';
+import { PrismaClient, User } from '@prisma/client';
 
 export default async (req: NextApiRequest, res: NextApiResponse) => {
   const prisma = new PrismaClient();
@@ -32,10 +32,10 @@ const getUsers = async (req: NextApiRequest, res: NextApiResponse, prisma: Prism
 
 const createUser = async (req: NextApiRequest, res: NextApiResponse, prisma: PrismaClient) => {
   try {
-    const user: Prisma.UserCreateInput = JSON.parse(req.body);
-    const newUser = await prisma.user.create({ data: user });
-    console.log(`user`, user);
-    res.status(200).json({ data: newUser });
+    const { name, email, phone, birthday } = req.body;
+    const newUser = await prisma.user.create({ data: { name, email, phone, birthday } });
+
+    res.status(200).json(newUser);
   } catch (error) {
     res.status(500).json({ error });
   } finally {
