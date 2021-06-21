@@ -41,11 +41,9 @@ export default function test({ initialUsers }: TestProps) {
   const deleteUser = async (userId: string) => {
     try {
       const res = await userService.deleteUser(userId);
-      // const res = await userService.deleteTest();
-
-      console.log(`res`, res);
+      const filteredUsers: User[] = users.filter((user: User) => res.data.data.id !== user.id);
+      setUsers(filteredUsers);
     } catch (error) {
-      // console.error(error);
       console.log(error.response.status);
     }
   };
@@ -74,7 +72,7 @@ export default function test({ initialUsers }: TestProps) {
           ))}
         </section>
 
-        <button className='bg-blue-500 rounded-md p-4 text-blue-100' type='button' onClick={() => deleteUser('ckpyiuldv0000byo52kngfz97')}>
+        <button className='bg-blue-500 rounded-md p-4 text-blue-100' type='button' onClick={() => deleteUser('ckq6yd3ow0000irnvawd4bpfz')}>
           Delete user
         </button>
       </div>
