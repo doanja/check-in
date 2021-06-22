@@ -1,5 +1,5 @@
-import AddUserForm from './AddUserForm';
 import FormInput from './FormInputWrap';
 import UserCard from './UserCard';
+import SignupForm from './SignupForm';
 
-export { AddUserForm, FormInput, UserCard };
+export { FormInput, UserCard, SignupForm };

@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import Head from 'next/head';
-// import Router from 'next/router';
+import { useRouter } from 'next/router';
 import { PrismaClient, User, Prisma } from '@prisma/client';
-import { AddUserForm, UserCard } from 'components';
+import { SignupForm } from 'components';
 import { UserService } from 'services';
 
 const userService = new UserService();
@@ -21,18 +21,21 @@ export const getServerSideProps = async () => {
   };
 };
 
-interface TestProps {
+interface signupProps {
   initialUsers: User[];
 }
 
-export default function test({ initialUsers }: TestProps) {
+const signup = ({ initialUsers }: signupProps) => {
   const [users, setUsers] = useState<User[]>(initialUsers);
+  const router = useRouter();
 
-  const saveUser = async (user: Prisma.UserCreateInput, e: React.SyntheticEvent) => {
+  const createUser = async (user: Prisma.UserCreateInput, e: React.SyntheticEvent) => {
     e.preventDefault();
     try {
       const res = await userService.createUser(user);
-      setUsers([...users, res.data.data]);
+      await setUsers([...users, res.data.data]);
+      console.log('res.data :>> ', res.data);
+      router.push('/users');
     } catch (error) {
       console.log(error.response.status);
     }
@@ -54,14 +57,15 @@ export default function test({ initialUsers }: TestProps) {
         <title>Check In</title>
         <meta name='viewport' content='initial-scale=1.0, width=device-width' />
       </Head>
-      <div className='flex'>
-        <section className='w-1/3 bg-gray-800 h-screen p-8'>
-          <div className='mb-3'>
+      <div className='container w-full'>
+        <section className='w-full bg-gray-800 h-screen p-8'>
+          {/* <div className='mb-3'>
             <h2 className='text-3xl text-white'>Add a User</h2>
-          </div>
-          <AddUserForm onSubmit={saveUser} />
+          </div> */}
+          <SignupForm onSubmit={createUser} />
         </section>
-        <section className='w-2/3 h-screen p-8'>
+
+        {/* <section className='w-2/3 h-screen p-8'>
           <div className='mb-3'>
             <h2 className='text-3xl text-gray-700'>Users</h2>
           </div>
@@ -70,12 +74,14 @@ export default function test({ initialUsers }: TestProps) {
               <UserCard user={user} />
             </div>
           ))}
-        </section>
+        </section> */}
 
-        <button className='bg-blue-500 rounded-md p-4 text-blue-100' type='button' onClick={() => deleteUser('ckq6yd3ow0000irnvawd4bpfz')}>
+        {/* <button className='bg-blue-500 rounded-md p-4 text-blue-100' type='button' onClick={() => deleteUser('ckq6yd3ow0000irnvawd4bpfz')}>
           Delete user
-        </button>
+        </button> */}
       </div>
     </>
   );
-}
+};
+
+export default signup;

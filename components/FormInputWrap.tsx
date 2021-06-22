@@ -7,7 +7,7 @@ interface FormInputWrapProps {
 const FormInput = ({ textFor, labelText, children }: FormInputWrapProps) => {
   return (
     <div className='mb-3'>
-      <label className='block text-gray-200 text-sm font-bold mb-2' htmlFor={textFor}>
+      <label className='block text-gray-200 text-3xl font-bold mb-2 capitalize' htmlFor={textFor}>
         {labelText}
       </label>
 
