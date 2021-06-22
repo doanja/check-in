@@ -21,10 +21,9 @@ const SignupForm = ({ onSubmit }: SignupFormProps) => {
   } = useForm<FormValues>({ mode: 'all' });
 
   const [formStep, setFormStep] = useState(0);
-
   const nextStep = () => setFormStep(formStep + 1);
 
-  const resetStep = () => setFormStep(0);
+  const MAX_STEPS = 4;
 
   const renderNextButton = () => {
     if (formStep > 3) {
@@ -56,6 +55,11 @@ const SignupForm = ({ onSubmit }: SignupFormProps) => {
 
   return (
     <form className='flex flex-col' onSubmit={handleSubmit(onSubmit)}>
+      {formStep < MAX_STEPS && (
+        <p className='text-sm text-gray-400 mb-2'>
+          Step {formStep} of {MAX_STEPS}
+        </p>
+      )}
       {formStep === 0 && (
         <FormInput textFor='name' labelText='name'>
           <input
@@ -119,10 +123,6 @@ const SignupForm = ({ onSubmit }: SignupFormProps) => {
       )}
 
       {renderNextButton()}
-
-      <button className='bg-red-500 rounded-md p-4 text-blue-100' type='button' onClick={resetStep}>
-        Reset
-      </button>
     </form>
   );
 };
