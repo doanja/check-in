@@ -24,7 +24,7 @@ const SignupForm = ({ onSubmit }: SignupFormProps) => {
   const nextStep = () => setFormStep(formStep + 1);
   const MAX_STEPS = 5;
 
-  const renderNextButton = () => {
+  const renderFormNavBtn = () => {
     if (formStep > 4) {
       return undefined;
     } else {
@@ -104,15 +104,12 @@ const SignupForm = ({ onSubmit }: SignupFormProps) => {
       )}
 
       {formStep === 5 && (
-        <div className='mb-3'>
-          <h2 className='text-white font-semibold text-3xl mb-8'>Signup</h2>
-          <button type='submit' className='form-btn-blue'>
-            Complete Signup
-          </button>
-        </div>
+        <button type='submit' className='form-btn-blue'>
+          {'Complete Signup & Check In'}
+        </button>
       )}
 
-      {renderNextButton()}
+      {renderFormNavBtn()}
     </form>
   );
 };

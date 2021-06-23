@@ -66,7 +66,7 @@ const signup = ({ initialUsers }: signupProps) => {
           </h1>
           <p className='text-blue-200 mt-2'>Become a new member in 5 easy steps</p>
         </div>
-        <div className='max-w-xl w-full mt-24 mb-24 rounded-lg shadow-2xl bg-white mx-auto overflow-hidden z-10'>
+        <div className='max-w-xl w-full mt-24 mb-24 rounded-md shadow-2xl bg-white mx-auto overflow-hidden z-10'>
           <div className='px-16 py-10'>
             <SignupForm onSubmit={createUser} />
           </div>
