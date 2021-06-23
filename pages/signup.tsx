@@ -57,28 +57,10 @@ const signup = ({ initialUsers }: signupProps) => {
         <title>Check In</title>
         <meta name='viewport' content='initial-scale=1.0, width=device-width' />
       </Head>
-      <div className='container w-full'>
-        <section className='w-full bg-gray-800 h-screen p-8'>
-          {/* <div className='mb-3'>
-            <h2 className='text-3xl text-white'>Add a User</h2>
-          </div> */}
+      <div className='container w-screen'>
+        <section className='bg-gray-800 p-8 w-screen'>
           <SignupForm onSubmit={createUser} />
         </section>
-
-        {/* <section className='w-2/3 h-screen p-8'>
-          <div className='mb-3'>
-            <h2 className='text-3xl text-gray-700'>Users</h2>
-          </div>
-          {users.map((user: User, i: number) => (
-            <div className='mb-3' key={i}>
-              <UserCard user={user} />
-            </div>
-          ))}
-        </section> */}
-
-        {/* <button className='bg-blue-500 rounded-md p-4 text-blue-100' type='button' onClick={() => deleteUser('ckq6yd3ow0000irnvawd4bpfz')}>
-          Delete user
-        </button> */}
       </div>
     </>
   );

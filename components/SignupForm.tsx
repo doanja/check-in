@@ -1,5 +1,5 @@
 import { useForm } from 'react-hook-form';
-import { FormInput } from 'components';
+import { FormInput, FormError } from 'components';
 import { useState } from 'react';
 
 type FormValues = {
@@ -20,32 +20,23 @@ const SignupForm = ({ onSubmit }: SignupFormProps) => {
     formState: { errors, isValid },
   } = useForm<FormValues>({ mode: 'all' });
 
-  const [formStep, setFormStep] = useState(0);
+  const [formStep, setFormStep] = useState(1);
   const nextStep = () => setFormStep(formStep + 1);
-
-  const MAX_STEPS = 4;
+  const MAX_STEPS = 5;
 
   const renderNextButton = () => {
-    if (formStep > 3) {
+    if (formStep > 4) {
       return undefined;
     } else {
       return (
         <div className='flex flex-row gap-4 mt-3'>
-          {formStep === 2 || formStep === 3 ? (
-            <button
-              disabled={!isValid}
-              onClick={nextStep}
-              type='button'
-              className='bg-white rounded p-4 w-full disabled:opacity-50 disabled:cursor-not-allowed'>
+          {formStep === 3 || formStep === 4 ? (
+            <button disabled={!isValid} onClick={nextStep} type='button' className='form-btn-white'>
               Skip
             </button>
           ) : null}
 
-          <button
-            disabled={!isValid}
-            onClick={nextStep}
-            type='button'
-            className='bg-blue-600 rounded p-4 w-full disabled:opacity-50 disabled:cursor-not-allowed'>
+          <button disabled={!isValid} onClick={nextStep} type='button' className='form-btn-blue'>
             Next
           </button>
         </div>
@@ -60,10 +51,10 @@ const SignupForm = ({ onSubmit }: SignupFormProps) => {
           Step {formStep} of {MAX_STEPS}
         </p>
       )}
-      {formStep === 0 && (
+      {formStep === 1 && (
         <FormInput textFor='name' labelText='name'>
           <input
-            className='rounded p-4 text-xl w-full'
+            className='form-input'
             {...register('name', { required: 'This is required', maxLength: { value: 32, message: 'You exceeded the max length' } })}
             type='text'
             placeholder='John'
@@ -72,26 +63,26 @@ const SignupForm = ({ onSubmit }: SignupFormProps) => {
         </FormInput>
       )}
 
-      {formStep === 1 && (
+      {formStep === 2 && (
         <FormInput textFor='phone' labelText='phone'>
           <input
-            className='rounded p-4 text-xl w-full'
+            className='form-input'
             {...register('phone', {
               required: 'This is required',
               maxLength: { value: 10, message: 'You exceeded the max length' },
               pattern: { value: /[0-9]{10}/, message: 'Must be a valid phone number with area code' },
             })}
             type='tel'
-            placeholder='1234567890'
+            placeholder='### ### ####'
           />
           {errors.phone && <FormError errorMessage={errors.phone.message} />}
         </FormInput>
       )}
 
-      {formStep === 2 && (
+      {formStep === 3 && (
         <FormInput textFor='email' labelText='email'>
           <input
-            className='rounded p-4 text-xl w-full'
+            className='form-input'
             {...register('email', {
               pattern: {
                 value:
@@ -106,17 +97,16 @@ const SignupForm = ({ onSubmit }: SignupFormProps) => {
         </FormInput>
       )}
 
-      {formStep === 3 && (
+      {formStep === 4 && (
         <FormInput textFor='birthday' labelText='birthday'>
-          <input className='rounded p-4 text-xl w-full' {...register('birthday')} type='date' />
+          <input className='form-input' {...register('birthday')} type='date' />
         </FormInput>
       )}
 
-      {/* replace this with a redirect to points page */}
-      {formStep === 4 && (
+      {formStep === 5 && (
         <div className='mb-3'>
           <h2 className='text-white font-semibold text-3xl mb-8'>Signup</h2>
-          <button type='submit' className='mt-6 bg-blue-600 rounded p-4 w-full disabled:opacity-50 disabled:cursor-not-allowed'>
+          <button type='submit' className='form-btn-blue'>
             Complete Signup
           </button>
         </div>
@@ -128,7 +118,3 @@ const SignupForm = ({ onSubmit }: SignupFormProps) => {
 };
 
 export default SignupForm;
-
-const FormError = ({ errorMessage }: { errorMessage: string | undefined }) => {
-  return <p className='text-red-300 mt-1'>{errorMessage ? errorMessage : 'Error with input value'}</p>;
-};
