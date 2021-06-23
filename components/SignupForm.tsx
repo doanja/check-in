@@ -22,21 +22,33 @@ const SignupForm = ({ onSubmit }: SignupFormProps) => {
 
   const [formStep, setFormStep] = useState(1);
   const nextStep = () => setFormStep(formStep + 1);
+  const prevStep = () => setFormStep(formStep - 1);
   const MAX_STEPS = 5;
 
   const renderFormNavBtn = () => {
     if (formStep > 4) {
       return undefined;
+    } else if (formStep === 3 || formStep === 4) {
+      return (
+        <div className='flex flex-row gap-4 mt-3'>
+          <button onClick={prevStep} type='button' className='form-btn-secondary'>
+            Back
+          </button>
+          <button disabled={!isValid} onClick={nextStep} type='button' className='form-btn-primary'>
+            Next
+          </button>
+        </div>
+      );
     } else {
       return (
         <div className='flex flex-row gap-4 mt-3'>
-          {formStep === 3 || formStep === 4 ? (
-            <button disabled={!isValid} onClick={nextStep} type='button' className='form-btn-white'>
-              Skip
+          {formStep !== 1 ? (
+            <button onClick={prevStep} type='button' className='form-btn-secondary'>
+              Back
             </button>
           ) : null}
 
-          <button disabled={!isValid} onClick={nextStep} type='button' className='form-btn-blue'>
+          <button disabled={!isValid} onClick={nextStep} type='button' className='form-btn-primary'>
             Next
           </button>
         </div>
@@ -104,7 +116,7 @@ const SignupForm = ({ onSubmit }: SignupFormProps) => {
       )}
 
       {formStep === 5 && (
-        <button type='submit' className='form-btn-blue'>
+        <button type='submit' className='form-btn-primary'>
           {'Complete Signup & Check In'}
         </button>
       )}

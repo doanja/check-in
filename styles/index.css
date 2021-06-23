@@ -7,12 +7,12 @@
 /* Stop purging. */
 
 /* Write your own custom component styles here */
-.form-btn-blue {
-  @apply bg-blue-600 text-white rounded-md p-3 w-full disabled:opacity-50 disabled:cursor-not-allowed;
+.form-btn-primary {
+  @apply bg-gray-800 text-white rounded-md p-3 w-full disabled:opacity-50 disabled:cursor-not-allowed;
 }
 
-.form-btn-white {
-  @apply bg-gray-300 rounded-md p-3 w-full disabled:opacity-50 disabled:cursor-not-allowed;
+.form-btn-secondary {
+  @apply bg-white border-2 border-gray-900 rounded-md p-3 w-full disabled:opacity-50 disabled:cursor-not-allowed;
 }
 
 .form-input {
@@ -24,13 +24,13 @@
 }
 
 .signup-half-section-upper {
-  @apply min-h-screen bg-blue-900 flex flex-col items-start text-gray-900 antialiased relative;
+  @apply min-h-screen bg-gray-900 flex flex-col items-start text-gray-900 antialiased relative;
 }
 
 .signup-half-section-lower {
-  clip-path: polygon(0 0, 100% 0, 100% 80%, 0% 100%);
+  clip-path: polygon(0 0, 100% 0, 100% 90%, 0% 100%);
   height: 34rem;
-  @apply absolute bg-blue-800 inset-x-0 top-0;
+  @apply absolute bg-gray-800 inset-x-0 top-0;
 }
 
 /* Start purging... */
