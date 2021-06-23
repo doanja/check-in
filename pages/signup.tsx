@@ -7,7 +7,6 @@ import { UserService } from 'services';
 
 const userService = new UserService();
 
-// wtf does this do? -- gets data from the backend and stores it as props?
 export const getServerSideProps = async () => {
   const prisma = new PrismaClient();
 
@@ -32,12 +31,16 @@ const signup = ({ initialUsers }: signupProps) => {
   const createUser = async (user: Prisma.UserCreateInput, e: React.SyntheticEvent) => {
     e.preventDefault();
     try {
+      console.log('user :>> ', user);
       const res = await userService.createUser(user);
       await setUsers([...users, res.data.data]);
-      console.log('res.data :>> ', res.data);
       router.push('/users');
     } catch (error) {
-      console.log(error.response.status);
+      if (error.meta.target === 'phone_unique') {
+        alert('Phone must be unique');
+      } else if (error.meta.target === 'email_unique') {
+        alert('Email must be unique');
+      }
     }
   };
 

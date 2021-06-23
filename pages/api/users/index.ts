@@ -33,9 +33,14 @@ const getUsers = async (req: NextApiRequest, res: NextApiResponse, prisma: Prism
 const createUser = async (req: NextApiRequest, res: NextApiResponse, prisma: PrismaClient) => {
   try {
     const { user } = req.body;
-    const newUser = await prisma.user.create({ data: user });
 
-    res.status(200).json({ data: newUser });
+    if (user.email) {
+      const newUser = await prisma.user.create({ data: user });
+      res.status(200).json({ data: newUser });
+    } else {
+      const newUser = await prisma.user.create({ data: { name: user.name, birthday: user.birthday, phone: user.phone } });
+      res.status(200).json({ data: newUser });
+    }
   } catch (error) {
     res.status(500).json({ error });
   } finally {
