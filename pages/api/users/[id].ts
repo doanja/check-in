@@ -1,5 +1,5 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
-import { PrismaClient, Prisma, User } from '@prisma/client';
+import { PrismaClient, User } from '@prisma/client';
 
 export default async (req: NextApiRequest, res: NextApiResponse) => {
   const prisma = new PrismaClient();
@@ -24,11 +24,9 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
 
 const getUser = async (req: NextApiRequest, res: NextApiResponse, prisma: PrismaClient) => {
   try {
-    console.log(`req.query.id`, req.query.id);
     const id = Array.isArray(req.query.id) ? req.query.id[0] : req.query.id;
-    console.log(`id`, id);
     const user: User | null = await prisma.user.findUnique({ where: { id } });
-    console.log(`user`, user);
+
     res.status(200).json({ data: user });
   } catch (error) {
     res.status(500).json({ error });
@@ -42,13 +40,9 @@ const checkinUser = async (req: NextApiRequest, res: NextApiResponse, prisma: Pr
   try {
     const id = Array.isArray(req.query.id) ? req.query.id[0] : req.query.id;
     const user: User | null = await prisma.user.findUnique({ where: { id } });
+    const updatedUser: User | null = await prisma.user.update({ where: { id }, data: { checkins: user!.checkins + 1, points: user!.points + 1 } });
 
-    if (user?.checkins && user?.points) {
-      const updatedUser: User | null = await prisma.user.update({ where: { id }, data: { checkins: user.checkins + 1, points: user.points + 1 } });
-      res.status(200).json({ data: updatedUser });
-    }
-
-    res.status(500).json({ error: 'User not found...' });
+    res.status(200).json({ data: updatedUser });
   } catch (error) {
     res.status(500).json({ error });
   } finally {
