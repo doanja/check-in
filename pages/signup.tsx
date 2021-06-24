@@ -56,23 +56,16 @@ const signup = ({ initialUsers }: signupProps) => {
 
   return (
     <>
-      <Head>
-        <title>Check In</title>
-        <meta name='viewport' content='initial-scale=1.0, width=device-width' />
-      </Head>
+      <div className='mx-auto z-10 mt-48 text-center'>
+        <h1 className='text-white text-5xl font-semibold'>
+          Welcome to <span className='text-yellow-500'>the Club</span>
+        </h1>
+        <p className='text-blue-200 mt-2'>Become a new member in 5 easy steps</p>
+      </div>
 
-      <div className='signup-half-section-upper'>
-        <div className='signup-half-section-lower'></div>
-        <div className='mx-auto z-10 mt-48 text-center'>
-          <h1 className='text-white text-5xl font-semibold'>
-            Welcome to <span className='text-yellow-500'>the Club</span>
-          </h1>
-          <p className='text-blue-200 mt-2'>Become a new member in 5 easy steps</p>
-        </div>
-        <div className='max-w-xl w-full mt-24 mb-24 rounded-md shadow-2xl bg-white mx-auto overflow-hidden z-10'>
-          <div className='px-16 py-10'>
-            <SignupForm onSubmit={createUser} />
-          </div>
+      <div className='max-w-xl w-full mt-24 mb-24 rounded-md shadow-2xl bg-white mx-auto overflow-hidden z-10'>
+        <div className='px-16 py-10'>
+          <SignupForm onSubmit={createUser} />
         </div>
       </div>
     </>
