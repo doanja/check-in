@@ -17,8 +17,8 @@ model User {
   email    String? @unique
   phone    String  @unique
   birthday String?
-  points   Int     @default(0)
-  checkins Int     @default(0)
+  points   Int     @default(1)
+  checkins Int     @default(1)
   role     Role    @default(CUSTOMER)
 }
 

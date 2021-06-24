@@ -10,7 +10,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
     }
 
     case 'PUT': {
-      return updateUser(req, res, prisma);
+      return checkinUser(req, res, prisma);
     }
 
     case 'DELETE': {
@@ -24,10 +24,11 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
 
 const getUser = async (req: NextApiRequest, res: NextApiResponse, prisma: PrismaClient) => {
   try {
+    console.log(`req.query.id`, req.query.id);
     const id = Array.isArray(req.query.id) ? req.query.id[0] : req.query.id;
-
+    console.log(`id`, id);
     const user: User | null = await prisma.user.findUnique({ where: { id } });
-
+    console.log(`user`, user);
     res.status(200).json({ data: user });
   } catch (error) {
     res.status(500).json({ error });
@@ -37,13 +38,17 @@ const getUser = async (req: NextApiRequest, res: NextApiResponse, prisma: Prisma
 };
 
 // not used
-const updateUser = async (req: NextApiRequest, res: NextApiResponse, prisma: PrismaClient) => {
+const checkinUser = async (req: NextApiRequest, res: NextApiResponse, prisma: PrismaClient) => {
   try {
     const id = Array.isArray(req.query.id) ? req.query.id[0] : req.query.id;
+    const user: User | null = await prisma.user.findUnique({ where: { id } });
 
-    const user: User | null = await prisma.user.update({ where: { id }, data: {} });
+    if (user?.checkins && user?.points) {
+      const updatedUser: User | null = await prisma.user.update({ where: { id }, data: { checkins: user.checkins + 1, points: user.points + 1 } });
+      res.status(200).json({ data: updatedUser });
+    }
 
-    res.status(200).json({ data: user });
+    res.status(500).json({ error: 'User not found...' });
   } catch (error) {
     res.status(500).json({ error });
   } finally {

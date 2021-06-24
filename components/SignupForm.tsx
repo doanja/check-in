@@ -1,6 +1,7 @@
 import { useForm } from 'react-hook-form';
 import { FormInput, FormError } from 'components';
 import { useState } from 'react';
+import Link from 'next/link';
 
 type FormValues = {
   name: string;
@@ -122,6 +123,8 @@ const SignupForm = ({ onSubmit }: SignupFormProps) => {
       )}
 
       {renderFormNavBtn()}
+
+      <Link href='/checkin'>Already a member? Checkin here.</Link>
     </form>
   );
 };

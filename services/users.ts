@@ -11,7 +11,10 @@ export default class UserService {
   }
 
   public deleteUser(userId: string): Promise<AxiosResponse<any>> {
-    console.log(`userId`, userId);
     return axios.delete<any>(`/api/users/${userId}`);
+  }
+
+  public checkInUser(userId: string): Promise<AxiosResponse<any>> {
+    return axios.put<any>(`/api/users/${userId}`);
   }
 }

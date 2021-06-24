@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import Head from 'next/head';
 import { useRouter } from 'next/router';
 import { PrismaClient, User, Prisma } from '@prisma/client';
 import { SignupForm } from 'components';

@@ -53,8 +53,7 @@ a {
 }
 
 nav {
-  /* border-bottom: 1px solid #ddd; */
-  @apply mt-3 mx-auto mb-20 flex justify-center items-end;
+  @apply mt-3 mx-auto mb-20 flex justify-end items-end;
 }
 
 nav a {
