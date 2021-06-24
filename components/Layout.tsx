@@ -1,4 +1,4 @@
-import { Meta } from 'components';
+import { Meta, Nav, Footer } from 'components';
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -6,11 +6,12 @@ interface LayoutProps {
 
 const Layout = ({ children }: LayoutProps) => {
   return (
-    <>
+    <div className='content'>
       <Meta />
-
-      <div className='layout-bottom'>{children}</div>
-    </>
+      <Nav />
+      {children}
+      <Footer />
+    </div>
   );
 };
 

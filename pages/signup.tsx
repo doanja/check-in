@@ -55,12 +55,12 @@ const signup = ({ initialUsers }: signupProps) => {
   };
 
   return (
-    <>
+    <div className='layout-bottom'>
       <div className='mx-auto z-10 mt-48 text-center'>
         <h1 className='text-white text-5xl font-semibold'>
-          Welcome to <span className='text-yellow-500'>the Club</span>
+          Welcome to <span className='text-purle-300'>the Club</span>
         </h1>
-        <p className='text-blue-200 mt-2'>Become a new member in 5 easy steps</p>
+        <p className='text-blue-300 mt-2'>Become a new member in 5 easy steps</p>
       </div>
 
       <div className='max-w-xl w-full mt-24 mb-24 rounded-md shadow-2xl bg-white mx-auto overflow-hidden z-10'>
@@ -68,7 +68,7 @@ const signup = ({ initialUsers }: signupProps) => {
           <SignupForm onSubmit={createUser} />
         </div>
       </div>
-    </>
+    </div>
   );
 };
 
