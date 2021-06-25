@@ -15,7 +15,7 @@ const CheckinForm = ({ onSubmit }: CheckinFormProps) => {
     register,
     handleSubmit,
     formState: { errors, isValid },
-  } = useForm<FormValues>({ mode: 'all' });
+  } = useForm<FormValues>();
 
   return (
     <form className='flex flex-col' onSubmit={handleSubmit(onSubmit)}>
@@ -33,7 +33,7 @@ const CheckinForm = ({ onSubmit }: CheckinFormProps) => {
         {errors.phone && <FormError errorMessage={errors.phone.message} />}
       </FormInput>
 
-      <button disabled={!isValid} type='submit' className='form-btn-primary'>
+      <button type='submit' className='form-btn-primary'>
         Check In
       </button>
 

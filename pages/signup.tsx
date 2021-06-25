@@ -30,7 +30,6 @@ const signup = ({ initialUsers }: signupProps) => {
   const createUser = async (user: Prisma.UserCreateInput, e: React.SyntheticEvent) => {
     e.preventDefault();
     try {
-      console.log('user :>> ', user);
       const res = await userService.createUser(user);
       await setUsers([...users, res.data.data]);
       router.push('/users');
