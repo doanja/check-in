@@ -13,7 +13,7 @@ const checkin = () => {
     try {
       const res = await userService.checkInUser(formValues.phone);
       // set name and pts here for welcome message
-      console.log('res.data :>> ', res.data);
+
       setCheckedIn(true);
     } catch (error) {
       alert(error);

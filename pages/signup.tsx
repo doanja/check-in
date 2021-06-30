@@ -32,7 +32,7 @@ const signup = ({ initialUsers }: signupProps) => {
     try {
       const res = await userService.createUser(user);
       await setUsers([...users, res.data.data]);
-      router.push('/users');
+      router.push('/checkin');
     } catch (error) {
       if (error.meta.target === 'phone_unique') {
         alert('Phone must be unique');
@@ -42,15 +42,15 @@ const signup = ({ initialUsers }: signupProps) => {
     }
   };
 
-  const deleteUser = async (userId: string) => {
-    try {
-      const res = await userService.deleteUser(userId);
-      const filteredUsers: User[] = users.filter((user: User) => res.data.data.id !== user.id);
-      setUsers(filteredUsers);
-    } catch (error) {
-      console.log(error.response.status);
-    }
-  };
+  // const deleteUser = async (userId: string) => {
+  //   try {
+  //     const res = await userService.deleteUser(userId);
+  //     const filteredUsers: User[] = users.filter((user: User) => res.data.data.id !== user.id);
+  //     setUsers(filteredUsers);
+  //   } catch (error) {
+  //     console.log(error.response.status);
+  //   }
+  // };
 
   return (
     <div className='layout-bottom'>

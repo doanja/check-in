@@ -15,7 +15,6 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
 };
 
 const checkinUser = async (req: NextApiRequest, res: NextApiResponse, prisma: PrismaClient) => {
-  console.log(`req.query`, req.query.phone);
   try {
     const phone = Array.isArray(req.query.phone) ? req.query.phone[0] : req.query.phone;
     const user: User | null = await prisma.user.findUnique({ where: { phone } });

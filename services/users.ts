@@ -15,7 +15,6 @@ export default class UserService {
   }
 
   public checkInUser(phone: string): Promise<AxiosResponse<any>> {
-    console.log(`phone (in User Service)`, phone);
     return axios.put<any>(`/api/phone/${phone}`);
   }
 }

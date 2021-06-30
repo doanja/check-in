@@ -9,7 +9,7 @@ const Layout = ({ children }: LayoutProps) => {
     <div className='content'>
       <Meta />
       <Nav />
-      {children}
+      <div className='h-screen border-solid border-black'>{children}</div>
       <Footer />
     </div>
   );
