@@ -1,4 +1,4 @@
 /// <reference types="next" />
 /// <reference types="next/types/global" />
 
-type ToggleModal = () => void;
+type ToggleModal = (showModal: boolean) => void;

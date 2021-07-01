@@ -1,17 +1,15 @@
 import { Modal } from '@/components';
-import { useState } from 'react';
+import { useModal } from '@/contexts/ModalContext';
 
 export default function Home() {
-  const [showModal, setShowModal] = useState(false);
-
-  const toggleModal = () => setShowModal(!showModal);
+  const { showModal, toggleModal } = useModal();
 
   return (
     <div>
-      <h1 className='text-lg text-red-500' onClick={toggleModal}>
+      <h1 className='text-lg text-red-500 cursor-pointer' onClick={() => toggleModal(true)}>
         Home
       </h1>
-      <Modal showModal={showModal} toggleModal={toggleModal} title='test' body='this is a body' />
+      <Modal toggleModal={toggleModal} showModal={showModal} title='error' body='This is some random message about the error' />
     </div>
   );
 }
