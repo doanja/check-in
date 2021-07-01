@@ -1,5 +1,5 @@
-import { Meta, Nav, Footer } from 'components';
-import { ModalContext } from '@/contexts/ModalContext';
+import { Meta, Nav, Footer, Modal } from 'components';
+import { ModalContext } from 'contexts/ModalContext';
 import { useState } from 'react';
 
 interface LayoutProps {
@@ -18,6 +18,7 @@ const Layout = ({ children }: LayoutProps) => {
         <Nav />
         <div className='h-screen'>{children}</div>
         <Footer />
+        <Modal toggleModal={toggleModal} showModal={showModal} title={title} body={body} />
       </div>
     </ModalContext.Provider>
   );

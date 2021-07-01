@@ -1,4 +1,5 @@
-import { CheckinForm } from '@/components';
+import { CheckinForm } from 'components';
+import { useModal } from 'contexts/ModalContext';
 import { useState } from 'react';
 import { UserService } from 'services';
 
@@ -6,6 +7,7 @@ const userService = new UserService();
 
 const checkin = () => {
   const [checkedIn, setCheckedIn] = useState(false);
+  const { toggleModal, setTitle, setBody } = useModal();
 
   const checkinUser = async (formValues: { phone: string }, e: React.SyntheticEvent) => {
     e.preventDefault();
@@ -13,10 +15,28 @@ const checkin = () => {
     try {
       const res = await userService.checkInUser(formValues.phone);
       // set name and pts here for welcome message
-
+      console.log('in try');
       setCheckedIn(true);
     } catch (error) {
-      alert(error);
+      setTitle('Error');
+      if (error.response) {
+        // Request made and server responded
+        console.log(error.response.data);
+        console.log(error.response.status);
+        console.log(error.response.headers);
+
+        setBody(`${error.response}`);
+      } else if (error.request) {
+        // The request was made but no response was received
+        console.log(error.request);
+        setBody(`${error.request}`);
+      } else {
+        // Something happened in setting up the request that triggered an Error
+        console.log('Error', error.message);
+        setBody(`${error.message}`);
+      }
+
+      toggleModal(true);
     }
   };
 
