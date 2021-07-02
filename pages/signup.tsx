@@ -53,7 +53,7 @@ const signup = ({ initialUsers }: signupProps) => {
   // };
 
   return (
-    <div className='layout-bottom'>
+    <div className='page-container'>
       <div className='mx-auto z-10 mt-48 text-center'>
         <h1 className='text-white text-5xl font-semibold'>
           Welcome to <span className='text-purle-300'>the Club</span>

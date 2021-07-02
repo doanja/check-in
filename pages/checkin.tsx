@@ -41,7 +41,7 @@ const checkin = () => {
   };
 
   return (
-    <div className='layout-bottom'>
+    <div className='page-container'>
       {checkedIn ? (
         <h1>user checked in</h1>
       ) : (

@@ -13,7 +13,7 @@ const Layout = ({ children }: LayoutProps) => {
 
   return (
     <ModalContext.Provider value={{ showModal, toggleModal, title, setTitle, body, setBody }}>
-      <div className='content'>
+      <div className='layout-container'>
         <Meta />
         <Nav />
         <div className='h-screen'>{children}</div>

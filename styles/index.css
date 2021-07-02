@@ -8,20 +8,24 @@
 
 /* Write your own custom component styles here */
 .form-btn-primary {
-  background-image: linear-gradient(to right, #4776e6 0%, #8e54e9 51%, #4776e6 100%);
-  @apply block rounded-md shadow text-white duration-1000 uppercase text-center py-4 px-8 w-full disabled:opacity-25 disabled:cursor-not-allowed;
+  /* background-image: linear-gradient(to right, #4776e6 0%, #8e54e9 51%, #4776e6 100%); */
+  @apply block rounded-md shadow text-white bg-blue-300 duration-500 uppercase text-center py-4 px-8 w-full disabled:bg-gray-300 disabled:cursor-not-allowed;
 }
 
 .form-btn-primary:hover {
-  @apply text-white bg-right;
+  @apply bg-blue-400 disabled:bg-gray-300 disabled:cursor-not-allowed;
 }
 
 .form-btn-secondary {
-  @apply block border-2 rounded-md shadow text-black duration-500 uppercase text-center py-4 px-8 w-full disabled:opacity-75 disabled:cursor-not-allowed;
+  @apply block border-2 rounded-md shadow text-black bg-white duration-500 uppercase text-center py-4 px-8 w-full disabled:bg-gray-300 disabled:cursor-not-allowed;
 }
 
 .form-btn-secondary:hover {
   @apply bg-gray-200;
+}
+
+.form-btn-group {
+  @apply flex flex-row gap-4 my-3;
 }
 
 .form-input {
@@ -32,18 +36,12 @@
   @apply block text-gray-700 text-xl font-bold mb-2 capitalize;
 }
 
-.layout-bottom {
-  background-image: linear-gradient(110.6deg, rgba(179, 157, 219, 1) 7%, rgba(150, 159, 222, 1) 47.7%, rgba(24, 255, 255, 1) 100.6%);
-  @apply min-h-screen flex flex-col items-start antialiased relative;
+.page-container {
+  /* background-image: linear-gradient(110.6deg, rgba(179, 157, 219, 1) 7%, rgba(150, 159, 222, 1) 47.7%, rgba(24, 255, 255, 1) 100.6%); */
+  @apply min-h-screen flex flex-col items-start antialiased relative bg-blue-200 rounded-md;
 }
 
-.layout-top {
-  clip-path: polygon(0 0, 100% 0, 100% 90%, 0% 100%);
-  height: 34rem;
-  @apply absolute bg-gray-900 inset-x-0 top-0;
-}
-
-.content {
+.layout-container {
   @apply max-w-5xl my-0 mx-auto;
 }
 

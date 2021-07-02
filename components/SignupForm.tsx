@@ -21,17 +21,19 @@ const SignupForm = ({ onSubmit }: SignupFormProps) => {
     formState: { errors, isValid },
   } = useForm<FormValues>({ mode: 'all' });
 
+  const [showCheckinPrompt, setShowCheckinPrompt] = useState(true);
+  const [showSubmitBtn, setShowSubmitBtn] = useState(false);
   const [formStep, setFormStep] = useState(1);
   const nextStep = () => setFormStep(formStep + 1);
   const prevStep = () => setFormStep(formStep - 1);
-  const MAX_STEPS = 5;
+  const MAX_STEPS = 4;
 
-  const renderFormNavBtn = () => {
+  const renderFormBtns = () => {
     if (formStep > 4) {
       return undefined;
-    } else if (formStep === 3 || formStep === 4) {
+    } else if (formStep === 3) {
       return (
-        <div className='flex flex-row gap-4 mt-3'>
+        <div className='form-btn-group'>
           <button onClick={prevStep} type='button' className='form-btn-secondary'>
             Back
           </button>
@@ -40,9 +42,31 @@ const SignupForm = ({ onSubmit }: SignupFormProps) => {
           </button>
         </div>
       );
+    } else if (formStep === 4) {
+      return (
+        <div className='form-btn-group'>
+          {showCheckinPrompt && !showSubmitBtn ? (
+            <>
+              <button onClick={prevStep} type='button' className='form-btn-secondary'>
+                Back
+              </button>
+              <button
+                disabled={!isValid}
+                onClick={() => {
+                  setShowCheckinPrompt(false);
+                  setShowSubmitBtn(true);
+                }}
+                type='button'
+                className='form-btn-primary'>
+                Next
+              </button>
+            </>
+          ) : null}
+        </div>
+      );
     } else {
       return (
-        <div className='flex flex-row gap-4 mt-3'>
+        <div className='form-btn-group'>
           {formStep !== 1 ? (
             <button onClick={prevStep} type='button' className='form-btn-secondary'>
               Back
@@ -93,7 +117,7 @@ const SignupForm = ({ onSubmit }: SignupFormProps) => {
       )}
 
       {formStep === 3 && (
-        <FormInput textFor='email' labelText='email'>
+        <FormInput textFor='email' labelText='email (optional)'>
           <input
             className='form-input'
             {...register('email', {
@@ -111,20 +135,20 @@ const SignupForm = ({ onSubmit }: SignupFormProps) => {
       )}
 
       {formStep === 4 && (
-        <FormInput textFor='birthday' labelText='birthday'>
+        <FormInput textFor='birthday' labelText='birthday (Optional)'>
           <input className='form-input' {...register('birthday')} type='date' />
         </FormInput>
       )}
 
-      {formStep === 5 && (
+      {showSubmitBtn && (
         <button type='submit' className='form-btn-primary'>
           {'Complete Signup & Check In'}
         </button>
       )}
 
-      {renderFormNavBtn()}
+      {renderFormBtns()}
 
-      <Link href='/checkin'>Already a member? Checkin here.</Link>
+      {showCheckinPrompt && <Link href='/checkin'>Already a member? Checkin here.</Link>}
     </form>
   );
 };
