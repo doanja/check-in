@@ -32,7 +32,9 @@ const signup = ({ initialUsers }: signupProps) => {
     try {
       const res = await userService.createUser(user);
       await setUsers([...users, res.data.data]);
-      router.push('/checkin');
+      const res2 = await userService.checkInUser(res.data.data.phone);
+      console.log(`res2`, res2);
+      // router.push('/checkin');
     } catch (error) {
       if (error.meta.target === 'phone_unique') {
         alert('Phone must be unique');
@@ -56,7 +58,7 @@ const signup = ({ initialUsers }: signupProps) => {
     <div className='page-container'>
       <div className='mx-auto z-10 mt-48 text-center'>
         <h1 className='text-white text-5xl font-semibold'>
-          Welcome to <span className='text-purle-300'>the Club</span>
+          Welcome to <span className='text-purple-300'>the Club</span>
         </h1>
         <p className='text-blue-300 mt-2'>Become a new member in 5 easy steps</p>
       </div>

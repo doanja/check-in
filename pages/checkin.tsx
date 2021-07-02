@@ -10,34 +10,31 @@ const checkin = () => {
   const { toggleModal, setTitle, setBody } = useModal();
 
   const checkinUser = async (formValues: { phone: string }, e: React.SyntheticEvent) => {
-    e.preventDefault();
-
-    try {
-      const res = await userService.checkInUser(formValues.phone);
-      // set name and pts here for welcome message
-      console.log('in try');
-      setCheckedIn(true);
-    } catch (error) {
-      setTitle('Error');
-      if (error.response) {
-        // Request made and server responded
-        console.log(error.response.data);
-        console.log(error.response.status);
-        console.log(error.response.headers);
-
-        setBody(`${error.response}`);
-      } else if (error.request) {
-        // The request was made but no response was received
-        console.log(error.request);
-        setBody(`${error.request}`);
-      } else {
-        // Something happened in setting up the request that triggered an Error
-        console.log('Error', error.message);
-        setBody(`${error.message}`);
-      }
-
-      toggleModal(true);
-    }
+    // e.preventDefault();
+    // try {
+    //   const res = await userService.checkInUser(formValues.phone);
+    //   // set name and pts here for welcome message
+    //   console.log('in try');
+    //   setCheckedIn(true);
+    // } catch (error) {
+    //   setTitle('Error');
+    //   if (error.response) {
+    //     // Request made and server responded
+    //     console.log(error.response.data);
+    //     console.log(error.response.status);
+    //     console.log(error.response.headers);
+    //     setBody(`${error.response}`);
+    //   } else if (error.request) {
+    //     // The request was made but no response was received
+    //     console.log(error.request);
+    //     setBody(`${error.request}`);
+    //   } else {
+    //     // Something happened in setting up the request that triggered an Error
+    //     console.log('Error', error.message);
+    //     setBody(`${error.message}`);
+    //   }
+    //   toggleModal(true);
+    // }
   };
 
   return (
@@ -48,7 +45,7 @@ const checkin = () => {
         <>
           <div className='mx-auto z-10 mt-48 text-center'>
             <h1 className='text-white text-5xl font-semibold'>
-              Welcome to Back. <span className='text-purle-300'>Please Check In.</span>
+              Welcome to Back. <span className='text-purple-300'>Please Check In.</span>
             </h1>
             <p className='text-blue-300 mt-2'>Check in and earn points that can be used torwards rewards</p>
           </div>

@@ -31,3 +31,10 @@ pages:
 NOTES:
 - run npx prisma migrate dev everytime schema.prisma is changed
 - run npx prisma studio to open prisma in browser
+
+
+todo:
+- create page where user can see their points after signin / checkin / signup
+- create waitlist with info of person's name and time they signed in
+- create db object to store name and time of each person signed in
+- add api routes to delete and add to this db object
