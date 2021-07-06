@@ -4,9 +4,9 @@ export type ModalContextType = {
   showModal: boolean;
   toggleModal: ToggleModal;
   title: string;
-  setTitle: setTextField;
+  setTitle: SetTextField;
   body: string;
-  setBody: setTextField;
+  setBody: SetTextField;
 };
 
 export const ModalContext = createContext<ModalContextType>({

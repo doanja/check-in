@@ -1,36 +1,17 @@
 technologies:
-
-- nextjs
-
 - twilio - for sms
-- prisma - orm
 - auth0 or nextAuth?
-- docker - host mongo db in a container
-
-
-routes:
-- /api/user
-	- for login and signup
-
 
 pages:
-- /pages/login
-- /pages/signup
+- /checkin (non user)
+- /signup 
+- /signin (returning user)
+- /waitlist (allows everyone to see the checkin line)
 - /pages/admin/
 	-/dashboard
 	-/manage
 
 
-	user:
-	- email (optional)
-	- name
-	- phone
-	- birthday
-
-
-NOTES:
-- run npx prisma migrate dev everytime schema.prisma is changed
-- run npx prisma studio to open prisma in browser
 
 
 todo:
@@ -38,3 +19,5 @@ todo:
 - create waitlist with info of person's name and time they signed in
 - create db object to store name and time of each person signed in
 - add api routes to delete and add to this db object
+
+- checking -> enter phone number -> send confirm to user, and add user to waitlist, redirect to waitlist

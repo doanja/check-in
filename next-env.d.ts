@@ -2,4 +2,10 @@
 /// <reference types="next/types/global" />
 
 type ToggleModal = (showModal: boolean) => void;
-type setTextField = (text: string) => void;
+type SetTextField = (text: string) => void;
+
+type CheckedInUser = {
+  name: string;
+  checkinTime: string;
+};
+type SetCheckedInUsers = (users: CheckedInUser[]) => void;
