@@ -2,7 +2,7 @@ import { FormCheckIn } from 'components';
 import { useMemory } from 'contexts/MemoryContext';
 import { useRouter } from 'next/router';
 
-const CheckinContainer = () => {
+const CheckInContainer = () => {
   const router = useRouter();
   const { checkedInUsers, setCheckedInUsers } = useMemory();
 
@@ -12,17 +12,17 @@ const CheckinContainer = () => {
     return localTime.replace(/:\d+ /, ' ');
   };
 
-  const checkinUser = async (formValues: { name: string }) => {
-    const newCheckedInUser: CheckedInUser = { name: formValues.name, checkinTime: getCurrentTimeStamp() };
+  const checkInUser = async (formValues: { name: string }) => {
+    const newCheckedInUser: CheckedInUser = { name: formValues.name, checkInTime: getCurrentTimeStamp() };
     await setCheckedInUsers([...checkedInUsers, newCheckedInUser]);
     router.push('/waitlist');
   };
 
   return (
     <div className='px-16'>
-      <FormCheckIn onSubmit={checkinUser} />
+      <FormCheckIn onSubmit={checkInUser} />
     </div>
   );
 };
 
-export default CheckinContainer;
+export default CheckInContainer;

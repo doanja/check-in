@@ -21,7 +21,7 @@ const FormSignUp = ({ onSubmit }: FormProps) => {
     formState: { errors, isValid },
   } = useForm<FormValues>({ mode: 'all' });
 
-  const [showCheckinPrompt, setShowCheckinPrompt] = useState(true);
+  const [showCheckInPrompt, setShowCheckInPrompt] = useState(true);
   const [showSubmitBtn, setShowSubmitBtn] = useState(false);
   const [formStep, setFormStep] = useState(1);
   const nextStep = () => setFormStep(formStep + 1);
@@ -45,7 +45,7 @@ const FormSignUp = ({ onSubmit }: FormProps) => {
     } else if (formStep === 4) {
       return (
         <div className='form-btn-group'>
-          {showCheckinPrompt && !showSubmitBtn ? (
+          {showCheckInPrompt && !showSubmitBtn ? (
             <>
               <button onClick={prevStep} type='button' className='form-btn-secondary'>
                 Back
@@ -53,7 +53,7 @@ const FormSignUp = ({ onSubmit }: FormProps) => {
               <button
                 disabled={!isValid}
                 onClick={() => {
-                  setShowCheckinPrompt(false);
+                  setShowCheckInPrompt(false);
                   setShowSubmitBtn(true);
                 }}
                 type='button'
@@ -148,7 +148,7 @@ const FormSignUp = ({ onSubmit }: FormProps) => {
 
       {renderFormBtns()}
 
-      {showCheckinPrompt && <Link href='/checkin'>Already a member? Checkin here.</Link>}
+      {showCheckInPrompt && <Link href='/checkin'>Already a member? Check-In here.</Link>}
     </form>
   );
 };

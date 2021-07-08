@@ -23,6 +23,8 @@ interface signupProps {
   initialUsers: User[];
 }
 
+// TODO: finish implementing this
+
 const signup = ({ initialUsers }: signupProps) => {
   const [users, setUsers] = useState<User[]>(initialUsers);
   const router = useRouter();

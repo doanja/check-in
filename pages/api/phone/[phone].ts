@@ -6,7 +6,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
 
   switch (req.method) {
     case 'PUT': {
-      return checkinUser(req, res, prisma);
+      return checkInUser(req, res, prisma);
     }
 
     default:
@@ -14,7 +14,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
   }
 };
 
-const checkinUser = async (req: NextApiRequest, res: NextApiResponse, prisma: PrismaClient) => {
+const checkInUser = async (req: NextApiRequest, res: NextApiResponse, prisma: PrismaClient) => {
   try {
     const phone = Array.isArray(req.query.phone) ? req.query.phone[0] : req.query.phone;
 
@@ -32,6 +32,7 @@ const checkinUser = async (req: NextApiRequest, res: NextApiResponse, prisma: Pr
 
     res.status(200).json({ data: updatedUser });
   } catch (error) {
+    // TODO: finish error handling
     console.log(`error.name`, error.name);
     console.log(`error.shortMessage`, error.shortMessage);
     console.log(`error.message`, error.message);

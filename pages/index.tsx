@@ -1,4 +1,4 @@
-import { CheckinContainer } from '@/components';
+import { CheckInContainer } from '@/components';
 import { useRouter } from 'next/router';
 
 export default function Home() {
@@ -29,7 +29,7 @@ export default function Home() {
           </div>
 
           <p className='text-gray-700 text-lg font-bold mb-3'>Check in without an account:</p>
-          <CheckinContainer />
+          <CheckInContainer />
         </div>
       </div>
     </div>

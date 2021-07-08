@@ -6,6 +6,6 @@ type SetTextField = (text: string) => void;
 
 type CheckedInUser = {
   name: string;
-  checkinTime: string;
+  checkInTime: string;
 };
 type SetCheckedInUsers = (users: CheckedInUser[]) => void;
