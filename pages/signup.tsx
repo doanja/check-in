@@ -1,10 +1,7 @@
 import React, { useState } from 'react';
-import { useRouter } from 'next/router';
 import { PrismaClient, User, Prisma } from '@prisma/client';
 import { FormSignUp } from 'components';
 import { UserService } from 'services';
-
-const userService = new UserService();
 
 export const getServerSideProps = async () => {
   const prisma = new PrismaClient();
@@ -24,19 +21,20 @@ interface signupProps {
 }
 
 // TODO: finish implementing this
-
-const signup = ({ initialUsers }: signupProps) => {
+const signUp = ({ initialUsers }: signupProps) => {
   const [users, setUsers] = useState<User[]>(initialUsers);
-  const router = useRouter();
 
   const createUser = async (user: Prisma.UserCreateInput, e: React.SyntheticEvent) => {
     e.preventDefault();
     try {
+      // create user and automatically sign user in
+
+      const userService = new UserService();
       const res = await userService.createUser(user);
+
       await setUsers([...users, res.data.data]);
       const res2 = await userService.checkInUser(res.data.data.phone);
       console.log(`res2`, res2);
-      // router.push('/checkin');
     } catch (error) {
       if (error.meta.target === 'phone_unique') {
         alert('Phone must be unique');
@@ -45,16 +43,6 @@ const signup = ({ initialUsers }: signupProps) => {
       }
     }
   };
-
-  // const deleteUser = async (userId: string) => {
-  //   try {
-  //     const res = await userService.deleteUser(userId);
-  //     const filteredUsers: User[] = users.filter((user: User) => res.data.data.id !== user.id);
-  //     setUsers(filteredUsers);
-  //   } catch (error) {
-  //     console.log(error.response.status);
-  //   }
-  // };
 
   return (
     <div className='page-container'>
@@ -74,4 +62,4 @@ const signup = ({ initialUsers }: signupProps) => {
   );
 };
 
-export default signup;
+export default signUp;

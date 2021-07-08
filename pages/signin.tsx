@@ -4,17 +4,17 @@ import { useModal } from 'contexts/ModalContext';
 import { useState } from 'react';
 import { UserService } from 'services';
 
-const userService = new UserService();
-
-const signin = () => {
+const signIn = () => {
   const [checkedIn, setCheckedIn] = useState(false);
   const [userData, setUserData] = useState<User>();
   const { toggleModal, setTitle, setBody } = useModal();
 
+  // TODO: finish error handling
   const signinUser = async (formValues: { phone: string }, e: React.SyntheticEvent) => {
     e.preventDefault();
 
     try {
+      const userService = new UserService();
       const res = await userService.checkInUser(formValues.phone);
       // set name and pts here for welcome message
       console.log('in try');
@@ -66,4 +66,4 @@ const signin = () => {
   );
 };
 
-export default signin;
+export default signIn;
