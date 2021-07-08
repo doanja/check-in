@@ -1,4 +1,4 @@
-import { CheckinForm } from 'components';
+import { FormCheckIn } from 'components';
 import { useMemory } from 'contexts/MemoryContext';
 import { useRouter } from 'next/router';
 
@@ -20,7 +20,7 @@ const CheckinContainer = () => {
 
   return (
     <div className='px-16'>
-      <CheckinForm onSubmit={checkinUser} />
+      <FormCheckIn onSubmit={checkinUser} />
     </div>
   );
 };

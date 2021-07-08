@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useRouter } from 'next/router';
 import { PrismaClient, User, Prisma } from '@prisma/client';
-import { SignupForm } from 'components';
+import { FormSignUp } from 'components';
 import { UserService } from 'services';
 
 const userService = new UserService();
@@ -65,7 +65,7 @@ const signup = ({ initialUsers }: signupProps) => {
 
       <div className='max-w-xl w-full mt-24 mb-24 rounded-md shadow-2xl bg-white mx-auto overflow-hidden z-10'>
         <div className='px-16 py-10'>
-          <SignupForm onSubmit={createUser} />
+          <FormSignUp onSubmit={createUser} />
         </div>
       </div>
     </div>

@@ -5,11 +5,11 @@ type FormValues = {
   name: string;
 };
 
-interface CheckinFormProps {
+interface FormProps {
   onSubmit: any;
 }
 
-const CheckinForm = ({ onSubmit }: CheckinFormProps) => {
+const FormCheckIn = ({ onSubmit }: FormProps) => {
   const {
     register,
     handleSubmit,
@@ -23,7 +23,7 @@ const CheckinForm = ({ onSubmit }: CheckinFormProps) => {
           className='form-input'
           {...register('name', { required: 'This is required', maxLength: { value: 32, message: 'You exceeded the max length' } })}
           type='text'
-          placeholder='John'
+          placeholder='Name'
         />
         {errors.name && <FormError errorMessage={errors.name.message} />}
       </FormInput>
@@ -35,4 +35,4 @@ const CheckinForm = ({ onSubmit }: CheckinFormProps) => {
   );
 };
 
-export default CheckinForm;
+export default FormCheckIn;

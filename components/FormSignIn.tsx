@@ -6,11 +6,11 @@ type FormValues = {
   phone: string;
 };
 
-interface SigninFormProps {
+interface FormProps {
   onSubmit: any;
 }
 
-const SigninForm = ({ onSubmit }: SigninFormProps) => {
+const FormSignIn = ({ onSubmit }: FormProps) => {
   const {
     register,
     handleSubmit,
@@ -28,7 +28,7 @@ const SigninForm = ({ onSubmit }: SigninFormProps) => {
             pattern: { value: /[0-9]{10}/, message: 'Must be a valid phone number with area code' },
           })}
           type='tel'
-          placeholder='### ### ####'
+          placeholder='Phone number'
         />
         {errors.phone && <FormError errorMessage={errors.phone.message} />}
       </FormInput>
@@ -42,4 +42,4 @@ const SigninForm = ({ onSubmit }: SigninFormProps) => {
   );
 };
 
-export default SigninForm;
+export default FormSignIn;

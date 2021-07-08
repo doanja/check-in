@@ -1,5 +1,5 @@
 import { User } from '@prisma/client';
-import { SigninForm } from 'components';
+import { FormSignIn } from 'components';
 import { useModal } from 'contexts/ModalContext';
 import { useState } from 'react';
 import { UserService } from 'services';
@@ -57,7 +57,7 @@ const signin = () => {
           </div>
           <div className='max-w-xl w-full mt-24 mb-24 rounded-md shadow-2xl bg-white mx-auto overflow-hidden z-10'>
             <div className='px-16 py-10'>
-              <SigninForm onSubmit={signinUser} />
+              <FormSignIn onSubmit={signinUser} />
             </div>
           </div>
         </>

@@ -10,11 +10,11 @@ type FormValues = {
   birthday: string;
 };
 
-interface SignupFormProps {
+interface FormProps {
   onSubmit: any;
 }
 
-const SignupForm = ({ onSubmit }: SignupFormProps) => {
+const FormSignUp = ({ onSubmit }: FormProps) => {
   const {
     register,
     handleSubmit,
@@ -94,7 +94,7 @@ const SignupForm = ({ onSubmit }: SignupFormProps) => {
             className='form-input'
             {...register('name', { required: 'This is required', maxLength: { value: 32, message: 'You exceeded the max length' } })}
             type='text'
-            placeholder='John'
+            placeholder='Name'
           />
           {errors.name && <FormError errorMessage={errors.name.message} />}
         </FormInput>
@@ -110,7 +110,7 @@ const SignupForm = ({ onSubmit }: SignupFormProps) => {
               pattern: { value: /[0-9]{10}/, message: 'Must be a valid phone number with area code' },
             })}
             type='tel'
-            placeholder='### ### ####'
+            placeholder='Phone number'
           />
           {errors.phone && <FormError errorMessage={errors.phone.message} />}
         </FormInput>
@@ -128,7 +128,7 @@ const SignupForm = ({ onSubmit }: SignupFormProps) => {
               },
             })}
             type='email'
-            placeholder='email@domain.com'
+            placeholder='Email address'
           />
           {errors.email && <FormError errorMessage={errors.email.message} />}
         </FormInput>
@@ -153,4 +153,4 @@ const SignupForm = ({ onSubmit }: SignupFormProps) => {
   );
 };
 
-export default SignupForm;
+export default FormSignUp;

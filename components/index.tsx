@@ -1,9 +1,9 @@
 import FormInput from './FormInputWrap';
 import FormError from './FormError';
 import UserCard from './UserCard';
-import SignupForm from './SignupForm';
-import SigninForm from './SigninForm';
-import CheckinForm from './CheckinForm';
+import FormSignUp from './FormSignUp';
+import FormSignIn from './FormSignIn';
+import FormCheckIn from './FormCheckIn';
 import CheckinContainer from './CheckinContainer';
 
 import Modal from './Modal';
@@ -20,9 +20,9 @@ export {
   FormInput,
   FormError,
   UserCard,
-  SignupForm,
-  SigninForm,
-  CheckinForm,
+  FormSignUp,
+  FormSignIn,
+  FormCheckIn,
   CheckinContainer,
   Modal,
   Meta,
