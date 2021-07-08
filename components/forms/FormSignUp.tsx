@@ -117,7 +117,7 @@ const FormSignUp = ({ onSubmit }: FormProps) => {
       )}
 
       {formStep === 3 && (
-        <FormInput textFor='email' labelText='email (optional)'>
+        <FormInput textFor='email' labelText='email'>
           <input
             className='form-input'
             {...register('email', {
@@ -128,15 +128,15 @@ const FormSignUp = ({ onSubmit }: FormProps) => {
               },
             })}
             type='email'
-            placeholder='Email address'
+            placeholder='Email address (optional)'
           />
           {errors.email && <FormError errorMessage={errors.email.message} />}
         </FormInput>
       )}
 
       {formStep === 4 && (
-        <FormInput textFor='birthday' labelText='birthday (Optional)'>
-          <input className='form-input' {...register('birthday')} type='date' />
+        <FormInput textFor='birthday' labelText='birthday (optional)'>
+          <input className='form-input' {...register('birthday')} type='date' placeholder='Birthday' />
         </FormInput>
       )}
 

@@ -2,7 +2,7 @@ import { useMemory } from 'contexts/MemoryContext';
 import WaitlistTableRow from './WaitlistTableRow';
 
 const WaitlistTable = () => {
-  const { checkedInUsers, setCheckedInUsers } = useMemory();
+  const { checkedInUsers } = useMemory();
 
   return (
     <div className='flex flex-col mt-3 px-5 w-full'>
