@@ -2,13 +2,10 @@
 
 /* Write your own custom base styles here */
 
-/* Start purging... */
 @tailwind components;
-/* Stop purging. */
 
 /* Write your own custom component styles here */
 .form-btn-primary {
-  /* background-image: linear-gradient(to right, #4776e6 0%, #8e54e9 51%, #4776e6 100%); */
   @apply block rounded-md shadow text-white bg-blue-300 duration-500 uppercase text-center py-4 px-8 w-full disabled:bg-gray-300 disabled:cursor-not-allowed;
 }
 
@@ -36,15 +33,6 @@
   @apply block text-gray-700 text-xl font-bold mb-2 capitalize;
 }
 
-.page-container {
-  /* background-image: linear-gradient(110.6deg, rgba(179, 157, 219, 1) 7%, rgba(150, 159, 222, 1) 47.7%, rgba(24, 255, 255, 1) 100.6%); */
-  @apply min-h-screen flex flex-col items-start antialiased relative bg-blue-200 rounded-md;
-}
-
-.layout-container {
-  @apply max-w-5xl my-0 mx-auto;
-}
-
 .loginSignUpSeparator {
   border-top: 1px solid #cbd2d6;
   position: relative;
@@ -58,6 +46,14 @@
   position: relative;
   color: #6c7378;
   top: -0.7em;
+}
+
+.page-container {
+  @apply min-h-screen flex flex-col items-start antialiased relative bg-blue-200 rounded-md;
+}
+
+.layout-container {
+  @apply max-w-6xl my-0 mx-auto;
 }
 
 a {
@@ -81,8 +77,6 @@ nav .logo {
   @apply w-full h-24 border-t-2 border-white flex justify-center items-center;
 }
 
-/* Start purging... */
 @tailwind utilities;
-/* Stop purging. */
 
 /* Your own custom utilities */

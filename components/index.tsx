@@ -9,6 +9,8 @@ import CheckInContainer from './CheckinContainer';
 import Meta from './layouts/Meta';
 import Layout from './layouts';
 import Nav from './layouts/Nav';
+import NavLink from './layouts/NavLink';
+import NavButton from './layouts/NavButton';
 import Footer from './layouts/Footer';
 import Modal from './layouts/Modal';
 
@@ -26,6 +28,8 @@ export {
   Meta,
   Layout,
   Nav,
+  NavLink,
+  NavButton,
   Footer,
   WaitlistTable,
   WaitlistTableRow,
