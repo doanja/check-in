@@ -45,6 +45,21 @@
   @apply max-w-5xl my-0 mx-auto;
 }
 
+.loginSignUpSeparator {
+  border-top: 1px solid #cbd2d6;
+  position: relative;
+  margin: 25px 0 10px;
+  text-align: center;
+}
+
+.textInSeparator {
+  background-color: #fff;
+  padding: 0 0.5em;
+  position: relative;
+  color: #6c7378;
+  top: -0.7em;
+}
+
 a {
   color: #333;
   text-decoration: none;
