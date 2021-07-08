@@ -15,13 +15,18 @@ const Layout = ({ children }: LayoutProps) => {
 
   const [checkedInUsers, setCheckedInUsers] = useState<CheckedInUser[]>([]);
 
-  const loadFromLocalStorage = () => {
-    const data = localStorage.getItem('waitlist');
-    data ? JSON.parse(data) : [];
-  };
+  useEffect(() => {
+    const loadFromLocalStorage = () => {
+      const data = localStorage.getItem('waitlist');
+      return data ? JSON.parse(data) : [];
+    };
 
-  const a = loadFromLocalStorage();
-  console.log(`a`, a);
+    const waitlist = loadFromLocalStorage();
+
+    if (waitlist.length > 0) {
+      setCheckedInUsers(waitlist);
+    }
+  }, []);
 
   useEffect(() => {
     localStorage.setItem('waitlist', JSON.stringify(checkedInUsers));

@@ -1,14 +1,23 @@
 import { CheckinForm } from 'components';
 import { useMemory } from 'contexts/MemoryContext';
+import { useRouter } from 'next/router';
 
 const checkin = () => {
+  const router = useRouter();
   const { checkedInUsers, setCheckedInUsers } = useMemory();
 
+  const getCurrentTimeStamp = (): string => {
+    const date = new Date();
+    const localTime = date.toLocaleTimeString();
+    return localTime.replace(/:\d+ /, ' ');
+  };
+
   const checkinUser = async (formValues: { name: string }) => {
-    const newCheckedInUser: CheckedInUser = { name: formValues.name, checkinTime: new Date().getTime().toString() };
-    console.log('before checkin in');
+    const newCheckedInUser: CheckedInUser = { name: formValues.name, checkinTime: getCurrentTimeStamp() };
+
     await setCheckedInUsers([...checkedInUsers, newCheckedInUser]);
-    console.log('after checking in');
+
+    router.push('/waitlist');
   };
 
   return (
