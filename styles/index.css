@@ -49,11 +49,11 @@
 }
 
 .page-container {
-  @apply min-h-screen flex flex-col items-start antialiased relative bg-blue-200 rounded-md;
+  @apply min-h-screen flex flex-col items-start antialiased relative bg-gray-200;
 }
 
 .layout-container {
-  @apply max-w-6xl my-0 mx-auto;
+  @apply max-w-6xl my-0 mx-auto border-2 border-red-500;
 }
 
 a {
@@ -62,7 +62,7 @@ a {
 }
 
 nav {
-  @apply mt-3 mx-auto mb-20 flex justify-end items-end;
+  @apply flex flex-wrap items-center justify-between mt-0 bg-blue-200;
 }
 
 nav a {
@@ -74,7 +74,7 @@ nav .logo {
 }
 
 .footer {
-  @apply w-full h-24 border-t-2 border-white flex justify-center items-center;
+  @apply w-full h-24 border-t-2 flex justify-center items-center border-2 border-blue-500;
 }
 
 @tailwind utilities;
