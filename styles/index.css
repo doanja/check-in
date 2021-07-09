@@ -56,24 +56,11 @@
   @apply max-w-6xl my-0 mx-auto border-2 border-red-500;
 }
 
-a {
-  color: #333;
-  text-decoration: none;
-}
-
 nav {
   @apply flex flex-wrap items-center justify-between mt-0 bg-blue-200;
 }
 
-nav a {
-  @apply ml-3;
-}
-
-nav .logo {
-  @apply mr-auto;
-}
-
-.footer {
+footer {
   @apply w-full h-24 border-t-2 flex justify-center items-center border-2 border-blue-500;
 }
 

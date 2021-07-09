@@ -4,9 +4,8 @@ import NavLink from './NavLink';
 
 const Navbar = () => {
   const [showMenu, setShowMenu] = useState(true);
-  const closeMenu = () => {
-    setShowMenu(!showMenu);
-  };
+
+  const closeMenu = () => !showMenu && setShowMenu(!showMenu);
 
   return (
     <nav>
@@ -15,7 +14,7 @@ const Navbar = () => {
 
       {/* hamburger */}
       <div className='flex md:hidden'>
-        <button onClick={closeMenu}>
+        <button onClick={() => setShowMenu(!showMenu)}>
           <img
             className={`${showMenu ? 'block' : 'hidden'}`}
             src='https://img.icons8.com/fluent-systems-regular/2x/menu-squared-2.png'
