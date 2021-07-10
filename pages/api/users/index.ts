@@ -42,7 +42,19 @@ const createUser = async (req: NextApiRequest, res: NextApiResponse, prisma: Pri
       res.status(200).json({ data: newUser });
     }
   } catch (error) {
-    res.status(500).json({ error });
+    // TODO: finish error handling
+    console.log(`error`, error);
+    console.log(`error.name`, error.name);
+    console.log(`error.shortMessage`, error.shortMessage);
+
+    // check this
+    console.log(`error.message`, error.message);
+
+    if (error.message.includes('phone_unique')) {
+      res.status(500).json({ errorName: error.name, errorShort: error.shortMessage, errorMsg: 'Phone number already in use.' });
+    }
+
+    res.status(500).json({ errorName: error.name, errorShort: error.shortMessage, errorMsg: error.message });
   } finally {
     await prisma.$disconnect();
   }

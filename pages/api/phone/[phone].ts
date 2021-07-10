@@ -33,6 +33,7 @@ const checkInUser = async (req: NextApiRequest, res: NextApiResponse, prisma: Pr
     res.status(200).json({ data: updatedUser });
   } catch (error) {
     // TODO: finish error handling
+    console.log(`error`, error);
     console.log(`error.name`, error.name);
     console.log(`error.shortMessage`, error.shortMessage);
     console.log(`error.message`, error.message);

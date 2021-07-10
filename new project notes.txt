@@ -12,12 +12,6 @@ pages:
 	-/manage
 
 
-
-
 todo:
 - create page where user can see their points after signin / checkin / signup
-- create waitlist with info of person's name and time they signed in
-- create db object to store name and time of each person signed in
-- add api routes to delete and add to this db object
-
 - checking -> enter phone number -> send confirm to user, and add user to waitlist, redirect to waitlist

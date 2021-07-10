@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { PrismaClient, User, Prisma } from '@prisma/client';
 import { FormSignUp } from 'components';
 import { UserService } from 'services';
+import { useModal } from '@/contexts/ModalContext';
 
 export const getServerSideProps = async () => {
   const prisma = new PrismaClient();
@@ -23,6 +24,7 @@ interface signupProps {
 // TODO: finish implementing this
 const signUp = ({ initialUsers }: signupProps) => {
   const [users, setUsers] = useState<User[]>(initialUsers);
+  const { toggleModal, setTitle, setBody } = useModal();
 
   const createUser = async (user: Prisma.UserCreateInput, e: React.SyntheticEvent) => {
     e.preventDefault();
@@ -36,11 +38,28 @@ const signUp = ({ initialUsers }: signupProps) => {
       const res2 = await userService.checkInUser(res.data.data.phone);
       console.log(`res2`, res2);
     } catch (error) {
-      if (error.meta.target === 'phone_unique') {
-        alert('Phone must be unique');
-      } else if (error.meta.target === 'email_unique') {
-        alert('Email must be unique');
+      setTitle('Error');
+
+      if (error.response) {
+        // Request made and server responded
+        console.log(error.response.data);
+
+        // does not show helpful info
+        // console.log(error.response.status);
+        // console.log(error.response.headers);
+
+        setBody(`${error.response.data.errorMsg}`);
+      } else if (error.request) {
+        // The request was made but no response was received
+        console.log(error.request);
+        setBody(`${error.request}`);
+      } else {
+        // Something happened in setting up the request that triggered an Error
+        console.log('Error', error.message);
+        setBody(`${error.message}`);
       }
+
+      toggleModal(true);
     }
   };
 

@@ -83,7 +83,7 @@ const FormSignUp = ({ onSubmit }: FormProps) => {
 
   return (
     <form className='flex flex-col' onSubmit={handleSubmit(onSubmit)}>
-      {formStep < MAX_STEPS && (
+      {formStep <= MAX_STEPS && (
         <p className='text-sm text-gray-400 mb-2'>
           Step {formStep} of {MAX_STEPS}
         </p>
