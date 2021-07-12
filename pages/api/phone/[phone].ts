@@ -32,12 +32,11 @@ const checkInUser = async (req: NextApiRequest, res: NextApiResponse, prisma: Pr
 
     res.status(200).json({ data: updatedUser });
   } catch (error) {
-    // TODO: finish error handling
-    console.log(`error`, error);
-    console.log(`error.name`, error.name);
-    console.log(`error.shortMessage`, error.shortMessage);
-    console.log(`error.message`, error.message);
-    res.status(500).json({ /*error, message: 'user not found',*/ errorName: error.name, errorShrtMsg: error.shortMessage, errorMsg: error.message });
+    if (error.message.includes('Record to update not found')) {
+      res.status(500).json({ errorName: error.name, errorMsg: 'Phone number is not registered.' });
+    }
+
+    res.status(500).json({ errorName: error.name, errorMsg: error.message });
   } finally {
     await prisma.$disconnect();
   }
