@@ -18,23 +18,18 @@ const signUp = () => {
     try {
       const userService = new UserService();
       const res = await userService.createUser(user);
-      console.log(`res.data`, res.data);
-
       const res2 = await userService.checkInUser(res.data.data.phone);
-      console.log(`res2.data`, res2.data);
-
-      const newCheckedInUser: CheckedInUser = { name: res2.data.user.name, checkInTime: getCurrentTimeStamp() };
+      const newCheckedInUser: CheckedInUser = { name: res2.data.data.name, checkInTime: getCurrentTimeStamp() };
       await setCheckedInUsers([...checkedInUsers, newCheckedInUser]);
 
-      // router.push('/waitlist');
+      router.push('/waitlist');
     } catch (error) {
-      setTitle(error.name);
-
       const errorText = parseError(error);
+      if (errorText === 'Phone number already in use.') setFormStep(2);
+
+      setTitle(error.name);
       setBody(errorText);
       toggleModal(true);
-
-      if (errorText === 'Phone number already in use.') setFormStep(2);
     }
   };
 
