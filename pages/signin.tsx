@@ -2,10 +2,12 @@ import { parseError } from '@/helper';
 import { User } from '@prisma/client';
 import { FormSignIn } from 'components';
 import { useModal } from 'contexts/ModalContext';
+import { useRouter } from 'next/router';
 import { useState } from 'react';
 import { UserService } from 'services';
 
 const signIn = () => {
+  const router = useRouter();
   const [checkedIn, setCheckedIn] = useState(false);
   const [userData, setUserData] = useState<User>();
   const { toggleModal, setTitle, setBody } = useModal();
@@ -16,10 +18,11 @@ const signIn = () => {
     try {
       const userService = new UserService();
       const res = await userService.checkInUser(formValues.phone);
-      // set name and pts here for welcome message
-      console.log('in try');
+
       setCheckedIn(true);
       setUserData(res.data.data);
+
+      router.push('/waitlist');
     } catch (error) {
       const errorText = parseError(error);
 
