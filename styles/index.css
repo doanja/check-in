@@ -33,6 +33,10 @@
   @apply block text-gray-700 text-xl font-bold mb-2 capitalize;
 }
 
+.button-label {
+  @apply text-gray-700 text-lg font-bold mb-3;
+}
+
 .loginSignUpSeparator {
   border-top: 1px solid #cbd2d6;
   position: relative;

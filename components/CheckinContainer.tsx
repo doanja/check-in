@@ -18,11 +18,7 @@ const CheckInContainer = () => {
     router.push('/waitlist');
   };
 
-  return (
-    <div className='px-16'>
-      <FormCheckIn onSubmit={checkInUser} />
-    </div>
-  );
+  return <FormCheckIn onSubmit={checkInUser} />;
 };
 
 export default CheckInContainer;
