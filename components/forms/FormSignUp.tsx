@@ -12,9 +12,11 @@ type FormValues = {
 
 interface FormProps {
   onSubmit: any;
+  formStep: number;
+  setFormStep: (step: number) => void;
 }
 
-const FormSignUp = ({ onSubmit }: FormProps) => {
+const FormSignUp = ({ onSubmit, formStep, setFormStep }: FormProps) => {
   const {
     register,
     handleSubmit,
@@ -23,7 +25,7 @@ const FormSignUp = ({ onSubmit }: FormProps) => {
 
   const [showCheckInPrompt, setShowCheckInPrompt] = useState(true);
   const [showSubmitBtn, setShowSubmitBtn] = useState(false);
-  const [formStep, setFormStep] = useState(1);
+
   const nextStep = () => setFormStep(formStep + 1);
   const prevStep = () => setFormStep(formStep - 1);
   const MAX_STEPS = 4;
@@ -140,7 +142,7 @@ const FormSignUp = ({ onSubmit }: FormProps) => {
         </FormInput>
       )}
 
-      {showSubmitBtn && (
+      {showSubmitBtn && formStep === 4 && (
         <button type='submit' className='form-btn-primary'>
           {'Complete Signup & Check In'}
         </button>

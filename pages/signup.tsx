@@ -1,65 +1,40 @@
 import React, { useState } from 'react';
-import { PrismaClient, User, Prisma } from '@prisma/client';
+import { Prisma } from '@prisma/client';
 import { FormSignUp } from 'components';
 import { UserService } from 'services';
 import { useModal } from '@/contexts/ModalContext';
+import { getCurrentTimeStamp, parseError } from '@/helper';
+import { useMemory } from '@/contexts/MemoryContext';
+import { useRouter } from 'next/router';
 
-export const getServerSideProps = async () => {
-  const prisma = new PrismaClient();
-
-  const users: User[] = await prisma.user.findMany();
-  await prisma.$disconnect();
-
-  return {
-    props: {
-      initialUsers: users,
-    },
-  };
-};
-
-interface signupProps {
-  initialUsers: User[];
-}
-
-// TODO: finish implementing this
-const signUp = ({ initialUsers }: signupProps) => {
-  const [users, setUsers] = useState<User[]>(initialUsers);
+const signUp = () => {
+  const router = useRouter();
+  const { checkedInUsers, setCheckedInUsers } = useMemory();
   const { toggleModal, setTitle, setBody } = useModal();
+  const [formStep, setFormStep] = useState(1);
 
   const createUser = async (user: Prisma.UserCreateInput, e: React.SyntheticEvent) => {
     e.preventDefault();
     try {
-      // create user and automatically sign user in
-
       const userService = new UserService();
       const res = await userService.createUser(user);
+      console.log(`res.data`, res.data);
 
-      await setUsers([...users, res.data.data]);
       const res2 = await userService.checkInUser(res.data.data.phone);
-      console.log(`res2`, res2);
+      console.log(`res2.data`, res2.data);
+
+      const newCheckedInUser: CheckedInUser = { name: res2.data.user.name, checkInTime: getCurrentTimeStamp() };
+      await setCheckedInUsers([...checkedInUsers, newCheckedInUser]);
+
+      // router.push('/waitlist');
     } catch (error) {
-      setTitle('Error');
+      setTitle(error.name);
 
-      if (error.response) {
-        // Request made and server responded
-        console.log(error.response.data);
-
-        // does not show helpful info
-        // console.log(error.response.status);
-        // console.log(error.response.headers);
-
-        setBody(`${error.response.data.errorMsg}`);
-      } else if (error.request) {
-        // The request was made but no response was received
-        console.log(error.request);
-        setBody(`${error.request}`);
-      } else {
-        // Something happened in setting up the request that triggered an Error
-        console.log('Error', error.message);
-        setBody(`${error.message}`);
-      }
-
+      const errorText = parseError(error);
+      setBody(errorText);
       toggleModal(true);
+
+      if (errorText === 'Phone number already in use.') setFormStep(2);
     }
   };
 
@@ -74,7 +49,7 @@ const signUp = ({ initialUsers }: signupProps) => {
 
       <div className='max-w-xl w-full mt-24 mb-24 rounded-md shadow-2xl bg-white mx-auto overflow-hidden z-10'>
         <div className='px-16 py-10'>
-          <FormSignUp onSubmit={createUser} />
+          <FormSignUp onSubmit={createUser} formStep={formStep} setFormStep={setFormStep} />
         </div>
       </div>
     </div>
