@@ -12,7 +12,7 @@ export default function Home() {
 
           <CheckInContainer />
 
-          <div className='loginSignUpSeparator'>
+          <div className='loginSignUpSeparator mt-12'>
             <span className='textInSeparator'>or</span>
           </div>
 

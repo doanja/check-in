@@ -1,10 +1,8 @@
 import { useState } from 'react';
-
 import NavLink from './NavLink';
 
 const Navbar = () => {
   const [showMenu, setShowMenu] = useState(true);
-
   const closeMenu = () => !showMenu && setShowMenu(!showMenu);
 
   return (
