@@ -6,11 +6,11 @@
 
 /* Write your own custom component styles here */
 .form-btn-primary {
-  @apply block rounded-md shadow text-white bg-blue-300 duration-500 uppercase text-center py-4 px-8 w-full disabled:bg-gray-300 disabled:cursor-not-allowed;
+  @apply block rounded-md shadow text-white bg-gray-700 duration-500 uppercase text-center py-4 px-8 w-full disabled:bg-gray-300 disabled:cursor-not-allowed;
 }
 
 .form-btn-primary:hover {
-  @apply bg-blue-400 disabled:bg-gray-300 disabled:cursor-not-allowed;
+  @apply bg-gray-800 disabled:bg-gray-300 disabled:cursor-not-allowed;
 }
 
 .form-btn-secondary {
@@ -18,7 +18,7 @@
 }
 
 .form-btn-secondary:hover {
-  @apply bg-gray-200;
+  @apply bg-gray-800 border-gray-800 text-white;
 }
 
 .form-btn-group {
@@ -53,19 +53,23 @@
 }
 
 .page-container {
-  @apply min-h-screen flex flex-col items-start antialiased relative bg-gray-200;
+  @apply min-h-screen flex flex-col items-start antialiased relative bg-gray-50;
 }
 
 .layout-container {
   @apply max-w-6xl my-0 mx-auto border-2 border-red-500;
 }
 
+.modal-icon {
+  @apply w-16 h-16 flex items-center text-red-500 mx-auto;
+}
+
 nav {
-  @apply flex flex-wrap items-center justify-between mt-0 bg-blue-200;
+  @apply flex flex-wrap items-center justify-between mt-0 bg-gray-50;
 }
 
 footer {
-  @apply w-full h-24 border-t-2 flex justify-center items-center border-2 border-blue-500;
+  @apply w-full h-24 border-t-2 flex justify-center items-center bg-gray-100 border-2 border-blue-500;
 }
 
 @tailwind utilities;

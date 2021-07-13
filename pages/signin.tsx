@@ -10,13 +10,13 @@ const signIn = () => {
   const { checkedInUsers, setCheckedInUsers } = useMemory();
   const { toggleModal, setTitle, setBody } = useModal();
 
+  // debug:
+  // setTitle('error.name');
+  // setBody('errorText');
+  // toggleModal(true);
+
   const signinUser = async (formValues: { phone: string }, e: React.SyntheticEvent) => {
     e.preventDefault();
-
-    // debug:
-    setTitle('error.name');
-    setBody('errorText');
-    toggleModal(true);
 
     try {
       const userService = new UserService();

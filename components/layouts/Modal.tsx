@@ -11,12 +11,7 @@ const Modal = ({ toggleModal, showModal, title, body }: ModalProps) => {
       <div className='absolute bg-black opacity-80 inset-0 z-0' onClick={() => toggleModal(!showModal)}></div>
       <div className='w-full max-w-lg p-5 relative mx-auto my-auto rounded-xl shadow-lg bg-white'>
         <div className='text-center p-5 flex-auto justify-center'>
-          <svg
-            xmlns='http://www.w3.org/2000/svg'
-            className='w-16 h-16 flex items-center text-red-500 mx-auto'
-            fill='none'
-            viewBox='0 0 24 24'
-            stroke='currentColor'>
+          <svg xmlns='http://www.w3.org/2000/svg' className='modal-icon' fill='none' viewBox='0 0 24 24' stroke='currentColor'>
             <path
               strokeLinecap='round'
               strokeLinejoin='round'
@@ -30,9 +25,7 @@ const Modal = ({ toggleModal, showModal, title, body }: ModalProps) => {
         </div>
 
         <div className='p-3 mt-2 text-center space-x-4 md:block'>
-          <button
-            className='mb-2 md:mb-0 bg-red-500 border px-5 py-2 text-sm shadow-sm font-medium tracking-wider text-white rounded-full hover:shadow-lg hover:bg-red-600'
-            onClick={() => toggleModal(!showModal)}>
+          <button className='form-btn-primary' onClick={() => toggleModal(!showModal)}>
             Close
           </button>
         </div>
