@@ -4,7 +4,8 @@ import FormSignUp from './forms/FormSignUp';
 import FormSignIn from './forms/FormSignIn';
 import FormCheckIn from './forms/FormCheckIn';
 
-import CheckInContainer from './CheckinContainer';
+import CheckInContainer from './CheckInContainer';
+import PageContainer from './PageContainer';
 
 import Meta from './layouts/Meta';
 import Layout from './layouts';
@@ -24,6 +25,7 @@ export {
   FormSignIn,
   FormCheckIn,
   CheckInContainer,
+  PageContainer,
   Modal,
   Meta,
   Layout,

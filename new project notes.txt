@@ -7,11 +7,10 @@ pages:
 - /signup 
 - /signin (returning user)
 - /waitlist (allows everyone to see the checkin line)
-- /pages/admin/
+- /admin/
 	-/dashboard
 	-/manage
 
 
 todo:
-- create page where user can see their points after signin / checkin / signup
-- checking -> enter phone number -> send confirm to user, and add user to waitlist, redirect to waitlist
+- check in -> enter phone number -> send confirm to user (twilio), and add user to waitlist, redirect to waitlist

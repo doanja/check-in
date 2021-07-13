@@ -33,7 +33,7 @@ const FormSignIn = ({ onSubmit }: FormProps) => {
         {errors.phone && <FormError errorMessage={errors.phone.message} />}
       </FormInput>
 
-      <button type='submit' className='form-btn-primary'>
+      <button type='submit' className='form-btn-primary my-3'>
         Check In
       </button>
 

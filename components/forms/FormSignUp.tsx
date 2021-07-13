@@ -150,7 +150,7 @@ const FormSignUp = ({ onSubmit, formStep, setFormStep }: FormProps) => {
 
       {renderFormBtns()}
 
-      {showCheckInPrompt && <Link href='/'>Already a member? Check-In here.</Link>}
+      {showCheckInPrompt && <Link href='/signin'>Already a member? Check-In here.</Link>}
     </form>
   );
 };

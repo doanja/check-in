@@ -5,7 +5,7 @@ const WaitlistTable = () => {
   const { checkedInUsers } = useMemory();
 
   return (
-    <div className='flex flex-col mt-3 px-5 w-full'>
+    <div className='flex flex-col max-w-md mx-auto'>
       <div className='-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8'>
         <div className='py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8'>
           <div className='shadow overflow-hidden border-b border-gray-200 sm:rounded-lg'>
