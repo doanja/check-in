@@ -1,7 +1,7 @@
 import { parseError } from '@/helper';
 import { User } from '@prisma/client';
 import { FormSignIn } from 'components';
-import { useModal } from 'contexts/ModalContext';
+import { useModal } from '@/contexts/ModalContext';
 import { useRouter } from 'next/router';
 import { useState } from 'react';
 import { UserService } from 'services';
@@ -21,6 +21,8 @@ const signIn = () => {
 
       setCheckedIn(true);
       setUserData(res.data.data);
+
+      // TODO: send text to customer with pts info
 
       router.push('/waitlist');
     } catch (error) {

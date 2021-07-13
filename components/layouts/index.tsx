@@ -1,6 +1,5 @@
 import { Meta, Nav, Footer, Modal } from 'components';
-import { ModalContext } from 'contexts/ModalContext';
-import { MemoryContext } from 'contexts/MemoryContext';
+import { ModalContext, MemoryContext } from 'contexts';
 import { useState } from 'react';
 import { useEffect } from 'react';
 
