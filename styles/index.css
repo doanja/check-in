@@ -37,31 +37,12 @@
   @apply text-gray-700 text-lg font-bold mb-3;
 }
 
-.loginSignUpSeparator {
-  border-top: 1px solid #cbd2d6;
-  position: relative;
-  margin: 25px 0 10px;
-  text-align: center;
+.layout-wrap {
+  @apply flex flex-col h-screen border-2 border-red-700 max-w-6xl my-0 mx-auto;
 }
 
-.textInSeparator {
-  background-color: #fff;
-  padding: 0 0.5em;
-  position: relative;
-  color: #6c7378;
-  top: -0.7em;
-}
-
-.page-container {
-  @apply min-h-screen flex flex-col items-start antialiased relative bg-gray-50;
-}
-
-.layout-container {
-  @apply max-w-6xl my-0 mx-auto border-2 border-red-500;
-}
-
-.modal-icon {
-  @apply w-16 h-16 flex items-center text-red-500 mx-auto;
+.main-wrap {
+  @apply p-4 flex-grow bg-gray-200;
 }
 
 nav {
@@ -69,7 +50,7 @@ nav {
 }
 
 footer {
-  @apply w-full h-24 border-t-2 flex justify-center items-center bg-gray-100 border-2 border-blue-500;
+  @apply flex justify-center items-center w-full h-24 border-t-2 bg-gray-100;
 }
 
 @tailwind utilities;

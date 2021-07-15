@@ -11,7 +11,12 @@ const Modal = ({ toggleModal, showModal, title, body }: ModalProps) => {
       <div className='absolute bg-black opacity-80 inset-0 z-0' onClick={() => toggleModal(!showModal)}></div>
       <div className='w-full max-w-lg p-5 relative mx-auto my-auto rounded-xl shadow-lg bg-white'>
         <div className='text-center p-5 flex-auto justify-center'>
-          <svg xmlns='http://www.w3.org/2000/svg' className='modal-icon' fill='none' viewBox='0 0 24 24' stroke='currentColor'>
+          <svg
+            xmlns='http://www.w3.org/2000/svg'
+            className='w-16 h-16 flex items-center mx-auto'
+            fill='none'
+            viewBox='0 0 24 24'
+            stroke='currentColor'>
             <path
               strokeLinecap='round'
               strokeLinejoin='round'

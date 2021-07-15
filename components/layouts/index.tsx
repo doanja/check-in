@@ -34,12 +34,12 @@ const Layout = ({ children }: LayoutProps) => {
   return (
     <MemoryContext.Provider value={{ checkedInUsers, setCheckedInUsers }}>
       <ModalContext.Provider value={{ showModal, toggleModal, title, setTitle, body, setBody }}>
-        <div className='layout-container'>
+        <div className='layout-wrap'>
           <Meta />
           <Nav />
-          <div className='h-screen'>{children}</div>
-          <Footer />
           <Modal toggleModal={toggleModal} showModal={showModal} title={title} body={body} />
+          <main className='main-wrap'>{children}</main>
+          <Footer />
         </div>
       </ModalContext.Provider>
     </MemoryContext.Provider>
