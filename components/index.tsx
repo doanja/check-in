@@ -1,6 +1,11 @@
 import FormInput from './forms/FormInputWrap';
 import FormError from './forms/FormError';
+
 import FormSignUp from './forms/FormSignUp';
+import FormSignUpStepOne from './forms/FormSignUpStepOne';
+import FormSignUpStepTwo from './forms/FormSignupStepTwo';
+import FormSignUpButtons from './forms/FormSignUpButtons';
+
 import FormSignIn from './forms/FormSignIn';
 import FormCheckIn from './forms/FormCheckIn';
 
@@ -22,6 +27,9 @@ export {
   FormInput,
   FormError,
   FormSignUp,
+  FormSignUpStepOne,
+  FormSignUpStepTwo,
+  FormSignUpButtons,
   FormSignIn,
   FormCheckIn,
   CheckInContainer,

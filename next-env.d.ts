@@ -9,3 +9,6 @@ type CheckedInUser = {
   checkInTime: string;
 };
 type SetCheckedInUsers = (users: CheckedInUser[]) => void;
+
+type PrevStep = () => void;
+type NextStep = () => void;
