@@ -38,7 +38,7 @@
 }
 
 .layout-wrap {
-  @apply flex flex-col h-screen max-w-6xl mx-auto;
+  @apply flex flex-col h-screen w-screen mx-auto;
 }
 
 .main-wrap {
@@ -54,7 +54,7 @@ nav {
 }
 
 footer {
-  @apply flex justify-center items-center w-full h-24 border-t-2 bg-gray-100;
+  @apply flex justify-center items-center w-full py-10 border-t-2 bg-gray-100;
 }
 
 @tailwind utilities;
