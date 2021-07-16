@@ -38,11 +38,15 @@
 }
 
 .layout-wrap {
-  @apply flex flex-col h-screen border-2 border-red-700 max-w-6xl my-0 mx-auto;
+  @apply flex flex-col h-screen max-w-6xl mx-auto;
 }
 
 .main-wrap {
-  @apply p-4 flex-grow bg-gray-200;
+  @apply flex-grow p-4 bg-gray-200;
+}
+
+.page-wrap {
+  @apply flex flex-col justify-center h-full;
 }
 
 nav {

@@ -12,7 +12,7 @@ const NavButton = ({ showMenu, linkTo, linkText }: NavButtonProps) => {
       <a
         className={`${
           showMenu && 'hidden'
-        } capitalize md:flex w-full md:w-auto px-4 py-2 text-right bg-blue-900 hover:bg-blue-500 text-white md:rounded`}>
+        } capitalize md:flex w-full md:w-auto px-4 py-2 text-right bg-gray-900 hover:bg-gray-500 text-white md:rounded`}>
         {linkText}
       </a>
     </Link>

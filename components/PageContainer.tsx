@@ -7,7 +7,7 @@ interface PageContainerProps {
 
 const PageContainer = ({ headerLeft, headerRight, subHeader, children }: PageContainerProps) => {
   return (
-    <>
+    <div className='page-wrap'>
       <div className='mx-auto z-10 text-center'>
         <h1 className='text-gray-500 text-5xl font-semibold'>
           {headerLeft}
@@ -18,7 +18,7 @@ const PageContainer = ({ headerLeft, headerRight, subHeader, children }: PageCon
       <div className='max-w-xl w-full mt-24 mb-24 rounded-md shadow-2xl bg-white mx-auto overflow-hidden z-10'>
         <div className='px-16 py-10'>{children}</div>
       </div>
-    </>
+    </div>
   );
 };
 
