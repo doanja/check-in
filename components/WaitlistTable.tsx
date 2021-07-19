@@ -9,25 +9,14 @@ const WaitlistTable = () => {
       <div className='-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8'>
         <div className='py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8'>
           <div className='shadow overflow-hidden border-b border-gray-200 sm:rounded-lg'>
-            <table className='min-w-full divide-y divide-gray-200'>
-              {/* title */}
-              <thead className='bg-gray-800'>
-                <tr>
-                  <th scope='col' className='px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider'>
-                    Name
-                  </th>
-                  <th scope='col' className='px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider'>
-                    Check In Time
-                  </th>
-                </tr>
-              </thead>
-
-              {/* body */}
-              <tbody className='bg-white divide-y divide-gray-200'>
-                {checkedInUsers.map((user: CheckedInUser, i) => (
-                  <WaitlistTableRow user={user} key={i} />
-                ))}
-              </tbody>
+            <table className='min-w-full shadow-lg bg-white'>
+              <tr>
+                <th className='bg-gray-100 border text-left px-8 py-4'>Name</th>
+                <th className='bg-gray-100 border text-left px-8 py-4'>Check-In Time</th>
+              </tr>
+              {checkedInUsers.map((user: CheckedInUser, i) => (
+                <WaitlistTableRow user={user} key={i} />
+              ))}
             </table>
           </div>
         </div>

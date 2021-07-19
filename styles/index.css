@@ -54,7 +54,7 @@ nav {
 }
 
 footer {
-  @apply flex justify-center items-center w-full py-10 border-t-2 bg-gray-100;
+  @apply flex justify-center items-center w-full py-8 border-t-2 bg-gray-100;
 }
 
 @tailwind utilities;
