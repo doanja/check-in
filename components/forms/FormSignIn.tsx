@@ -1,6 +1,7 @@
 import { useForm } from 'react-hook-form';
 import { FormInput, FormError } from 'components';
 import Link from 'next/link';
+import { Spinner } from 'components';
 
 type FormValues = {
   phone: string;
@@ -8,9 +9,10 @@ type FormValues = {
 
 interface FormProps {
   onSubmit: any;
+  isLoading: boolean;
 }
 
-const FormSignIn = ({ onSubmit }: FormProps) => {
+const FormSignIn = ({ onSubmit, isLoading }: FormProps) => {
   const {
     register,
     handleSubmit,
@@ -33,7 +35,8 @@ const FormSignIn = ({ onSubmit }: FormProps) => {
         {errors.phone && <FormError errorMessage={errors.phone.message} />}
       </FormInput>
 
-      <button type='submit' className='form-btn-primary my-3'>
+      <button type='submit' className='form-btn-primary my-3' disabled={isLoading}>
+        <Spinner isLoading={isLoading} />
         Check In
       </button>
 

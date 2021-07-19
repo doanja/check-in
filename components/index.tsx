@@ -3,7 +3,7 @@ import FormError from './forms/FormError';
 
 import FormSignUp from './forms/FormSignUp';
 import FormSignUpStepOne from './forms/FormSignUpStepOne';
-import FormSignUpStepTwo from './forms/FormSignupStepTwo';
+import FormSignUpStepTwo from './forms/FormSignUpStepTwo';
 import FormSignUpButtons from './forms/FormSignUpButtons';
 
 import FormSignIn from './forms/FormSignIn';
@@ -22,6 +22,8 @@ import Modal from './layouts/Modal';
 
 import WaitlistTable from './WaitlistTable';
 import WaitlistTableRow from './WaitlistTableRow';
+
+import Spinner from './Spinner';
 
 export {
   FormInput,
@@ -43,4 +45,5 @@ export {
   Footer,
   WaitlistTable,
   WaitlistTableRow,
+  Spinner,
 };

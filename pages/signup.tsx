@@ -12,9 +12,11 @@ const signUp = () => {
   const { checkedInUsers, setCheckedInUsers } = useMemory();
   const { toggleModal, setTitle, setBody } = useModal();
   const [formStep, setFormStep] = useState(1);
+  const [isLoading, setIsLoading] = useState(false);
 
   const createUser = async (user: Prisma.UserCreateInput, e: React.SyntheticEvent) => {
     e.preventDefault();
+    setIsLoading(true);
 
     try {
       const userService = new UserService();
@@ -33,6 +35,8 @@ const signUp = () => {
       setTitle(error.name);
       setBody(errorText);
       toggleModal(true);
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -41,7 +45,7 @@ const signUp = () => {
       headerLeft='Welcome to '
       headerRight='the Club'
       subHeader='Become a new member in 4 easy steps'
-      children={<FormSignUp onSubmit={createUser} formStep={formStep} setFormStep={setFormStep} />}
+      children={<FormSignUp onSubmit={createUser} formStep={formStep} setFormStep={setFormStep} isLoading={isLoading} />}
     />
   );
 };
