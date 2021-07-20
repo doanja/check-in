@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Prisma } from '@prisma/client';
-import { FormSignUp, PageContainer } from 'components';
+import { FormSignUp, PageContainer } from '@/components';
 import { getCurrentTimeStamp, parseError } from '@/helper';
 import { useRouter } from 'next/router';
 import { useModal } from '@/contexts/ModalContext';

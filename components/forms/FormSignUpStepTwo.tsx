@@ -1,4 +1,4 @@
-import { FormInput, FormError } from 'components';
+import { FormInput, FormError } from '@/components';
 
 interface FormSignupStepTwoProps {
   register: any;

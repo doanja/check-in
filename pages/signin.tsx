@@ -1,4 +1,4 @@
-import { FormSignIn, PageContainer } from 'components';
+import { FormSignIn, PageContainer } from '@/components';
 import { getCurrentTimeStamp, parseError } from '@/helper';
 import { useRouter } from 'next/router';
 import { useModal } from '@/contexts/ModalContext';

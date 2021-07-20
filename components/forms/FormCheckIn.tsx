@@ -1,5 +1,5 @@
 import { useForm } from 'react-hook-form';
-import { FormInput, FormError } from 'components';
+import { FormInput, FormError } from '@/components';
 
 type FormValues = {
   name: string;

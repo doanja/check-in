@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import NavLink from './NavLink';
+import { NavLink } from '@/components';
 
 const Navbar = () => {
   const [showMenu, setShowMenu] = useState(true);

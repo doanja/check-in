@@ -1,5 +1,5 @@
 import { useMemory } from 'contexts/MemoryContext';
-import WaitlistTableRow from './WaitlistTableRow';
+import { WaitlistTableRow } from '@/components';
 
 const WaitlistTable = () => {
   const { checkedInUsers } = useMemory();

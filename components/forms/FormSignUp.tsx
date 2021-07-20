@@ -1,5 +1,5 @@
 import { useForm } from 'react-hook-form';
-import { FormSignUpStepOne, FormSignUpStepTwo, FormSignUpButtons } from 'components';
+import { FormSignUpStepOne, FormSignUpStepTwo, FormSignUpButtons } from '@/components';
 import Link from 'next/link';
 
 type FormValues = {

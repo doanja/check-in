@@ -1,5 +1,5 @@
 import { getCurrentTimeStamp } from '@/helper';
-import { FormCheckIn } from 'components';
+import { FormCheckIn } from '@/components';
 import { useMemory } from 'contexts/MemoryContext';
 import { useRouter } from 'next/router';
 

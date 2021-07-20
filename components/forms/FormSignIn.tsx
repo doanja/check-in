@@ -1,7 +1,6 @@
 import { useForm } from 'react-hook-form';
-import { FormInput, FormError } from 'components';
+import { FormInput, FormError, Spinner } from '@/components';
 import Link from 'next/link';
-import { Spinner } from 'components';
 
 type FormValues = {
   phone: string;
@@ -31,6 +30,8 @@ const FormSignIn = ({ onSubmit, isLoading }: FormProps) => {
           })}
           type='tel'
           placeholder='Phone number'
+          minLength={9}
+          maxLength={10}
         />
         {errors.phone && <FormError errorMessage={errors.phone.message} />}
       </FormInput>
