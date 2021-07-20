@@ -9,7 +9,6 @@ interface FormSignUpButtonsProps {
 }
 
 const FormSignUpButtons = ({ formStep, prevStep, nextStep, isValid, isLoading }: FormSignUpButtonsProps) => {
-  console.log(`isLoading`, isLoading);
   return formStep === 1 ? (
     <div className='form-btn-group'>
       <button disabled={!isValid} onClick={nextStep} type='button' className='form-btn-primary'>

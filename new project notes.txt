@@ -14,4 +14,4 @@ pages:
 
 todo:
 - check in -> enter phone number -> send confirm to user (twilio), and add user to waitlist, redirect to waitlist
-- add spinners during api calls -> and disable button
+- allow deletion / modifying of waitlist`

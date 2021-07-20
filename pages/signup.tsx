@@ -44,7 +44,7 @@ const signUp = () => {
     <PageContainer
       headerLeft='Welcome to '
       headerRight='the Club'
-      subHeader='Become a new member in 4 easy steps'
+      subHeader='Become a new member in 2 easy steps'
       children={<FormSignUp onSubmit={createUser} formStep={formStep} setFormStep={setFormStep} isLoading={isLoading} />}
     />
   );

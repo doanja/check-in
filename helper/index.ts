@@ -1,11 +1,6 @@
 export const parseError = (error: any) => {
   if (error.response) {
     // Request made and server responded
-    console.log(error.response.data);
-
-    // does not show helpful info
-    // console.log(error.response.status);
-    // console.log(error.response.headers);
 
     return `${error.response.data.errorMsg}`;
   } else if (error.request) {

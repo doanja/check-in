@@ -18,7 +18,11 @@
 }
 
 .form-btn-secondary:hover {
-  @apply bg-gray-800 border-gray-800 text-white disabled:cursor-not-allowed;
+  @apply bg-gray-800 border-gray-800 text-white;
+}
+
+.form-btn-secondary:disabled {
+  @apply cursor-not-allowed text-black bg-white border-gray-200;
 }
 
 .form-btn-group {
