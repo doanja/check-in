@@ -5,20 +5,6 @@ const waitlist = () => {
   const router = useRouter();
 
   return (
-    // <div className='page-container'>
-    //   <div className='mx-auto z-10 mt-48 text-center'>
-    //     <h1 className='text-white text-5xl font-semibold'>
-    //       Wait<span className='text-purple-300'>list</span>
-    //     </h1>
-    //   </div>
-
-    // <WaitlistTable />
-
-    // <button onClick={() => router.push('/')} type='button' className='form-btn-primary mt-3 max-w-md mx-auto'>
-    //   Home
-    // </button>
-    // </div>
-
     <PageContainer
       headerLeft='Wait'
       headerRight='list'
@@ -26,7 +12,7 @@ const waitlist = () => {
         <>
           <WaitlistTable />
 
-          <button onClick={() => router.push('/')} type='button' className='form-btn-primary mt-3 max-w-md mx-auto'>
+          <button onClick={() => router.push('/')} type='button' className='form-btn-primary my-3 max-w-md mx-auto'>
             Home
           </button>
         </>
