@@ -7,8 +7,11 @@ const waitlist = () => {
   const [allowEdits, setAllowEdits] = useState<boolean>(false);
   const [showModal, toggleModal] = useState<boolean>(true);
 
-  const editWaitlist = () => {
-    // render form for admin user to login (pin number)
+  const editWaitlist = (formValues: { digit1: string; digit2: string; digit3: string; digit4: string }, e: React.SyntheticEvent) => {
+    e.preventDefault();
+
+    console.log(`formValues`, formValues);
+
     // form on submit verify pin number
     // allow form to be updated
     // render done button, after finished, then set allowEdits to false
@@ -26,11 +29,11 @@ const waitlist = () => {
             Home
           </button>
 
-          <button onClick={editWaitlist} type='button' className='form-btn-secondary my-3 max-w-md mx-auto'>
+          <button onClick={() => toggleModal(true)} type='button' className='form-btn-secondary my-3 max-w-md mx-auto'>
             Edit Waitlist
           </button>
 
-          <ModalPin showModal={showModal} toggleModal={toggleModal} title={'Enter Security Pin'} body={''} />
+          <ModalPin showModal={showModal} toggleModal={toggleModal} title={'Enter Security Pin'} body={''} editWaitlist={editWaitlist} />
         </>
       }
     />

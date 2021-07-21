@@ -38,7 +38,7 @@
 }
 
 .form-input-pin {
-  @apply shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight w-8;
+  @apply shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight w-10;
 }
 
 .form-input-pin:focus {

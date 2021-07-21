@@ -8,6 +8,7 @@ import FormSignUpButtons from './forms/FormSignUpButtons';
 
 import FormSignIn from './forms/FormSignIn';
 import FormCheckIn from './forms/FormCheckIn';
+import FormPin from './forms/FormPin';
 
 import CheckInContainer from './CheckInContainer';
 import PageContainer from './PageContainer';
@@ -35,6 +36,7 @@ export {
   FormSignUpButtons,
   FormSignIn,
   FormCheckIn,
+  FormPin,
   CheckInContainer,
   PageContainer,
   Modal,
