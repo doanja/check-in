@@ -1,5 +1,6 @@
 import { useForm } from 'react-hook-form';
 import { FormError } from '@/components';
+import { useEffect } from 'react';
 
 type FormValues = {
   digit1: string;
@@ -10,14 +11,20 @@ type FormValues = {
 
 interface FormProps {
   onSubmit: any;
+  errorMsg: string;
 }
 
-const FormPin = ({ onSubmit }: FormProps) => {
+const FormPin = ({ onSubmit, errorMsg }: FormProps) => {
   const {
     register,
     handleSubmit,
+    setFocus,
     formState: { errors },
   } = useForm<FormValues>({ mode: 'all' });
+
+  useEffect(() => {
+    setFocus('digit1');
+  }, [setFocus]);
 
   return (
     <>
@@ -66,11 +73,12 @@ const FormPin = ({ onSubmit }: FormProps) => {
           {(errors.digit1 && <FormError errorMessage={errors.digit1.message} />) ||
             (errors.digit2 && <FormError errorMessage={errors.digit2.message} />) ||
             (errors.digit3 && <FormError errorMessage={errors.digit3.message} />) ||
-            (errors.digit4 && <FormError errorMessage={errors.digit4.message} />)}
+            (errors.digit4 && <FormError errorMessage={errors.digit4.message} />) ||
+            (errorMsg && <FormError errorMessage={errorMsg} />)}
         </div>
 
         <button type='submit' className='form-btn-primary mt-3'>
-          TEST
+          SUBMIT
         </button>
       </form>
     </>

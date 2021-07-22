@@ -1,8 +1,25 @@
 import { useMemory } from 'contexts/MemoryContext';
 import { WaitlistTableRow } from '@/components';
 
-const WaitlistTable = () => {
-  const { checkedInUsers } = useMemory();
+interface WaitlistTableProps {
+  allowEdits: boolean;
+}
+
+const WaitlistTable = ({ allowEdits }: WaitlistTableProps) => {
+  const { checkedInUsers, setCheckedInUsers } = useMemory();
+
+  const toggleIsCheckedIn = (userId: string) => {
+    console.log(`userId`, userId);
+    const a = checkedInUsers.map((user: CheckedInUser) => {
+      if (user.id === userId) {
+        console.log(`user.id`, user.id);
+        user.isCheckedIn !== user.isCheckedIn;
+      }
+      return user;
+    });
+
+    setCheckedInUsers(a);
+  };
 
   return (
     <div className='flex flex-col max-w-md mx-auto mt-3'>
@@ -15,8 +32,8 @@ const WaitlistTable = () => {
                   <th className='bg-gray-100 border text-left px-8 py-4'>Name</th>
                   <th className='bg-gray-100 border text-left px-8 py-4'>Check-In Time</th>
                 </tr>
-                {checkedInUsers.map((user: CheckedInUser, i) => (
-                  <WaitlistTableRow user={user} key={i} />
+                {checkedInUsers.map((user: CheckedInUser) => (
+                  <WaitlistTableRow user={user} key={user.id} allowEdits={allowEdits} toggleIsCheckedIn={toggleIsCheckedIn} />
                 ))}
               </tbody>
             </table>

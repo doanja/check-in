@@ -6,9 +6,10 @@ interface ModalPinProps {
   title: string;
   body: string;
   editWaitlist: any;
+  errorMsg: string;
 }
 
-const ModalPin = ({ toggleModal, showModal, title, body, editWaitlist }: ModalPinProps) => {
+const ModalPin = ({ toggleModal, showModal, title, body, editWaitlist, errorMsg }: ModalPinProps) => {
   return showModal ? (
     <div className='min-w-screen h-screen animated fadeIn faster fixed left-0 top-0 flex justify-center items-center inset-0 z-50 outline-none focus:outline-none bg-no-repeat bg-center bg-cover'>
       <div className='absolute bg-black opacity-80 inset-0 z-0' onClick={() => toggleModal(!showModal)}></div>
@@ -33,7 +34,7 @@ const ModalPin = ({ toggleModal, showModal, title, body, editWaitlist }: ModalPi
         </div>
 
         {/* form */}
-        <FormPin onSubmit={editWaitlist} />
+        <FormPin onSubmit={editWaitlist} errorMsg={errorMsg} />
       </div>
     </div>
   ) : null;
