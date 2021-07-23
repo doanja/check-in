@@ -13,6 +13,7 @@ const FormCheckIn = ({ onSubmit }: FormProps) => {
   const {
     register,
     handleSubmit,
+    reset,
     formState: { errors },
   } = useForm<FormValues>();
 

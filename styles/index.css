@@ -37,14 +37,6 @@
   @apply block text-gray-700 text-xl font-bold mb-2 capitalize;
 }
 
-.form-input-pin {
-  @apply shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight w-10;
-}
-
-.form-input-pin:focus {
-  @apply outline-none;
-}
-
 .button-label {
   @apply text-gray-700 text-lg font-bold mb-3;
 }
@@ -59,6 +51,10 @@
 
 .page-wrap {
   @apply flex flex-col justify-center h-full;
+}
+
+.trash-icon:hover {
+  @apply text-red-500 cursor-pointer;
 }
 
 nav {

@@ -9,11 +9,10 @@ const WaitlistTable = ({ allowEdits }: WaitlistTableProps) => {
   const { checkedInUsers, setCheckedInUsers } = useMemory();
 
   const toggleIsCheckedIn = (userId: string) => {
-    console.log(`userId`, userId);
     const a = checkedInUsers.map((user: CheckedInUser) => {
       if (user.id === userId) {
-        console.log(`user.id`, user.id);
-        user.isCheckedIn !== user.isCheckedIn;
+        user.isCheckedIn = !user.isCheckedIn;
+        console.log(`user`, user);
       }
       return user;
     });
