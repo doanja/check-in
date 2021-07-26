@@ -12,7 +12,6 @@ const WaitlistTable = ({ allowEdits }: WaitlistTableProps) => {
     const a = checkedInUsers.map((user: CheckedInUser) => {
       if (user.id === userId) {
         user.isCheckedIn = !user.isCheckedIn;
-        console.log(`user`, user);
       }
       return user;
     });
@@ -22,7 +21,7 @@ const WaitlistTable = ({ allowEdits }: WaitlistTableProps) => {
 
   return (
     <div className='flex flex-col max-w-md mx-auto mt-3'>
-      <div className='-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8'>
+      <div className='overflow-x-auto sm:-mx-6 lg:-mx-8'>
         <div className='py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8'>
           <div className='shadow overflow-hidden border-b border-gray-200 sm:rounded-lg'>
             <table className='min-w-full shadow-lg bg-white'>

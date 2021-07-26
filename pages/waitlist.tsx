@@ -45,34 +45,28 @@ const waitlist = ({ SECRET_PIN }: WaitlistProps) => {
       children={
         <>
           <CheckInContainer />
+          <WaitlistTable allowEdits={allowEdits} />
+
           {allowEdits ? (
-            <>
-              <WaitlistTable allowEdits={allowEdits} />
+            <div className='form-btn-group'>
+              <button onClick={() => setAllowEdits(false)} type='button' className='form-btn-primary my-3 max-w-md mx-auto'>
+                Done
+              </button>
 
-              <div className='form-btn-group'>
-                <button onClick={() => setAllowEdits(false)} type='button' className='form-btn-primary my-3 max-w-md mx-auto'>
-                  Done
-                </button>
-
-                <button onClick={clearWaitlist} type='button' className='form-btn-secondary my-3 max-w-md mx-auto'>
-                  Clear Waitlist
-                </button>
-              </div>
-            </>
+              <button onClick={clearWaitlist} type='button' className='form-btn-secondary my-3 max-w-md mx-auto'>
+                Clear Waitlist
+              </button>
+            </div>
           ) : (
-            <>
-              <WaitlistTable allowEdits={allowEdits} />
+            <div className='form-btn-group'>
+              <button onClick={() => router.push('/')} type='button' className='form-btn-primary my-3 max-w-md mx-auto'>
+                Home
+              </button>
 
-              <div className='form-btn-group'>
-                <button onClick={() => router.push('/')} type='button' className='form-btn-primary my-3 max-w-md mx-auto'>
-                  Home
-                </button>
-
-                <button onClick={() => toggleModal(true)} type='button' className='form-btn-secondary my-3 max-w-md mx-auto'>
-                  Edit Waitlist
-                </button>
-              </div>
-            </>
+              <button onClick={() => toggleModal(true)} type='button' className='form-btn-secondary my-3 max-w-md mx-auto'>
+                Edit Waitlist
+              </button>
+            </div>
           )}
 
           <ModalPin
