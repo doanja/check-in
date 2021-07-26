@@ -1,5 +1,5 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
-import { PrismaClient, User, Prisma } from '@prisma/client';
+import { PrismaClient, User } from '@prisma/client';
 
 export default async (req: NextApiRequest, res: NextApiResponse) => {
   const prisma = new PrismaClient();
