@@ -10,7 +10,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
   const prisma = new PrismaClient();
 
   switch (req.method) {
-    case 'GET': {
+    case 'POST': {
       return test(req, res, prisma);
     }
 
@@ -20,19 +20,28 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
 };
 
 const test = async (req: NextApiRequest, res: NextApiResponse, prisma: PrismaClient) => {
-  console.log(`accountSid`, accountSid);
-  console.log(`authToken`, authToken);
-  console.log(`twilioPhone`, twilioPhone);
+  try {
+    const { phoneNumber } = req.body;
 
-  const client = twillio(accountSid, authToken);
+    console.log(`accountSid`, accountSid);
+    console.log(`authToken`, authToken);
+    console.log(`twilioPhone`, twilioPhone);
 
-  const message = await client.messages.create({
-    body: `\n
+    const client = twillio(accountSid, authToken);
+
+    const message = await client.messages.create({
+      body: `\n
     Your order from MODE™ has been shipped. USPS tracking number: 9405511108400829194984
     \n
     \n Download Shop to track your order: https://shop.app/sms`,
-    from: twilioPhone, // my twilio testing number
-    to: `+12533355485`,
-  });
-  res.json(message);
+      from: twilioPhone,
+      to: `+1${phoneNumber}`,
+    });
+
+    res.status(200).json({ data: message });
+  } catch (error) {
+    res.status(500).json({ errorName: error.name, errorMsg: error.message });
+  } finally {
+    await prisma.$disconnect();
+  }
 };

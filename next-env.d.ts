@@ -7,6 +7,7 @@ type SetTextField = (text: string) => void;
 type CheckedInUser = {
   id: string;
   name: string;
+  phoneNumber?: string;
   checkInTime: string;
   isCheckedIn: boolean;
 };

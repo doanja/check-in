@@ -22,7 +22,7 @@ const signUp = () => {
       const userService = new UserService();
       const res = await userService.createUser(user);
       const res2 = await userService.checkInUser(res.data.data.phone);
-      const newCheckedInUser: CheckedInUser = { name: res2.data.data.name, checkInTime: getCurrentTimeStamp() };
+      const newCheckedInUser: CheckedInUser = { name: res2.data.data.name, checkInTime: getCurrentTimeStamp(), id: 'test', isCheckedIn: false };
       await setCheckedInUsers([...checkedInUsers, newCheckedInUser]);
 
       // TODO: send text to customer with pts info

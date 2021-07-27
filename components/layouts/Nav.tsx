@@ -29,7 +29,7 @@ const Navbar = () => {
         onClick={closeMenu}>
         <NavLink linkTo='' linkText='home' />
         <NavLink linkTo='signup' linkText='sign-up' />
-        <NavLink linkTo='signin' linkText='sign-in' />
+        {/* <NavLink linkTo='signin' linkText='sign-in' /> */}
         <NavLink linkTo='waitlist' linkText='waitlist' />
       </div>
     </nav>

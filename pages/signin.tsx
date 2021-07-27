@@ -5,6 +5,7 @@ import { useModal } from '@/contexts/ModalContext';
 import { useMemory } from '@/contexts/MemoryContext';
 import { UserService } from 'services';
 import { useState } from 'react';
+import { v4 as uuidv4 } from 'uuid';
 
 const signIn = () => {
   const router = useRouter();
@@ -19,7 +20,7 @@ const signIn = () => {
     try {
       const userService = new UserService();
       const res = await userService.checkInUser(formValues.phone);
-      const newCheckedInUser: CheckedInUser = { name: res.data.data.name, checkInTime: getCurrentTimeStamp() };
+      const newCheckedInUser: CheckedInUser = { id: uuidv4(), name: res.data.data.name, checkInTime: getCurrentTimeStamp(), isCheckedIn: false };
       await setCheckedInUsers([...checkedInUsers, newCheckedInUser]);
 
       // TODO: send text to customer with pts info

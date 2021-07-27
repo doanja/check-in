@@ -34,11 +34,11 @@
 }
 
 .form-input-wrap {
-  @apply block text-gray-700 text-xl font-bold mb-2 capitalize;
+  @apply block text-gray-700 text-sm font-bold mb-2 capitalize;
 }
 
 .button-label {
-  @apply text-gray-700 text-lg font-bold mb-3;
+  @apply text-gray-700 text-2xl mb-3 text-center;
 }
 
 .layout-wrap {
