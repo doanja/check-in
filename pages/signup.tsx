@@ -25,8 +25,6 @@ const signUp = () => {
       const newCheckedInUser: CheckedInUser = { name: res2.data.data.name, checkInTime: getCurrentTimeStamp(), id: 'test', isCheckedIn: false };
       await setCheckedInUsers([...checkedInUsers, newCheckedInUser]);
 
-      // TODO: send text to customer with pts info
-
       router.push('/waitlist');
     } catch (error) {
       const errorText = parseError(error);

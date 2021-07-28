@@ -6,7 +6,6 @@ import FormSignUpStepOne from './forms/FormSignUpStepOne';
 import FormSignUpStepTwo from './forms/FormSignUpStepTwo';
 import FormSignUpButtons from './forms/FormSignUpButtons';
 
-import FormSignIn from './forms/FormSignIn';
 import FormCheckIn from './forms/FormCheckIn';
 import FormPin from './forms/FormPin';
 
@@ -34,7 +33,6 @@ export {
   FormSignUpStepOne,
   FormSignUpStepTwo,
   FormSignUpButtons,
-  FormSignIn,
   FormCheckIn,
   FormPin,
   CheckInContainer,
