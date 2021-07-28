@@ -36,8 +36,6 @@ const CheckInContainer = () => {
       const newCheckedInUser: CheckedInUser = { id: uuidv4(), name, phoneNumber, checkInTime: getCurrentTimeStamp(), isCheckedIn: false };
       await setCheckedInUsers([...checkedInUsers, newCheckedInUser]);
 
-      // TODO: send text to customer with pts info
-
       router.push('/waitlist');
     } catch (error) {
       const errorText = parseError(error);

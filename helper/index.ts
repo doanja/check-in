@@ -1,10 +1,3 @@
-// import twillio from 'twilio';
-
-// const accountSid = process.env.TWILIO_ACCOUNT_SI;
-// const authToken = process.env.TWILIO_AUTH_TOKEN;
-
-// export const createTwilioClient = () => twillio(accountSid, authToken);
-
 export const parseError = (error: any) => {
   if (error.response) {
     // Request made and server responded

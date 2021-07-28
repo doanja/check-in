@@ -23,10 +23,6 @@ const test = async (req: NextApiRequest, res: NextApiResponse, prisma: PrismaCli
   try {
     const { phoneNumber } = req.body;
 
-    console.log(`accountSid`, accountSid);
-    console.log(`authToken`, authToken);
-    console.log(`twilioPhone`, twilioPhone);
-
     const client = twillio(accountSid, authToken);
 
     const message = await client.messages.create({

@@ -32,7 +32,7 @@ const FormCheckIn = ({ onSubmit, isLoading }: FormProps) => {
       </FormInput>
 
       {/* phone */}
-      <FormInput textFor='phone' labelText='phone (optional)'>
+      <FormInput textFor='phone' labelText='phone (optional for returning customers)'>
         <input
           className='form-input'
           {...register('phone', {
