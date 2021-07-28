@@ -1,27 +1,25 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 import { PrismaClient, User } from '@prisma/client';
 import twillio from 'twilio';
+import EnvVariables from '@/helper/EnvVariables';
 
-const accountSid = process.env.TWILIO_ACCOUNT_SI;
-const authToken = process.env.TWILIO_AUTH_TOKEN;
-const twilioPhone = process.env.TWILIO_PHONE_NUMBER;
-const siteName = process.env.SITE_NAME;
+const env = new EnvVariables();
 
 const sendTwillioMsg = async (message: string, phone: string, delay: number) => {
-  const twillioClient = twillio(accountSid, authToken);
+  const twillioClient = twillio(env.accountSid, env.authToken);
 
   if (delay > 0) {
     setTimeout(() => {
       twillioClient.messages.create({
         body: message,
-        from: twilioPhone,
+        from: env.twilioPhone,
         to: `+1${phone}`,
       });
     }, 10000);
   } else {
     await twillioClient.messages.create({
       body: message,
-      from: twilioPhone,
+      from: env.twilioPhone,
       to: `+1${phone}`,
     });
   }
@@ -56,7 +54,7 @@ const checkInUser = async (req: NextApiRequest, res: NextApiResponse, prisma: Pr
       },
     });
 
-    sendTwillioMsg(`\nThank you for checking in at ${siteName}.\nWe will let you know when we're ready for you.`, phone, 0);
+    sendTwillioMsg(`\nThank you for checking in at ${env.siteName}.\nWe will let you know when we're ready for you.`, phone, 0);
 
     sendTwillioMsg(`\nThis is a test message.`, phone, 10000);
 

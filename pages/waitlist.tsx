@@ -5,7 +5,7 @@ import { useMemory } from 'contexts/MemoryContext';
 
 export async function getStaticProps() {
   return {
-    props: { SECRET_PIN: process.env.PIN },
+    props: { SECRET_PIN: process.env.SECRET_PIN },
   };
 }
 
