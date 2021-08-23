@@ -7,7 +7,7 @@ import { useModal } from '@/contexts/ModalContext';
 import { v4 as uuidv4 } from 'uuid';
 import { UserService } from 'services';
 
-const CheckInContainer = () => {
+const CheckInWrap = () => {
   const router = useRouter();
   const { checkedInUsers, setCheckedInUsers } = useMemory();
   const { toggleModal, setTitle, setBody } = useModal();
@@ -51,4 +51,4 @@ const CheckInContainer = () => {
   return <FormCheckIn onSubmit={checkInUser} isLoading={isLoading} />;
 };
 
-export default CheckInContainer;
+export default CheckInWrap;

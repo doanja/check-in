@@ -1,4 +1,4 @@
-import { CheckInContainer, ModalPin, PageContainer, WaitlistTable } from '@/components';
+import { CheckInWrap, ModalPin, PageContainer, WaitlistTable } from '@/components';
 import { useRouter } from 'next/router';
 import { useState } from 'react';
 import { useMemory } from 'contexts/MemoryContext';
@@ -44,7 +44,7 @@ const waitlist = ({ SECRET_PIN }: WaitlistProps) => {
       headerRight='list'
       children={
         <>
-          <CheckInContainer />
+          <CheckInWrap />
           <WaitlistTable allowEdits={allowEdits} />
 
           {allowEdits ? (

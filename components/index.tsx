@@ -9,7 +9,7 @@ import FormSignUpButtons from './forms/FormSignUpButtons';
 import FormCheckIn from './forms/FormCheckIn';
 import FormPin from './forms/FormPin';
 
-import CheckInContainer from './CheckInContainer';
+import CheckInWrap from './CheckInWrap';
 import PageContainer from './PageContainer';
 
 import Meta from './layouts/Meta';
@@ -35,7 +35,7 @@ export {
   FormSignUpButtons,
   FormCheckIn,
   FormPin,
-  CheckInContainer,
+  CheckInWrap,
   PageContainer,
   Modal,
   Meta,
