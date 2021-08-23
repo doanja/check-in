@@ -6,20 +6,30 @@ const Navbar = () => {
   const closeMenu = () => !showMenu && setShowMenu(!showMenu);
 
   return (
-    <nav>
+    <nav className='flex flex-wrap items-center justify-between p-2 md:p-4 text-gray-800'>
       {/* logo */}
-      <img src='https://www.wilsonfamilychiropracticcenter.net/wp-content/uploads/2018/12/placeholder-logo-2.png' alt='ACME' width='120' />
+      <div className='flex items-center'>test</div>
 
       {/* hamburger */}
       <div className='flex md:hidden'>
         <button onClick={() => setShowMenu(!showMenu)}>
-          <img
-            className={`${showMenu ? 'block' : 'hidden'}`}
-            src='https://img.icons8.com/fluent-systems-regular/2x/menu-squared-2.png'
-            width='40'
-            height='40'
-          />
-          <img className={`${showMenu && 'hidden'}`} src='https://img.icons8.com/fluent-systems-regular/2x/close-window.png' width='40' height='40' />
+          <svg
+            xmlns='http://www.w3.org/2000/svg'
+            className={`${showMenu ? 'block' : 'hidden'} h-8 w-8 text-black`}
+            fill='none'
+            viewBox='0 0 24 24'
+            stroke='currentColor'>
+            <path strokeLinecap='round' strokeLinejoin='round' strokeWidth={2} d='M4 6h16M4 12h16M4 18h16' />
+          </svg>
+
+          <svg
+            xmlns='http://www.w3.org/2000/svg'
+            className={`${showMenu && 'hidden'} h-8 w-8 text-black`}
+            fill='none'
+            viewBox='0 0 24 24'
+            stroke='currentColor'>
+            <path strokeLinecap='round' strokeLinejoin='round' strokeWidth={2} d='M6 18L18 6M6 6l12 12' />
+          </svg>
         </button>
       </div>
 
