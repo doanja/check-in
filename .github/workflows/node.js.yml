@@ -20,6 +20,12 @@ jobs:
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 
     steps:
+      env:
+        SECRET_PIN: 1111
+        SITE_NAME: Test Store
+        TWILIO_ACCOUNT_SI: AC67f18e558c8d0bc04640e39bd916503f
+        TWILIO_AUTH_TOKEN: 4e83bebdf50a101072423c0953073186
+        TWILIO_PHONE_NUMBER: 12532010784
     - uses: actions/checkout@v2
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v2
