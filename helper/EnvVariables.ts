@@ -36,14 +36,16 @@ class EnvVariables {
   }
 
   private validateEnvVariables(processEnv: NodeJS.ProcessEnv) {
-    if (
-      !processEnv.TWILIO_ACCOUNT_SI ||
-      !processEnv.TWILIO_AUTH_TOKEN ||
-      !processEnv.TWILIO_PHONE_NUMBER ||
-      !processEnv.SITE_NAME ||
-      !processEnv.SECRET_PIN
-    ) {
-      throw new Error('Enviroment variables missing');
+    if (!processEnv.TWILIO_ACCOUNT_SI) {
+      throw new Error('Enviroment variable TWILIO_ACCOUNT_SI missing');
+    } else if (!processEnv.TWILIO_AUTH_TOKEN) {
+      throw new Error('Enviroment variable TWILIO_AUTH_TOKEN missing');
+    } else if (!processEnv.TWILIO_PHONE_NUMBER) {
+      throw new Error('Enviroment variable TWILIO_PHONE_NUMBER missing');
+    } else if (!processEnv.SITE_NAME) {
+      throw new Error('Enviroment variable SITE_NAME missing');
+    } else if (!processEnv.SECRET_PIN) {
+      throw new Error('Enviroment variable SECRET_PIN missing');
     }
   }
 }

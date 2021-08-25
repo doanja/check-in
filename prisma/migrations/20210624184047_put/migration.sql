@@ -1,3 +1,0 @@
--- AlterTable
-ALTER TABLE `User` MODIFY `points` INTEGER NOT NULL DEFAULT 1,
-    MODIFY `checkins` INTEGER NOT NULL DEFAULT 1;
