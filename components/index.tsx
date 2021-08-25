@@ -7,6 +7,7 @@ import FormSignUpStepTwo from './forms/FormSignUpStepTwo';
 import FormSignUpButtons from './forms/FormSignUpButtons';
 
 import FormCheckIn from './forms/FormCheckIn';
+import FormCheckInPhone from './forms/FormCheckInPhone';
 import FormPin from './forms/FormPin';
 
 import CheckInWrap from './CheckInWrap';
@@ -34,6 +35,7 @@ export {
   FormSignUpStepTwo,
   FormSignUpButtons,
   FormCheckIn,
+  FormCheckInPhone,
   FormPin,
   CheckInWrap,
   PageContainer,

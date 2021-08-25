@@ -39,7 +39,7 @@ const FormSignUp = ({ onSubmit, formStep, setFormStep, isLoading }: FormProps) =
 
       <FormSignUpButtons formStep={formStep} prevStep={prevStep} nextStep={nextStep} isValid={isValid} isLoading={isLoading} />
 
-      {<Link href='/signin'>Already a member? Check-In here.</Link>}
+      {<Link href='/'>Already a member? Check-In here.</Link>}
     </form>
   );
 };

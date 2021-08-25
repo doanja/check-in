@@ -44,7 +44,6 @@ const waitlist = ({ SECRET_PIN }: WaitlistProps) => {
       headerRight='list'
       children={
         <>
-          <CheckInWrap />
           <WaitlistTable allowEdits={allowEdits} />
 
           {allowEdits ? (
