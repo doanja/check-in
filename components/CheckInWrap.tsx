@@ -2,10 +2,9 @@ import { useState } from 'react';
 import { useRouter } from 'next/router';
 import { getCurrentTimeStamp, parseError } from '@/helper';
 import { FormCheckIn } from '@/components';
-import { useMemory } from 'contexts/MemoryContext';
-import { useModal } from '@/contexts/ModalContext';
+import { useMemory, useModal } from '@/contexts';
 import { v4 as uuidv4 } from 'uuid';
-import { UserService } from 'services';
+import { UserService } from '@/services';
 
 const CheckInWrap = () => {
   const router = useRouter();

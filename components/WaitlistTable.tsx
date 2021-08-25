@@ -1,4 +1,4 @@
-import { useMemory } from 'contexts/MemoryContext';
+import { useMemory } from '@/contexts';
 import { WaitlistTableRow } from '@/components';
 
 interface WaitlistTableProps {

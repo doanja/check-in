@@ -1,9 +1,8 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 import { PrismaClient, User } from '@prisma/client';
+import prisma from '@/lib/prisma';
 
 export default async (req: NextApiRequest, res: NextApiResponse) => {
-  const prisma = new PrismaClient();
-
   switch (req.method) {
     case 'GET': {
       return getUsers(req, res, prisma);

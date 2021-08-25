@@ -1,11 +1,10 @@
 import React, { useState } from 'react';
+import { useRouter } from 'next/router';
 import { Prisma } from '@prisma/client';
 import { FormSignUp, PageContainer } from '@/components';
 import { getCurrentTimeStamp, parseError } from '@/helper';
-import { useRouter } from 'next/router';
-import { useModal } from '@/contexts/ModalContext';
-import { useMemory } from '@/contexts/MemoryContext';
-import { UserService } from 'services';
+import { useModal, useMemory } from '@/contexts';
+import { UserService } from '@/services';
 
 const signUp = () => {
   const router = useRouter();

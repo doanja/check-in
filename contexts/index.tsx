@@ -1,4 +1,4 @@
-import { MemoryContext } from './MemoryContext';
-import { ModalContext } from './ModalContext';
+import { MemoryContext, useMemory } from './MemoryContext';
+import { ModalContext, useModal } from './ModalContext';
 
-export { MemoryContext, ModalContext };
+export { MemoryContext, useMemory, ModalContext, useModal };

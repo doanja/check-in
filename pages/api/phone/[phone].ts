@@ -1,5 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 import { PrismaClient, User } from '@prisma/client';
+import prisma from '@/lib/prisma';
 import twillio from 'twilio';
 import EnvVariables from '@/helper/EnvVariables';
 
@@ -26,8 +27,6 @@ const sendTwillioMsg = async (message: string, phone: string, delay: number) => 
 };
 
 export default async (req: NextApiRequest, res: NextApiResponse) => {
-  const prisma = new PrismaClient();
-
   switch (req.method) {
     case 'PUT': {
       return checkInUser(req, res, prisma);

@@ -1,7 +1,7 @@
 import { CheckInWrap, ModalPin, PageContainer, WaitlistTable } from '@/components';
 import { useRouter } from 'next/router';
 import { useState } from 'react';
-import { useMemory } from 'contexts/MemoryContext';
+import { useMemory } from '@/contexts';
 
 export async function getStaticProps() {
   return {
