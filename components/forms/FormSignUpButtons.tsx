@@ -16,14 +16,14 @@ const FormSignUpButtons = ({ formStep, prevStep, nextStep, isValid, isLoading }:
       </button>
     </div>
   ) : (
-    <div>
-      <button onClick={prevStep} type='button' className='form-btn-secondary' disabled={isLoading}>
+    <div className='form-btn-group'>
+       <button onClick={prevStep} type='button' className='form-btn-secondary' disabled={isLoading}>
         Back
       </button>
 
-      <button type='submit' className='form-btn-primary my-3' disabled={isLoading}>
+       <button type='submit' className='form-btn-primary' disabled={isLoading}>
         <Spinner isLoading={isLoading} />
-        {'Complete Signup & Check In'}
+        {'Complete Signup'}
       </button>
     </div>
   );
