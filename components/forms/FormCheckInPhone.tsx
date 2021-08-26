@@ -25,9 +25,9 @@ const FormCheckInPhone = ({ onSubmit, isLoading }: FormProps) => {
         <input
           className='form-input'
           {...register('phone', {
-            required: false,
+            required: 'Phone is required',
             maxLength: { value: 10, message: 'You exceeded the max length' },
-            pattern: { value: /[0-9]{10}/, message: 'Must be a valid phone number with area code' },
+            pattern: { value: /[0-9]{10}/, message: 'Must be a valid phone number with area code.' },
           })}
           type='tel'
           placeholder='Phone number'

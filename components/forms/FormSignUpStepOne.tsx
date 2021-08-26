@@ -11,7 +11,7 @@ const FormSignUpStepOne = ({ register, errors }: FormSignInStepOneProps) => {
       <FormInput textFor='name' labelText='name'>
         <input
           className='form-input'
-          {...register('name', { required: 'This is required', maxLength: { value: 32, message: 'You exceeded the max length' } })}
+          {...register('name', { required: 'Name is required', maxLength: { value: 32, message: 'You exceeded the max length' } })}
           type='text'
           placeholder='Name'
           minLength={1}
@@ -24,7 +24,7 @@ const FormSignUpStepOne = ({ register, errors }: FormSignInStepOneProps) => {
         <input
           className='form-input'
           {...register('phone', {
-            required: 'This is required',
+            required: 'Phone is required',
             maxLength: { value: 10, message: 'You exceeded the max length' },
             pattern: { value: /[0-9]{10}/, message: 'Must be a valid phone number with area code' },
           })}

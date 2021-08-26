@@ -1,11 +1,10 @@
 import { useState } from 'react';
 import { useRouter } from 'next/router';
 import { getCurrentTimeStamp, parseError } from '@/helper';
-import { FormCheckIn } from '@/components';
+import { FormCheckIn, FormCheckInPhone } from '@/components';
 import { useMemory, useModal } from '@/contexts';
 import { v4 as uuidv4 } from 'uuid';
 import { UserService } from '@/services';
-import FormCheckInPhone from './forms/FormCheckInPhone';
 
 interface CheckInWrapProps {
   isNewUser: boolean;
@@ -29,6 +28,7 @@ const CheckInWrap = ({ isNewUser }: CheckInWrapProps) => {
     try {
       const userService = new UserService();
       const res = await userService.checkInUser(formValues.phone);
+      console.log(`res.data`, res.data);
       const { name, phoneNumber } = res.data.data;
 
       const newCheckedInUser: CheckedInUser = { id: uuidv4(), name, phoneNumber, checkInTime: getCurrentTimeStamp(), isCheckedIn: false };

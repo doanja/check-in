@@ -28,7 +28,7 @@ const FormPin = ({ onSubmit, errorMsg }: FormProps) => {
             maxLength={4}
             size={1}
             {...register('pin', {
-              required: 'This is required',
+              required: 'Pin is required',
             })}
           />
         </div>

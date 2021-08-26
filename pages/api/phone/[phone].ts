@@ -1,10 +1,8 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 import { PrismaClient, User } from '@prisma/client';
-import prisma from '@/lib/prisma';
 import twillio from 'twilio';
-import EnvVariables from '@/helper/EnvVariables';
-
-const env = new EnvVariables();
+import prisma from '@/lib/prisma';
+import env from '@/lib/env';
 
 const sendTwillioMsg = async (message: string, phone: string, delay: number) => {
   const twillioClient = twillio(env.accountSid, env.authToken);
@@ -63,7 +61,7 @@ const checkInUser = async (req: NextApiRequest, res: NextApiResponse, prisma: Pr
       res.status(500).json({ errorName: error.name, errorMsg: 'Phone number is not registered.' });
     }
 
-    res.status(500).json({ errorName: error.name, errorMsg: error.message, error });
+    res.status(520).json({ errorName: error.name, errorMsg: 'An unknown error has occured.' });
   } finally {
     await prisma.$disconnect();
   }

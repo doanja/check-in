@@ -23,7 +23,7 @@ const FormCheckIn = ({ onSubmit, isLoading }: FormProps) => {
       <FormInput textFor='name' labelText='name'>
         <input
           className='form-input'
-          {...register('name', { required: 'This is required', maxLength: { value: 32, message: 'You exceeded the max length' } })}
+          {...register('name', { required: 'Name is required', maxLength: { value: 32, message: 'You exceeded the max length' } })}
           type='text'
           placeholder='Name'
         />
