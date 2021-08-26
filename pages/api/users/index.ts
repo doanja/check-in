@@ -38,9 +38,9 @@ const createUser = async (req: NextApiRequest, res: NextApiResponse, prisma: Pri
   } catch (error) {
     if (error.code === 'P2002') {
       res.status(500).json({ errorName: error.name, errorMsg: 'Phone number or email address is already in use.' });
+    } else {
+      res.status(520).json({ errorName: error.name, errorMsg: 'An unknown error has occured.' });
     }
-
-    res.status(520).json({ errorName: error.name, errorMsg: 'An unknown error has occured.' });
   } finally {
     await prisma.$disconnect();
   }

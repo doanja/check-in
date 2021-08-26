@@ -59,9 +59,9 @@ const checkInUser = async (req: NextApiRequest, res: NextApiResponse, prisma: Pr
   } catch (error) {
     if (error.message.includes('Record to update not found')) {
       res.status(500).json({ errorName: error.name, errorMsg: 'Phone number is not registered.' });
+    } else {
+      res.status(520).json({ errorName: error.name, errorMsg: 'An unknown error has occured.' });
     }
-
-    res.status(520).json({ errorName: error.name, errorMsg: 'An unknown error has occured.' });
   } finally {
     await prisma.$disconnect();
   }
