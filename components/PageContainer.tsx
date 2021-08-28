@@ -13,9 +13,9 @@ const PageContainer = ({ headerLeft, headerRight, subHeader, children }: PageCon
           {headerLeft}
           <span className='text-gray-700'>{headerRight}</span>
         </h1>
-        <p className='text-grey-700 mt-2'>{subHeader}</p>
+        <p className='text-grey-700 text-base font-light leading-relaxed mt-2'>{subHeader}</p>
       </div>
-      <div className='max-w-xl w-full mt-24 mb-24 rounded-md shadow-2xl mx-auto overflow-hidden z-10 border border-gray-400'>
+      <div className='max-w-xl w-full my-12 rounded-md shadow-2xl mx-auto overflow-hidden z-10 border border-gray-400 md:my-24'>
         <div className='px-16 py-10'>{children}</div>
       </div>
     </div>

@@ -59,7 +59,7 @@ body {
 
 .section-break {
   background: linear-gradient(270deg, #a7a7a7 0%, #ffffff 100%);
-  @apply w-12 h-1 my-5 rounded-lg bg-white md:w-20;
+  @apply w-20 h-1 my-2 rounded-lg bg-white md:w-36 md:my-5;
 }
 
 footer {

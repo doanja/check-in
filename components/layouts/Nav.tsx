@@ -15,7 +15,7 @@ const Navbar = () => {
         <button onClick={() => setShowMenu(!showMenu)}>
           <svg
             xmlns='http://www.w3.org/2000/svg'
-            className={`${showMenu ? 'block' : 'hidden'} h-8 w-8 text-black`}
+            className={`${showMenu ? 'block' : 'hidden'} h-8 w-8`}
             fill='none'
             viewBox='0 0 24 24'
             stroke='currentColor'>
@@ -24,7 +24,7 @@ const Navbar = () => {
 
           <svg
             xmlns='http://www.w3.org/2000/svg'
-            className={`${showMenu && 'hidden'} h-8 w-8 text-black`}
+            className={`${showMenu && 'hidden'} h-8 w-8 `}
             fill='none'
             viewBox='0 0 24 24'
             stroke='currentColor'>
@@ -35,11 +35,10 @@ const Navbar = () => {
 
       {/* nav links */}
       <div
-        className={` ${showMenu && 'hidden'} md:flex w-full md:w-auto text-right text-bold mt-5 md:mt-0 border-t-2 border-blue-900 md:border-none`}
+        className={` ${showMenu && 'hidden'} md:flex w-full md:w-auto text-right text-bold mt-5 md:mt-0 border-t-2 border-white md:border-none`}
         onClick={closeMenu}>
         <NavLink linkTo='' linkText='home' />
         <NavLink linkTo='signup' linkText='sign-up' />
-        {/* <NavLink linkTo='signin' linkText='sign-in' /> */}
         <NavLink linkTo='waitlist' linkText='waitlist' />
       </div>
     </nav>
