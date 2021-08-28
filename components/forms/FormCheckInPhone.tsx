@@ -42,7 +42,11 @@ const FormCheckInPhone = ({ onSubmit, isLoading }: FormProps) => {
         Check In
       </button>
 
-      {<Link href='/signup'>Not a registered user? Sign-up here.</Link>}
+      {
+        <Link href='/signup'>
+          <a className='text-base font-light leading-relaxed'>Not a registered user? Sign-up here.</a>
+        </Link>
+      }
     </form>
   );
 };

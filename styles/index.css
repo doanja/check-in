@@ -4,6 +4,10 @@
 
 @tailwind components;
 
+body {
+  @apply bg-gray-900 text-white;
+}
+
 /* Write your own custom component styles here */
 .form-btn-primary {
   @apply block rounded-md shadow text-white bg-gray-700 duration-500 uppercase text-center py-4 px-8 w-full disabled:bg-gray-300 disabled:cursor-not-allowed;
@@ -34,11 +38,11 @@
 }
 
 .form-input-wrap {
-  @apply block text-gray-700 text-sm font-bold mb-2 capitalize;
+  @apply block text-base font-light leading-relaxed mb-2 capitalize;
 }
 
 .button-label {
-  @apply text-gray-700 text-2xl mb-3 text-center;
+  @apply text-3xl font-semibold leading-snug mb-3 text-center;
 }
 
 .layout-wrap {
@@ -46,19 +50,20 @@
 }
 
 .main-wrap {
-  @apply flex-grow p-4 bg-gray-200;
+  @apply flex-grow p-4;
 }
 
 .page-wrap {
   @apply flex flex-col justify-center h-full;
 }
 
-.trash-icon:hover {
-  @apply text-red-500 cursor-pointer;
+.section-break {
+  background: linear-gradient(270deg, #a7a7a7 0%, #ffffff 100%);
+  @apply w-12 h-1 my-5 rounded-lg bg-white md:w-20;
 }
 
 footer {
-  @apply flex justify-center items-center w-full py-8 border-t-2 bg-gray-100;
+  @apply flex justify-center items-center w-full py-8 border-t-2;
 }
 
 @tailwind utilities;

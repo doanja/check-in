@@ -51,9 +51,17 @@ const checkInUser = async (req: NextApiRequest, res: NextApiResponse, prisma: Pr
       },
     });
 
-    sendTwillioMsg(`\nThank you for checking in at ${env.siteName}.\nWe will let you know when we're ready for you.`, phone, 0);
+    // message sent immediately
+    sendTwillioMsg(
+      `\nThank you for checking in.
+      \nWe will let you know when we're ready for you.
+      \n\nReply STOP to unsubscribe.`,
+      phone,
+      0
+    );
 
-    sendTwillioMsg(`\nThis is a test message.`, phone, 10000);
+    // delayed Message
+    sendTwillioMsg(`\nThis is a test message.`, phone, 3600000);
 
     res.status(200).json({ data: updatedUser });
   } catch (error) {

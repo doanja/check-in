@@ -1,5 +1,5 @@
 import { useForm } from 'react-hook-form';
-import { FormSignUpStepOne, FormSignUpStepTwo, FormSignUpButtons } from '@/components';
+import { FormSignUpStepOne, FormSignUpStepTwo, FormSignUpButtons, SectionBreak } from '@/components';
 import Link from 'next/link';
 
 type FormValues = {
@@ -30,10 +30,12 @@ const FormSignUp = ({ onSubmit, formStep, setFormStep, isLoading }: FormProps) =
   return (
     <form className='flex flex-col' onSubmit={handleSubmit(onSubmit)}>
       {formStep <= MAX_STEPS && (
-        <p className='text-sm text-gray-400 mb-2'>
+        <p className='text-sm text-gray-400 md:text-xl mb-2'>
           Step {formStep} of {MAX_STEPS}
         </p>
       )}
+
+      <SectionBreak />
 
       {formStep === 1 ? <FormSignUpStepOne register={register} errors={errors} /> : <FormSignUpStepTwo register={register} errors={errors} />}
 

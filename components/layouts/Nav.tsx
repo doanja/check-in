@@ -6,7 +6,7 @@ const Navbar = () => {
   const closeMenu = () => !showMenu && setShowMenu(!showMenu);
 
   return (
-    <nav className='flex flex-wrap items-center justify-between p-2 md:p-4 text-gray-800'>
+    <nav className='flex flex-wrap items-center justify-between p-2 md:p-4 text-white'>
       {/* logo */}
       <div className='flex items-center'>test</div>
 

@@ -38,7 +38,7 @@ const Layout = ({ children }: LayoutProps) => {
           <Nav />
           <Modal toggleModal={toggleModal} showModal={showModal} title={title} body={body} />
           <main className='main-wrap'>{children}</main>
-          <Footer />
+          {/* <Footer /> */}
         </div>
       </ModalContext.Provider>
     </MemoryContext.Provider>
