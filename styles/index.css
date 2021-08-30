@@ -66,6 +66,14 @@ footer {
   @apply flex justify-center items-center w-full py-8 border-t-2;
 }
 
+.table {
+  border-spacing: 0 15px;
+}
+
+.table tr {
+  @apply rounded-sm;
+}
+
 @tailwind utilities;
 
 /* Your own custom utilities */

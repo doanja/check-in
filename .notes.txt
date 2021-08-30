@@ -13,9 +13,11 @@ pages:
 
 
 todo:
-- check in -> enter phone number -> send confirm to user (twilio), and add user to waitlist, redirect to waitlist
-- send a text after signup, after checking in
 - send a text after 2 hours thank you + review
+- fix env variable issue
+- add function to remove one user from watchlist
+	- maybe require pin to click x?
+
 
 
 
@@ -25,3 +27,5 @@ prisma:
 	- pscale connect check-in shadow --port 5000
 - for production (or prisma studio):
 	- pscale connect check-in initial-setup --port 4000
+
+

@@ -20,22 +20,23 @@ const WaitlistTable = ({ allowEdits }: WaitlistTableProps) => {
   };
 
   return (
-    <div className='flex flex-col max-w-md mx-auto mt-3'>
+    <div className='flex flex-col w-full mt-3'>
       <div className='overflow-x-auto sm:-mx-6 lg:-mx-8'>
         <div className='py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8'>
-          <div className='shadow overflow-hidden border-b border-gray-200 sm:rounded-lg'>
-            <table className='min-w-full shadow-lg bg-white'>
-              <tbody>
-                <tr>
-                  <th className='bg-gray-100 border text-left px-8 py-4'>Name</th>
-                  <th className='bg-gray-100 border text-left px-8 py-4'>Check-In Time</th>
-                </tr>
-                {checkedInUsers.map((user: CheckedInUser) => (
-                  <WaitlistTableRow user={user} key={user.id} allowEdits={allowEdits} toggleIsCheckedIn={toggleIsCheckedIn} />
-                ))}
-              </tbody>
-            </table>
-          </div>
+          <table className='table text-gray-400 border-separate space-y-6 text-sm w-full'>
+            <thead className='bg-gray-800 text-gray-500'>
+              <tr>
+                <th className='p-3 text-left'>Name</th>
+                <th className='p-3 text-left'>Check-In Time</th>
+                <th className='p-3 text-left'>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              {checkedInUsers.map((user: CheckedInUser, index: number) => (
+                <WaitlistTableRow user={user} key={index} allowEdits={allowEdits} toggleIsCheckedIn={toggleIsCheckedIn} />
+              ))}
+            </tbody>
+          </table>
         </div>
       </div>
     </div>

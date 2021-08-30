@@ -38,3 +38,5 @@ yarn-error.log*
 /data
 
 .env
+
+pscale_0.68.0_windows_amd64
