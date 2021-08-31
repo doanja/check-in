@@ -17,3 +17,5 @@ type PrevStep = () => void;
 type NextStep = () => void;
 
 type ToggleIsCheckedIn = (userId: string) => void;
+
+type RemoveUserFromWaitlist = (id: string) => void;

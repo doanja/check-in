@@ -20,7 +20,7 @@ const FormPin = ({ onSubmit, errorMsg }: FormProps) => {
 
   return (
     <>
-      <form className='shadow-md rounded py-6 px-3 mb-3 bg-gray-200' onSubmit={handleSubmit(onSubmit)}>
+      <form className='shadow-md rounded py-6 px-3 mb-3' onSubmit={handleSubmit(onSubmit)}>
         <div className='flex flex-row gap-1 justify-center '>
           <input
             className='form-input text-center'

@@ -8,7 +8,7 @@ const Navbar = () => {
   const closeMenu = () => !showMenu && setShowMenu(!showMenu);
 
   useEffect(() => {
-    console.log(`process.env`, process.env);
+    console.log(`test message: process.env`, process.env);
   }, []);
 
   return (

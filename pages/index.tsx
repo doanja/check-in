@@ -1,7 +1,7 @@
 import { CheckInWrap, PageContainer } from '@/components';
 
 export default function Home() {
-  const content = (
+  const renderedContent = (
     <>
       <p className='button-label'>Check in:</p>
       <CheckInWrap isNewUser={true} />
@@ -14,5 +14,5 @@ export default function Home() {
     </>
   );
 
-  return <PageContainer headerLeft='' children={content} />;
+  return <PageContainer headerLeft='' children={renderedContent} />;
 }

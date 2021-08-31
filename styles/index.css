@@ -74,6 +74,10 @@ footer {
   @apply rounded-sm;
 }
 
+.table td {
+  @apply p-3 select-none;
+}
+
 @tailwind utilities;
 
 /* Your own custom utilities */

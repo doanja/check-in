@@ -3,9 +3,10 @@ import { WaitlistTableRow } from '@/components';
 
 interface WaitlistTableProps {
   allowEdits: boolean;
+  removeUserFromWaitlist: RemoveUserFromWaitlist;
 }
 
-const WaitlistTable = ({ allowEdits }: WaitlistTableProps) => {
+const WaitlistTable = ({ allowEdits, removeUserFromWaitlist }: WaitlistTableProps) => {
   const { checkedInUsers, setCheckedInUsers } = useMemory();
 
   const toggleIsCheckedIn = (userId: string) => {
@@ -33,7 +34,13 @@ const WaitlistTable = ({ allowEdits }: WaitlistTableProps) => {
             </thead>
             <tbody>
               {checkedInUsers.map((user: CheckedInUser, index: number) => (
-                <WaitlistTableRow user={user} key={index} allowEdits={allowEdits} toggleIsCheckedIn={toggleIsCheckedIn} />
+                <WaitlistTableRow
+                  user={user}
+                  key={index}
+                  allowEdits={allowEdits}
+                  toggleIsCheckedIn={toggleIsCheckedIn}
+                  removeUserFromWaitlist={removeUserFromWaitlist}
+                />
               ))}
             </tbody>
           </table>

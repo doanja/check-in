@@ -60,8 +60,8 @@ const checkInUser = async (req: NextApiRequest, res: NextApiResponse, prisma: Pr
       0
     );
 
-    // delayed Message
-    sendTwillioMsg(`\nThis is a test message.`, phone, 3600000);
+    // delayed Message TODO: fix the timer of this
+    sendTwillioMsg(`\nThis is a test message.`, phone, 36000000);
 
     res.status(200).json({ data: updatedUser });
   } catch (error) {

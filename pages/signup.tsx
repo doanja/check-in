@@ -5,6 +5,7 @@ import { FormSignUp, PageContainer } from '@/components';
 import { getCurrentTimeStamp, parseError } from '@/helper';
 import { useModal, useMemory } from '@/contexts';
 import { UserService } from '@/services';
+import { v4 as uuidv4 } from 'uuid';
 
 const signUp = () => {
   const router = useRouter();
@@ -21,7 +22,7 @@ const signUp = () => {
       const userService = new UserService();
       const res = await userService.createUser(user);
       const res2 = await userService.checkInUser(res.data.data.phone);
-      const newCheckedInUser: CheckedInUser = { name: res2.data.data.name, checkInTime: getCurrentTimeStamp(), id: 'test', isCheckedIn: false };
+      const newCheckedInUser: CheckedInUser = { id: uuidv4(), name: res2.data.data.name, checkInTime: getCurrentTimeStamp(), isCheckedIn: false };
       await setCheckedInUsers([...checkedInUsers, newCheckedInUser]);
 
       router.push('/waitlist');
