@@ -9,10 +9,7 @@ interface NavButtonProps {
 const NavButton = ({ showMenu, linkTo, linkText }: NavButtonProps) => {
   return (
     <Link href={`/${linkTo}`}>
-      <a
-        className={`${
-          showMenu && 'hidden'
-        } capitalize md:flex w-full md:w-auto px-4 py-2 text-right bg-gray-900 hover:bg-gray-500 text-white md:rounded`}>
+      <a className={`${showMenu && 'hidden'} capitalize md:flex w-full md:w-auto px-4 py-2 text-right bg-gray-900 hover:bg-gray-500 text-white`}>
         {linkText}
       </a>
     </Link>

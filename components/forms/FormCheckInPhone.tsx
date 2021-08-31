@@ -33,6 +33,7 @@ const FormCheckInPhone = ({ onSubmit, isLoading }: FormProps) => {
           placeholder='Phone number'
           minLength={9}
           maxLength={10}
+          autoComplete='off'
         />
         {errors.phone && <FormError errorMessage={errors.phone.message} />}
       </FormInput>

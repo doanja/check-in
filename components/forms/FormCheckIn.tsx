@@ -26,6 +26,7 @@ const FormCheckIn = ({ onSubmit, isLoading }: FormProps) => {
           {...register('name', { required: 'Name is required', maxLength: { value: 32, message: 'You exceeded the max length' } })}
           type='text'
           placeholder='Name'
+          autoComplete='off'
         />
         {errors.name && <FormError errorMessage={errors.name.message} />}
       </FormInput>

@@ -20,20 +20,21 @@ const FormPin = ({ onSubmit, errorMsg }: FormProps) => {
 
   return (
     <>
-      <form className='shadow-md rounded py-6 px-3 mb-3' onSubmit={handleSubmit(onSubmit)}>
-        <div className='flex flex-row gap-1 justify-center '>
+      <form className='shadow-md rounded-md py-6 px-3 mb-3' onSubmit={handleSubmit(onSubmit)}>
+        <div className='flex flex-row gap-1 justify-center test'>
           <input
-            className='form-input text-center'
-            type='password'
+            className='form-input text-center form-pin'
+            type='text'
             maxLength={4}
             size={1}
+            autoComplete='off'
             {...register('pin', {
               required: 'Pin is required',
             })}
           />
         </div>
 
-        <div className='text-center'>
+        <div className='text-left'>
           {(errors.pin && <FormError errorMessage={errors.pin.message} />) || (errorMsg && <FormError errorMessage={errorMsg} />)}
         </div>
 

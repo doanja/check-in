@@ -16,6 +16,7 @@ const FormSignUpStepOne = ({ register, errors }: FormSignInStepOneProps) => {
           placeholder='Name'
           minLength={1}
           maxLength={32}
+          autoComplete='off'
         />
         {errors.name && <FormError errorMessage={errors.name.message} />}
       </FormInput>
@@ -32,6 +33,7 @@ const FormSignUpStepOne = ({ register, errors }: FormSignInStepOneProps) => {
           placeholder='Phone number'
           minLength={9}
           maxLength={10}
+          autoComplete='off'
         />
         {errors.phone && <FormError errorMessage={errors.phone.message} />}
       </FormInput>

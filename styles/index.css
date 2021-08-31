@@ -78,6 +78,34 @@ footer {
   @apply p-3 select-none;
 }
 
+.modal-bg {
+  @apply min-h-screen h-screen fixed left-0 top-0 flex justify-center items-center inset-0 z-50 outline-none focus:outline-none bg-no-repeat bg-center bg-cover;
+}
+
+.modal-position {
+  @apply absolute bg-black opacity-95 inset-0 z-0;
+}
+
+.modal {
+  @apply w-full max-w-md p-5 relative rounded-md bg-gray-900 border border-gray-400;
+}
+
+.modal-content {
+  @apply text-center content-center w-full;
+}
+
+.modal-title {
+  @apply text-xl font-semibold leading-snug py-4 capitalize;
+}
+
+.modal-body {
+  @apply text-base font-light leading-relaxed px-8;
+}
+
+.form-pin {
+  -webkit-text-security: disc;
+}
+
 @tailwind utilities;
 
 /* Your own custom utilities */
