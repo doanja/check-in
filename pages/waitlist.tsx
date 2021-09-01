@@ -45,7 +45,6 @@ const waitlist = ({ SECRET_PIN }: WaitlistProps) => {
 
   const renderedContent = (
     <>
-      <p className='button-label'>Check in:</p>
       <WaitlistTable allowEdits={allowEdits} removeUserFromWaitlist={removeUserFromWaitlist} />
 
       {allowEdits ? (
@@ -80,7 +79,7 @@ const waitlist = ({ SECRET_PIN }: WaitlistProps) => {
     </>
   );
 
-  return <PageContainer headerLeft='' children={renderedContent} />;
+  return <PageContainer title='waitlist' children={renderedContent} />;
 };
 
 export default waitlist;

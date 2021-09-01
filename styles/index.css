@@ -41,8 +41,8 @@ body {
   @apply block text-base font-light leading-relaxed mb-2 capitalize;
 }
 
-.button-label {
-  @apply text-3xl font-semibold leading-snug mb-3 text-center;
+.form-pin {
+  -webkit-text-security: disc;
 }
 
 .layout-wrap {
@@ -51,19 +51,6 @@ body {
 
 .main-wrap {
   @apply flex-grow p-4;
-}
-
-.page-wrap {
-  @apply flex flex-col justify-center h-full;
-}
-
-.section-break {
-  background: linear-gradient(270deg, #a7a7a7 0%, #ffffff 100%);
-  @apply w-20 h-1 my-2 rounded-lg bg-white md:w-36 md:my-5;
-}
-
-footer {
-  @apply flex justify-center items-center w-full py-8 border-t-2;
 }
 
 .table {
@@ -102,8 +89,8 @@ footer {
   @apply text-base font-light leading-relaxed px-8;
 }
 
-.form-pin {
-  -webkit-text-security: disc;
+footer {
+  @apply flex justify-center items-center w-full py-8 border-t-2;
 }
 
 @tailwind utilities;

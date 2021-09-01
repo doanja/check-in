@@ -1,5 +1,5 @@
 import { useForm } from 'react-hook-form';
-import { FormSignUpStepOne, FormSignUpStepTwo, FormSignUpButtons, SectionBreak } from '@/components';
+import { FormSignUpStepOne, FormSignUpStepTwo, FormSignUpButtons } from '@/components';
 import Link from 'next/link';
 
 type FormValues = {
@@ -34,8 +34,6 @@ const FormSignUp = ({ onSubmit, formStep, setFormStep, isLoading }: FormProps) =
           Step {formStep} of {MAX_STEPS}
         </p>
       )}
-
-      <SectionBreak />
 
       {formStep === 1 ? <FormSignUpStepOne register={register} errors={errors} /> : <FormSignUpStepTwo register={register} errors={errors} />}
 

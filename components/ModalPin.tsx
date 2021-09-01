@@ -1,5 +1,5 @@
 import { FormPin } from '@/components';
-import { AiFillLock } from 'react-icons/ai';
+import { BsFillShieldLockFill } from 'react-icons/bs';
 
 interface ModalPinProps {
   toggleModal: ToggleModal;
@@ -16,7 +16,7 @@ const ModalPin = ({ toggleModal, showModal, title, body, editWaitlist, errorMsg 
       <div className='modal-position' onClick={() => toggleModal(!showModal)}></div>
       <div className='modal'>
         <div className='modal-content'>
-          <AiFillLock size='2rem' />
+          <BsFillShieldLockFill size='3rem' />
 
           <h2 className='modal-title'>{title}</h2>
           <p className='modal-body'>{body}</p>
