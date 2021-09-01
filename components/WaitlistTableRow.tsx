@@ -16,10 +16,9 @@ const WaitlistTableRow = ({ user, allowEdits, toggleIsCheckedIn, removeUserFromW
       <td className={`${user.isCheckedIn && 'bg-gray-300'}`}>
         <p className={`${user.isCheckedIn && 'line-through'}`}> {user.checkInTime}</p>
       </td>
-      <td className={`${user.isCheckedIn && 'bg-gray-300'}`} onClick={() => removeUserFromWaitlist(user.id)}>
-        <div className='cursor-pointer hover:text-red-600 w-8'>
-          <TiTimes size='2rem' />
-        </div>
+
+      <td className={`${user.isCheckedIn && 'bg-gray-300'}`} onClick={() => allowEdits && removeUserFromWaitlist(user.id)}>
+        <div className='cursor-pointer hover:text-red-600 w-8'>{allowEdits && <TiTimes size='2rem' />}</div>
       </td>
     </tr>
   );

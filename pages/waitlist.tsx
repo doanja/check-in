@@ -63,7 +63,7 @@ const waitlist = ({ SECRET_PIN }: WaitlistProps) => {
             Home
           </button>
           <button onClick={() => toggleModal(true)} type='button' className='form-btn-secondary my-3 max-w-md mx-auto'>
-            Edit Waitlist
+            Edit
           </button>
         </div>
       )}
