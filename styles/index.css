@@ -91,7 +91,7 @@ footer {
 }
 
 .modal-content {
-  @apply text-center content-center w-full;
+  @apply flex flex-col items-center;
 }
 
 .modal-title {

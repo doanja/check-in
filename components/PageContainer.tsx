@@ -16,7 +16,7 @@ const PageContainer = ({ headerLeft, headerRight, subHeader, children }: PageCon
         <p className='text-grey-700 text-base font-light leading-relaxed mt-2'>{subHeader}</p>
       </div>
       <div className='max-w-xl w-full my-12 rounded-md shadow-2xl mx-auto overflow-hidden z-10 border border-gray-400 md:my-24'>
-        <div className='px-16 py-10'>{children}</div>
+        <div className='px-4 py-2 md:px-16 md:py-10'>{children}</div>
       </div>
     </div>
   );
