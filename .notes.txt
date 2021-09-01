@@ -14,9 +14,6 @@ pages:
 
 todo:
 - send a text after 2 hours thank you + review
-- fix env variable issue
-- add function to remove one user from watchlist
-	- maybe require pin to click x?
 
 
 

@@ -1,20 +1,14 @@
 import { useState } from 'react';
 import { NavLink } from '@/components';
-import { useEffect } from 'react';
-// import env from '@/lib/env';
 
 const Navbar = () => {
   const [showMenu, setShowMenu] = useState(true);
   const closeMenu = () => !showMenu && setShowMenu(!showMenu);
 
-  useEffect(() => {
-    console.log(`test message: process.env`, process.env);
-  }, []);
-
   return (
     <nav className='flex flex-wrap items-center justify-between p-2 md:p-4 text-white'>
       {/* logo */}
-      <div className='flex items-center'>env.siteName</div>
+      <div className='flex items-center font-semibold'>{process.env.NEXT_PUBLIC_SITE_NAME}</div>
 
       {/* hamburger */}
       <div className='flex md:hidden'>

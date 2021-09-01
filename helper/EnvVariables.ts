@@ -11,7 +11,7 @@ class EnvVariables {
     this._accountSid = processEnv.TWILIO_ACCOUNT_SI as string;
     this._authToken = processEnv.TWILIO_AUTH_TOKEN as string;
     this._twilioPhone = processEnv.TWILIO_PHONE_NUMBER as string;
-    this._siteName = processEnv.SITE_NAME as string;
+    this._siteName = processEnv.NEXT_PUBLIC_SITE_NAME as string;
     this._secretPin = processEnv.SECRET_PIN as string;
   }
 
@@ -42,8 +42,8 @@ class EnvVariables {
       throw new Error('Enviroment variable TWILIO_AUTH_TOKEN missing');
     } else if (!processEnv.TWILIO_PHONE_NUMBER) {
       throw new Error('Enviroment variable TWILIO_PHONE_NUMBER missing');
-    } else if (!processEnv.SITE_NAME) {
-      throw new Error('Enviroment variable SITE_NAME missing');
+    } else if (!processEnv.NEXT_PUBLIC_SITE_NAME) {
+      throw new Error('Enviroment variable NEXT_PUBLIC_SITE_NAME missing');
     } else if (!processEnv.SECRET_PIN) {
       throw new Error('Enviroment variable SECRET_PIN missing');
     }
