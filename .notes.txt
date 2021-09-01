@@ -3,9 +3,8 @@ technologies:
 - auth0 or nextAuth?
 
 pages:
-- /checkin (non user)
+- /checkin
 - /signup 
-- /signin (returning user)
 - /waitlist (allows everyone to see the checkin line)
 - /admin/
 	-/dashboard
@@ -14,8 +13,6 @@ pages:
 
 todo:
 - send a text after 2 hours thank you + review
-
-
 
 
 prisma:

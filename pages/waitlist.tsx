@@ -33,11 +33,6 @@ const waitlist = ({ SECRET_PIN }: WaitlistProps) => {
     }
   };
 
-  const removeUserFromWaitlist = (id: string) => {
-    const filteredUsers = checkedInUsers.filter((user: CheckedInUser) => user.id !== id);
-    setCheckedInUsers(filteredUsers);
-  };
-
   const clearWaitlist = () => {
     setCheckedInUsers([]);
     setAllowEdits(false);
@@ -45,7 +40,7 @@ const waitlist = ({ SECRET_PIN }: WaitlistProps) => {
 
   const renderedContent = (
     <>
-      <WaitlistTable allowEdits={allowEdits} removeUserFromWaitlist={removeUserFromWaitlist} />
+      <WaitlistTable allowEdits={allowEdits} />
 
       {allowEdits ? (
         <div className='form-btn-group'>
@@ -60,7 +55,7 @@ const waitlist = ({ SECRET_PIN }: WaitlistProps) => {
       ) : (
         <div className='form-btn-group'>
           <button onClick={() => router.push('/')} type='button' className='form-btn-primary my-3 max-w-md mx-auto'>
-            Home
+            Check In
           </button>
           <button onClick={() => toggleModal(true)} type='button' className='form-btn-secondary my-3 max-w-md mx-auto'>
             Edit
