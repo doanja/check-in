@@ -40,6 +40,7 @@ const Navbar = () => {
         <NavLink linkTo='' linkText='home' />
         <NavLink linkTo='signup' linkText='sign-up' />
         <NavLink linkTo='waitlist' linkText='waitlist' />
+        <NavLink linkTo='menu' linkText='Menu' />
       </div>
     </nav>
   );
