@@ -45,7 +45,7 @@ const FormCheckInPhone = ({ onSubmit, isLoading }: FormProps) => {
 
       {
         <Link href='/signup'>
-          <a className='text-base font-light leading-relaxed'>Not a registered user? Sign-up here.</a>
+          <a className='link text'>Not a registered user? Sign-up here.</a>
         </Link>
       }
     </form>

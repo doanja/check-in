@@ -45,14 +45,6 @@ body {
   -webkit-text-security: disc;
 }
 
-.layout-wrap {
-  @apply flex flex-col h-screen w-screen mx-auto;
-}
-
-.main-wrap {
-  @apply flex-grow p-4;
-}
-
 .table {
   border-spacing: 0 15px;
 }
@@ -87,6 +79,18 @@ body {
 
 .modal-body {
   @apply text-base font-light leading-relaxed px-8;
+}
+
+.a link-text {
+  @apply text-base font-light leading-relaxed;
+}
+
+.layout-wrap {
+  @apply flex flex-col h-screen w-screen mx-auto;
+}
+
+.main-wrap {
+  @apply flex-grow p-4;
 }
 
 footer {

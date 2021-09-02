@@ -14,7 +14,7 @@ const sendTwillioMsg = async (message: string, phone: string, delay: number) => 
         from: env.twilioPhone,
         to: `+1${phone}`,
       });
-    }, 10000);
+    }, delay);
   } else {
     await twillioClient.messages.create({
       body: message,
@@ -53,15 +53,21 @@ const checkInUser = async (req: NextApiRequest, res: NextApiResponse, prisma: Pr
 
     // message sent immediately
     sendTwillioMsg(
-      `\nThank you for checking in.
-      \nWe will let you know when we're ready for you.
-      \n\nReply STOP to unsubscribe.`,
+      `\n${env.siteName}:
+      \nThank you for checking in. We will let you know when we're ready for you.
+      \nReply STOP to unsubscribe.`,
       phone,
       0
     );
 
-    // delayed Message TODO: fix the timer of this
-    sendTwillioMsg(`\nThis is a test message.`, phone, 36000000);
+    // delayed Message
+    sendTwillioMsg(
+      `\n${env.siteName}:
+    \nThank you for your recent visit. Please let us know how you feel about your recent visit using this link: (${env.reviewLink})
+    \nReply STOP to unsubscribe.`,
+      phone,
+      1000 * 60 * 60
+    );
 
     res.status(200).json({ data: updatedUser });
   } catch (error) {
