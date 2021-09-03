@@ -1,5 +1,4 @@
 technologies:
-- twilio - for sms
 - auth0 or nextAuth?
 
 pages:
@@ -12,7 +11,11 @@ pages:
 
 
 todo:
-- send a text after 2 hours thank you + review
+- fix deployment issue with enviroment variables (site name and menu link)
+- add advertising page (offers, etc)
+- add admin dashboard
+	- need way to track check in's etc
+- add another table for checkin times and associate with the userID
 
 
 prisma:
