@@ -5,24 +5,27 @@ import prisma from '@/lib/prisma';
 import env from '@/lib/env';
 import { getCurrentISODate } from '@/helper';
 
-// TODO: catch invalid phone numbers
-const sendTwillioMsg = async (message: string, phone: string, delay: number) => {
+const sendTwilioMsg = async (message: string, phone: string, delay: number) => {
   const twillioClient = twillio(env.accountSid, env.authToken);
 
-  if (delay > 0) {
-    setTimeout(() => {
-      twillioClient.messages.create({
+  try {
+    if (delay > 0) {
+      setTimeout(() => {
+        twillioClient.messages.create({
+          body: message,
+          from: env.twilioPhone,
+          to: `+1${phone}`,
+        });
+      }, delay);
+    } else {
+      await twillioClient.messages.create({
         body: message,
         from: env.twilioPhone,
         to: `+1${phone}`,
       });
-    }, delay);
-  } else {
-    await twillioClient.messages.create({
-      body: message,
-      from: env.twilioPhone,
-      to: `+1${phone}`,
-    });
+    }
+  } catch (error) {
+    console.log(`error`, error);
   }
 };
 
@@ -61,7 +64,7 @@ const checkInUser = async (req: NextApiRequest, res: NextApiResponse, prisma: Pr
     });
 
     // message sent immediately
-    sendTwillioMsg(
+    sendTwilioMsg(
       `\n${env.siteName}:
       \nThank you for checking in. We will let you know when we're ready for you.
       \nReply STOP to unsubscribe.`,
@@ -70,7 +73,7 @@ const checkInUser = async (req: NextApiRequest, res: NextApiResponse, prisma: Pr
     );
 
     // delayed Message
-    sendTwillioMsg(
+    sendTwilioMsg(
       `\n${env.siteName}:
     \nThank you for your recent visit. Please let us know how you feel about your recent visit using this link: (${env.reviewLink})
     \nReply STOP to unsubscribe.`,

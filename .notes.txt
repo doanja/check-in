@@ -15,7 +15,7 @@ todo:
 - add advertising page (offers, etc)
 - add admin dashboard
 	- need way to track check in's etc
-- add another table for checkin times and associate with the userID
+- add another table for checkin times and associate with the userID [DONE]
 
 
 prisma:
