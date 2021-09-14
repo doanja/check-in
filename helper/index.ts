@@ -16,6 +16,10 @@ export const parseError = (error: any) => {
 
 export const getCurrentTimeStamp = (): string => {
   const date = new Date();
-  const localTime = date.toLocaleTimeString();
-  return localTime.replace(/:\d+ /, ' ');
+  return date.toISOString();
+};
+
+export const convertISOToLocalTime = (isoDate: string): string => {
+  const date = new Date(isoDate);
+  return date.toLocaleTimeString();
 };

@@ -15,7 +15,7 @@ class EnvVariables {
     this._twilioPhone = processEnv.TWILIO_PHONE_NUMBER as string;
     this._siteName = processEnv.NEXT_PUBLIC_SITE_NAME as string;
     this._reviewLink = processEnv.REVIEW_LINK as string;
-    this._menuLink = processEnv.MENU_LINK as string;
+    this._menuLink = processEnv.NEXT_PUBLIC_MENU_LINK as string;
     this._secretPin = processEnv.SECRET_PIN as string;
   }
 
@@ -58,8 +58,8 @@ class EnvVariables {
       throw new Error('Enviroment variable NEXT_PUBLIC_SITE_NAME missing');
     } else if (!processEnv.REVIEW_LINK) {
       throw new Error('Enviroment variable REVIEW_LINK missing');
-    } else if (!processEnv.MENU_LINK) {
-      throw new Error('Enviroment variable MENU_LINK missing');
+    } else if (!processEnv.NEXT_PUBLIC_MENU_LINK) {
+      throw new Error('Enviroment variable NEXT_PUBLIC_MENU_LINK missing');
     } else if (!processEnv.SECRET_PIN) {
       throw new Error('Enviroment variable SECRET_PIN missing');
     }

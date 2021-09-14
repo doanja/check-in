@@ -11,14 +11,22 @@ generator client {
 }
 
 model User {
-  id       String  @id @default(cuid())
-  name     String
-  email    String? @unique
-  phone    String  @unique
-  birthday String?
-  points   Int     @default(1)
-  checkins Int     @default(1)
-  role     Role    @default(CUSTOMER)
+  id           Int       @id @default(autoincrement())
+  name         String
+  email        String?   @unique
+  phone        String    @unique
+  birthday     String?
+  points       Int       @default(1)
+  checkInCount Int       @default(1)
+  role         Role      @default(CUSTOMER)
+  checkIns     CheckIn[]
+}
+
+model CheckIn {
+  id     Int    @id @default(autoincrement())
+  date   String
+  userId Int
+  user   User   @relation(fields: [userId], references: [id])
 }
 
 enum Role {
