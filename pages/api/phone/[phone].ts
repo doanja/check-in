@@ -1,10 +1,11 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
-import { PrismaClient, User, CheckIn } from '@prisma/client';
+import { PrismaClient, User } from '@prisma/client';
 import twillio from 'twilio';
 import prisma from '@/lib/prisma';
 import env from '@/lib/env';
-import { getCurrentTimeStamp } from '@/helper';
+import { getCurrentISODate } from '@/helper';
 
+// TODO: catch invalid phone numbers
 const sendTwillioMsg = async (message: string, phone: string, delay: number) => {
   const twillioClient = twillio(env.accountSid, env.authToken);
 
@@ -52,9 +53,9 @@ const checkInUser = async (req: NextApiRequest, res: NextApiResponse, prisma: Pr
       },
     });
 
-    const newCheckIn = await prisma.checkIn.create({
+    await prisma.checkIn.create({
       data: {
-        date: getCurrentTimeStamp(),
+        date: getCurrentISODate(),
         userId: updatedUser.id,
       },
     });
@@ -77,7 +78,7 @@ const checkInUser = async (req: NextApiRequest, res: NextApiResponse, prisma: Pr
       1000 * 60 * 60
     );
 
-    res.status(200).json({ data: updatedUser, newCheckIn });
+    res.status(200).json({ data: updatedUser });
   } catch (error) {
     if (error.message.includes('Record to update not found')) {
       res.status(500).json({ errorName: error.name, errorMsg: 'Phone number is not registered.' });

@@ -26,7 +26,7 @@ model CheckIn {
   id     Int    @id @default(autoincrement())
   date   String
   userId Int
-  user   User   @relation(fields: [userId], references: [id])
+  User   User   @relation(fields: [userId], references: [id])
 }
 
 enum Role {

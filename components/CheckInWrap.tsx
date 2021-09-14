@@ -28,7 +28,7 @@ const CheckInWrap = ({ isNewUser }: CheckInWrapProps) => {
     try {
       const userService = new UserService();
       const res = await userService.checkInUser(formValues.phone);
-      console.log(`res.data`, res.data);
+
       const { name, phoneNumber } = res.data.data;
 
       const newCheckedInUser: CheckedInUser = { id: uuidv4(), name, phoneNumber, checkInTime: getCurrentTimeStamp(), isCheckedIn: false };

@@ -1,7 +1,7 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 import { PrismaClient, User } from '@prisma/client';
 import prisma from '@/lib/prisma';
-import { getCurrentTimeStamp } from '@/helper';
+import { getCurrentISODate } from '@/helper';
 
 export default async (req: NextApiRequest, res: NextApiResponse) => {
   switch (req.method) {
@@ -42,7 +42,7 @@ const createUser = async (req: NextApiRequest, res: NextApiResponse, prisma: Pri
         birthday: user.birthday,
         checkIns: {
           create: {
-            date: getCurrentTimeStamp(),
+            date: getCurrentISODate(),
           },
         },
       },
