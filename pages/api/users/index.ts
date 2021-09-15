@@ -1,5 +1,5 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
-import { PrismaClient, User } from '@prisma/client';
+import { PrismaClient, User, Prisma } from '@prisma/client';
 import prisma from '@/lib/prisma';
 import { getCurrentISODate } from '@/helper';
 
@@ -53,10 +53,10 @@ const createUser = async (req: NextApiRequest, res: NextApiResponse, prisma: Pri
 
     res.status(200).json({ data: newUser });
   } catch (error) {
-    if (error.code === 'P2002') {
+    if (error instanceof Prisma.PrismaClientKnownRequestError && error.code === 'P2002') {
       res.status(500).json({ errorName: error.name, errorMsg: 'Phone number or email address is already in use.' });
     } else {
-      res.status(520).json({ errorName: error.name, errorMsg: 'An unknown error has occured.' });
+      res.status(520).json({ errorName: 'Error', errorMsg: 'An unknown error has occured.' });
     }
   } finally {
     await prisma.$disconnect();

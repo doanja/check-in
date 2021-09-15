@@ -26,7 +26,7 @@ const signUp = () => {
       await setCheckedInUsers([...checkedInUsers, newCheckedInUser]);
 
       router.push('/waitlist');
-    } catch (error) {
+    } catch (error: any) {
       const errorText = parseError(error);
       if (errorText === 'Phone number already in use.') setFormStep(2);
 

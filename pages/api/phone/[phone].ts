@@ -1,5 +1,5 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
-import { PrismaClient, User } from '@prisma/client';
+import { PrismaClient, User, Prisma } from '@prisma/client';
 import twillio from 'twilio';
 import prisma from '@/lib/prisma';
 import env from '@/lib/env';
@@ -83,10 +83,10 @@ const checkInUser = async (req: NextApiRequest, res: NextApiResponse, prisma: Pr
 
     res.status(200).json({ data: updatedUser });
   } catch (error) {
-    if (error.message.includes('Record to update not found')) {
+    if (error instanceof Prisma.PrismaClientKnownRequestError && error.message.includes('Record to update not found')) {
       res.status(500).json({ errorName: error.name, errorMsg: 'Phone number is not registered.' });
     } else {
-      res.status(520).json({ errorName: error.name, errorMsg: 'An unknown error has occured.' });
+      res.status(520).json({ errorName: 'Error', errorMsg: 'An unknown error has occured.' });
     }
   } finally {
     await prisma.$disconnect();

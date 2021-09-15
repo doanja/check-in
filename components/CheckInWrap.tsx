@@ -36,7 +36,7 @@ const CheckInWrap = ({ isNewUser }: CheckInWrapProps) => {
       await setCheckedInUsers([...checkedInUsers, newCheckedInUser]);
 
       router.push('/waitlist');
-    } catch (error) {
+    } catch (error: any) {
       const errorText = parseError(error);
 
       setTitle(error.name);
