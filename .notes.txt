@@ -12,8 +12,12 @@ pages:
 
 todo:
 - add advertising page (offers, etc)
+- add menu powerpoint
 - add admin dashboard
 	- need way to track check in's etc
+	- graph check in by all users by date
+	- checkin by single user by date
+- on vercel, change SECRET_PIN to NEXT_PUBLIC_SECRET_PIN
 
 
 prisma:

@@ -3,17 +3,7 @@ import { useRouter } from 'next/router';
 import { useState } from 'react';
 import { useMemory } from '@/contexts';
 
-export async function getStaticProps() {
-  return {
-    props: { SECRET_PIN: process.env.SECRET_PIN },
-  };
-}
-
-interface WaitlistProps {
-  SECRET_PIN: string;
-}
-
-const waitlist = ({ SECRET_PIN }: WaitlistProps) => {
+const waitlist = () => {
   const router = useRouter();
   const [allowEdits, setAllowEdits] = useState<boolean>(false);
   const [showModal, toggleModal] = useState<boolean>(false);
@@ -24,7 +14,7 @@ const waitlist = ({ SECRET_PIN }: WaitlistProps) => {
     e.preventDefault();
 
     // form on submit verify pin number & allow form to be updated
-    if (formValues.pin === SECRET_PIN) {
+    if (formValues.pin === process.env.NEXT_PUBLIC_SECRET_PIN) {
       setAllowEdits(true);
       toggleModal(false);
       setErrorMsg('');

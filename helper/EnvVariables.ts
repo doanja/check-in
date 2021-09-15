@@ -16,7 +16,7 @@ class EnvVariables {
     this._siteName = processEnv.NEXT_PUBLIC_SITE_NAME as string;
     this._reviewLink = processEnv.REVIEW_LINK as string;
     this._menuLink = processEnv.NEXT_PUBLIC_MENU_LINK as string;
-    this._secretPin = processEnv.SECRET_PIN as string;
+    this._secretPin = processEnv.NEXT_PUBLIC_SECRET_PIN as string;
   }
 
   public get accountSid() {
@@ -60,8 +60,8 @@ class EnvVariables {
       throw new Error('Enviroment variable REVIEW_LINK missing');
     } else if (!processEnv.NEXT_PUBLIC_MENU_LINK) {
       throw new Error('Enviroment variable NEXT_PUBLIC_MENU_LINK missing');
-    } else if (!processEnv.SECRET_PIN) {
-      throw new Error('Enviroment variable SECRET_PIN missing');
+    } else if (!processEnv.NEXT_PUBLIC_SECRET_PIN) {
+      throw new Error('Enviroment variable NEXT_PUBLIC_SECRET_PIN missing');
     }
   }
 }

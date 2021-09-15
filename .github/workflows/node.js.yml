@@ -14,9 +14,10 @@ jobs:
       matrix:
         node-version: [14.x]
     env:
-      SECRET_PIN: 1111
-      SITE_NAME: Test Store
+      NEXT_PUBLIC_SECRET_PIN: 1111
+      NEXT_PUBLIC_SITE_NAMEE: Test Store
       REVIEW_LINK: TEST
+      NEXT_PUBLIC_MENU_LINK: TEST
       TWILIO_ACCOUNT_SI: TEST
       TWILIO_AUTH_TOKEN: TEST
       TWILIO_PHONE_NUMBER: 11111111111
