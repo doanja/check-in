@@ -14,8 +14,12 @@ export const parseError = (error: any) => {
   }
 };
 
+export const getCurrentISODate = (): string => {
+  const date = new Date();
+  return date.toISOString();
+};
+
 export const getCurrentTimeStamp = (): string => {
   const date = new Date();
-  const localTime = date.toLocaleTimeString();
-  return localTime.replace(/:\d+ /, ' ');
+  return date.toLocaleTimeString();
 };

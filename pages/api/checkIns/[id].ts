@@ -1,15 +1,15 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
-import { PrismaClient, User } from '@prisma/client';
+import { PrismaClient, CheckIn } from '@prisma/client';
 import prisma from '@/lib/prisma';
 
 export default async (req: NextApiRequest, res: NextApiResponse) => {
   switch (req.method) {
     case 'GET': {
-      return getUser(req, res, prisma);
+      return getCheckIn(req, res, prisma);
     }
 
     case 'DELETE': {
-      return deleteUser(req, res, prisma);
+      return deleteCheckIn(req, res, prisma);
     }
 
     default:
@@ -17,12 +17,12 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
   }
 };
 
-const getUser = async (req: NextApiRequest, res: NextApiResponse, prisma: PrismaClient) => {
+const getCheckIn = async (req: NextApiRequest, res: NextApiResponse, prisma: PrismaClient) => {
   try {
     const id = Array.isArray(req.query.id) ? req.query.id[0] : req.query.id;
-    const user: User | null = await prisma.user.findUnique({ where: { id: parseInt(id) } });
+    const checkIns: CheckIn[] | null = await prisma.checkIn.findMany({ where: { userId: parseInt(id) } });
 
-    res.status(200).json({ data: user });
+    res.status(200).json({ data: checkIns });
   } catch (error) {
     res.status(500).json({ error });
   } finally {
@@ -30,13 +30,13 @@ const getUser = async (req: NextApiRequest, res: NextApiResponse, prisma: Prisma
   }
 };
 
-const deleteUser = async (req: NextApiRequest, res: NextApiResponse, prisma: PrismaClient) => {
+const deleteCheckIn = async (req: NextApiRequest, res: NextApiResponse, prisma: PrismaClient) => {
   try {
     const id = Array.isArray(req.query.id) ? req.query.id[0] : req.query.id;
 
-    const deletedUser: User = await prisma.user.delete({ where: { id: parseInt(id) } });
+    const deletedCheckIn: CheckIn = await prisma.checkIn.delete({ where: { id: parseInt(id) } });
 
-    res.status(200).json({ data: deletedUser });
+    res.status(200).json({ data: deletedCheckIn });
   } catch (error) {
     res.status(500).json({ error });
   } finally {

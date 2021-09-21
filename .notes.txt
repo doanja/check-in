@@ -9,13 +9,19 @@ pages:
 	-/dashboard
 	-/manage
 
-
 todo:
-- fix deployment issue with enviroment variables (site name and menu link)
 - add advertising page (offers, etc)
+- add menu powerpoint
+- /dashboard/users displays all user info
+- /dashboard/users/{id} shows single user
+	- use getStaticProps and getStaticPaths
+	- https://youtu.be/TOIRxWQPgi0?list=PLC3y8-rFHvwgC9mj0qv972IO5DmD-H0ZH&t=189
+	- https://youtu.be/1XEe-ng57GA?list=PLC3y8-rFHvwgC9mj0qv972IO5DmD-H0ZH&t=555
 - add admin dashboard
 	- need way to track check in's etc
-- add another table for checkin times and associate with the userID
+	- graph check in by all users by date
+	- checkin by single user by date
+- on vercel, change SECRET_PIN to NEXT_PUBLIC_SECRET_PIN
 
 
 prisma:

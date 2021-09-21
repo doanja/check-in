@@ -1,3 +1,4 @@
 import UserService from './users';
+import CheckInService from './checkIn';
 
-export { UserService };
+export { UserService, CheckInService };

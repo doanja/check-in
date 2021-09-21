@@ -4,7 +4,7 @@ import { getCurrentTimeStamp, parseError } from '@/helper';
 import { FormCheckIn, FormCheckInPhone } from '@/components';
 import { useMemory, useModal } from '@/contexts';
 import { v4 as uuidv4 } from 'uuid';
-import { UserService } from '@/services';
+import { CheckInService, UserService } from '@/services';
 
 interface CheckInWrapProps {
   isNewUser: boolean;
@@ -17,6 +17,9 @@ const CheckInWrap = ({ isNewUser }: CheckInWrapProps) => {
   const [isLoading, setIsLoading] = useState(false);
 
   const checkInUser = async (formValues: { name: string }) => {
+    const checkInService = new CheckInService();
+    await checkInService.createCheckIn();
+
     const newCheckedInUser: CheckedInUser = { id: uuidv4(), name: formValues.name, checkInTime: getCurrentTimeStamp(), isCheckedIn: false };
     await setCheckedInUsers([...checkedInUsers, newCheckedInUser]);
     router.push('/waitlist');
@@ -28,14 +31,12 @@ const CheckInWrap = ({ isNewUser }: CheckInWrapProps) => {
     try {
       const userService = new UserService();
       const res = await userService.checkInUser(formValues.phone);
-      console.log(`res.data`, res.data);
       const { name, phoneNumber } = res.data.data;
-
       const newCheckedInUser: CheckedInUser = { id: uuidv4(), name, phoneNumber, checkInTime: getCurrentTimeStamp(), isCheckedIn: false };
       await setCheckedInUsers([...checkedInUsers, newCheckedInUser]);
 
       router.push('/waitlist');
-    } catch (error) {
+    } catch (error: any) {
       const errorText = parseError(error);
 
       setTitle(error.name);
