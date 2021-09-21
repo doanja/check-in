@@ -9,10 +9,14 @@ pages:
 	-/dashboard
 	-/manage
 
-
 todo:
 - add advertising page (offers, etc)
 - add menu powerpoint
+- /dashboard/users displays all user info
+- /dashboard/users/{id} shows single user
+	- use getStaticProps and getStaticPaths
+	- https://youtu.be/TOIRxWQPgi0?list=PLC3y8-rFHvwgC9mj0qv972IO5DmD-H0ZH&t=189
+	- https://youtu.be/1XEe-ng57GA?list=PLC3y8-rFHvwgC9mj0qv972IO5DmD-H0ZH&t=555
 - add admin dashboard
 	- need way to track check in's etc
 	- graph check in by all users by date
