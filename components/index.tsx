@@ -27,6 +27,8 @@ import WaitlistTableRow from './WaitlistTableRow';
 import Spinner from './Spinner';
 import ModalPin from './ModalPin';
 
+import UserTableRow from './UserTableRow';
+
 export {
   FormInput,
   FormError,
@@ -50,4 +52,5 @@ export {
   WaitlistTableRow,
   Spinner,
   ModalPin,
+  UserTableRow,
 };

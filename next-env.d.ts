@@ -24,6 +24,7 @@ type User = {
   id: number;
   name: string;
   email: string;
+  phone: string;
   birthday: string;
   points: number;
   checkInCount: number;
