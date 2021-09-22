@@ -24,7 +24,7 @@ const getCheckIns = async (req: NextApiRequest, res: NextApiResponse, prisma: Pr
 
     res.status(200).json({ data: checkIns });
   } catch (error) {
-    res.status(500).json({ error });
+    res.status(520).json({ errorName: 'Error', errorMsg: `An unknown error has occured: ${error}` });
   } finally {
     await prisma.$disconnect();
   }
@@ -40,7 +40,7 @@ const createCheckIn = async (req: NextApiRequest, res: NextApiResponse, prisma: 
 
     res.status(200).json({ data: newCheckIn });
   } catch (error) {
-    res.status(520).json({ error });
+    res.status(520).json({ errorName: 'Error', errorMsg: `An unknown error has occured: ${error}` });
   } finally {
     await prisma.$disconnect();
   }
