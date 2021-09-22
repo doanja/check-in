@@ -21,7 +21,7 @@ todo:
 	- need way to track check in's etc
 	- graph check in by all users by date
 	- checkin by single user by date
-- on vercel, change SECRET_PIN to NEXT_PUBLIC_SECRET_PIN
+- production erroring: database tables don't exist
 
 
 prisma:
