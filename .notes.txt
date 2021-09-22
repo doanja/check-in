@@ -24,11 +24,11 @@ todo:
 - production erroring: database tables don't exist
 
 
-prisma:
+prisma: (https://davidparks.dev/blog/planetscale-deployment-with-prisma/)
 - for migrations (both initial-setup and shadow db's need to be ran):
 	- pscale connect check-in initial-setup --port 4000
 	- pscale connect check-in shadow --port 5000
 - for production (or prisma studio):
-	- pscale connect check-in initial-setup --port 4000
+	- pscale connect check-in main --port 4000
 
 
