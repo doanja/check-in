@@ -1,9 +1,10 @@
 import { Prisma } from '.prisma/client';
+import { server } from '@/lib';
 import axios, { AxiosResponse } from 'axios';
 
 export default class UserService {
   public getUsers(): Promise<AxiosResponse<any>> {
-    return axios.get<any>('/api/users');
+    return axios.get<any>(`${server}/api/users`);
   }
 
   public createUser(user: Prisma.UserCreateInput): Promise<AxiosResponse<any>> {
