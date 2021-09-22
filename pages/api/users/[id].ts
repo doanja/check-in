@@ -24,7 +24,7 @@ const getUser = async (req: NextApiRequest, res: NextApiResponse, prisma: Prisma
 
     res.status(200).json({ data: user });
   } catch (error) {
-    res.status(520).json({ errorName: 'Error', errorMsg: `An unknown error has occured: ${error}` });
+    res.status(520).json({ errorName: 'Error', errorMsg: error });
   } finally {
     await prisma.$disconnect();
   }
@@ -38,7 +38,7 @@ const deleteUser = async (req: NextApiRequest, res: NextApiResponse, prisma: Pri
 
     res.status(200).json({ data: deletedUser });
   } catch (error) {
-    res.status(520).json({ errorName: 'Error', errorMsg: `An unknown error has occured: ${error}` });
+    res.status(520).json({ errorName: 'Error', errorMsg: error });
   } finally {
     await prisma.$disconnect();
   }
