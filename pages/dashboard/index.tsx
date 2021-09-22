@@ -31,7 +31,7 @@ const dashboard = ({ users }: dashboardProps) => {
                     Number of Check-ins
                   </th>
                   <th scope='col' className='relative px-6 py-3'>
-                    <span className='sr-only'>Edit</span>
+                    <span className='sr-only'>Details</span>
                   </th>
                 </tr>
               </thead>
