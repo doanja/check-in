@@ -10,9 +10,9 @@ const dashboard = ({ users }: dashboardProps) => {
   const content = (
     <div>
       <h1>dashboard</h1>
-      {/* {users.map((user: User) => (
+      {users.map((user: User) => (
         <p key={user.id}>{user.name}</p>
-      ))} */}
+      ))}
     </div>
   );
 
@@ -21,16 +21,16 @@ const dashboard = ({ users }: dashboardProps) => {
 
 export default dashboard;
 
-// export const getStaticProps: GetStaticProps = async context => {
-//   const userService = new UserService();
-//   const res = await userService.getUsers();
+export const getStaticProps: GetStaticProps = async context => {
+  const userService = new UserService();
+  const res = await userService.getUsers();
 
-//   return {
-//     props: {
-//       users: res.data.data,
-//     },
-//   };
-// };
+  return {
+    props: {
+      users: res.data.data,
+    },
+  };
+};
 
 // export const getStaticPaths: GetStaticPaths = async () => {
 //   // ...

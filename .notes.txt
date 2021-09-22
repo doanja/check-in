@@ -21,7 +21,6 @@ todo:
 	- need way to track check in's etc
 	- graph check in by all users by date
 	- checkin by single user by date
-- production erroring: database tables don't exist
 
 
 prisma: (https://davidparks.dev/blog/planetscale-deployment-with-prisma/)
