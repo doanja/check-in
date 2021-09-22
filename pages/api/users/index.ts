@@ -54,7 +54,7 @@ const createUser = async (req: NextApiRequest, res: NextApiResponse, prisma: Pri
     res.status(200).json({ data: newUser });
   } catch (error) {
     if (error instanceof Prisma.PrismaClientKnownRequestError && error.code === 'P2002') {
-      res.status(500).json({ errorName: error.name, errorMsg: 'Phone number or email address is already in use.' });
+      res.status(500).json({ errorName: 'Error', errorMsg: 'Phone number or email address is already in use.' });
     } else {
       res.status(520).json({ errorName: 'Error', errorMsg: 'An unknown error has occured.' });
     }

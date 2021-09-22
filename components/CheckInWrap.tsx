@@ -17,12 +17,24 @@ const CheckInWrap = ({ isNewUser }: CheckInWrapProps) => {
   const [isLoading, setIsLoading] = useState(false);
 
   const checkInUser = async (formValues: { name: string }) => {
-    const checkInService = new CheckInService();
-    await checkInService.createCheckIn();
+    setIsLoading(true);
 
-    const newCheckedInUser: CheckedInUser = { id: uuidv4(), name: formValues.name, checkInTime: getCurrentTimeStamp(), isCheckedIn: false };
-    await setCheckedInUsers([...checkedInUsers, newCheckedInUser]);
-    router.push('/waitlist');
+    try {
+      const checkInService = new CheckInService();
+      await checkInService.createCheckIn();
+
+      const newCheckedInUser: CheckedInUser = { id: uuidv4(), name: formValues.name, checkInTime: getCurrentTimeStamp(), isCheckedIn: false };
+      await setCheckedInUsers([...checkedInUsers, newCheckedInUser]);
+      router.push('/waitlist');
+    } catch (error: any) {
+      const errorText = parseError(error);
+
+      setTitle('Error');
+      setBody(errorText);
+      toggleModal(true);
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   const signinUser = async (formValues: { phone: string }) => {
@@ -39,7 +51,7 @@ const CheckInWrap = ({ isNewUser }: CheckInWrapProps) => {
     } catch (error: any) {
       const errorText = parseError(error);
 
-      setTitle(error.name);
+      setTitle('Error');
       setBody(errorText);
       toggleModal(true);
     } finally {
