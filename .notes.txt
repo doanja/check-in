@@ -17,10 +17,12 @@ todo:
 	- use getStaticProps and getStaticPaths
 	- https://youtu.be/TOIRxWQPgi0?list=PLC3y8-rFHvwgC9mj0qv972IO5DmD-H0ZH&t=189
 	- https://youtu.be/1XEe-ng57GA?list=PLC3y8-rFHvwgC9mj0qv972IO5DmD-H0ZH&t=555
-- add admin dashboard
-	- need way to track check in's etc
-	- graph check in by all users by date
-	- checkin by single user by date
+- add admin dashboard (https://marketplace.clicdata.com/v/wGH9rNEjZnot)
+	- table showing registered users
+		- clicking details shows checkins this month as a number, and number of check-ins (y) vs month (x)
+	- graph showing check-ins today vs yesterday
+	- graph showing check-ins this week vs last week
+	- new vs returning customers
 
 
 prisma: (https://davidparks.dev/blog/planetscale-deployment-with-prisma/)
