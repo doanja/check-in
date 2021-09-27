@@ -1,8 +1,9 @@
+import { server } from '@/lib';
 import axios, { AxiosResponse } from 'axios';
 
 export default class CheckInService {
   public getCheckIns(): Promise<AxiosResponse<any>> {
-    return axios.get<any>('/api/checkIns');
+    return axios.get<any>(`${server}/api/checkIns`);
   }
 
   public createCheckIn(): Promise<AxiosResponse<any>> {
@@ -14,6 +15,6 @@ export default class CheckInService {
   }
 
   public getSingleUserCheckIns(userId: string): Promise<AxiosResponse<any>> {
-    return axios.get<any>(`/api/checkIns/${userId}`);
+    return axios.get<any>(`${server}/api/checkIns/${userId}`);
   }
 }

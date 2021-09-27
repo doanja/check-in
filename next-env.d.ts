@@ -30,3 +30,9 @@ type User = {
   checkInCount: number;
   role: string;
 };
+
+type SingleUserCheckIn = {
+  id: number;
+  date: string;
+  userId: number;
+};

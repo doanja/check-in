@@ -1,5 +1,5 @@
 import { GetStaticProps } from 'next';
-import { PageContainer, UserTableRow } from '@/components';
+import { UserTableRow } from '@/components';
 import { UserService } from '@/services';
 
 interface dashboardProps {
@@ -58,7 +58,3 @@ export const getStaticProps: GetStaticProps = async context => {
     },
   };
 };
-
-// export const getStaticPaths: GetStaticPaths = async () => {
-//   // ...
-// }
