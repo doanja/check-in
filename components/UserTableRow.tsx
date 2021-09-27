@@ -1,8 +1,11 @@
+import Link from 'next/link';
+
 interface UserTableProps {
   user: User;
+  showDetails?: boolean;
 }
 
-const UserTableRow = ({ user }: UserTableProps) => {
+const UserTableRow = ({ user, showDetails = true }: UserTableProps) => {
   return (
     <tbody className='bg-white divide-y divide-gray-200 hover:bg-gray-100'>
       <tr>
@@ -26,9 +29,13 @@ const UserTableRow = ({ user }: UserTableProps) => {
           <div className='text-sm font-medium text-gray-900'>{user.checkInCount}</div>
         </td>
 
-        <td className='px-6 py-4 whitespace-nowrap text-right text-sm font-medium'>
-          <p className='text-indigo-600 cursor-pointer hover:text-indigo-900 '>Details</p>
-        </td>
+        {showDetails && (
+          <td className='px-6 py-4 whitespace-nowrap text-right text-sm font-medium'>
+            <Link href={`/dashboard/${user.id}`}>
+              <a className='text-indigo-600 cursor-pointer hover:text-indigo-900'>Details</a>
+            </Link>
+          </td>
+        )}
       </tr>
     </tbody>
   );

@@ -7,6 +7,10 @@ export default class UserService {
     return axios.get<any>(`${server}/api/users`);
   }
 
+  public getUserById(userId: string): Promise<AxiosResponse<any>> {
+    return axios.get<any>(`${server}/api/users/${userId}`);
+  }
+
   public createUser(user: Prisma.UserCreateInput): Promise<AxiosResponse<any>> {
     return axios.post<any>('/api/users', { user });
   }
