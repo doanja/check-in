@@ -3,6 +3,12 @@ import { CheckInService, UserService } from '@/services';
 import { UserTableRow } from '@/components';
 import { Fragment } from 'react';
 
+export type BarsProps = {
+  width: number;
+  height: number;
+  events?: boolean;
+};
+
 interface dashboardProps {
   singleUserCheckIn: SingleUserCheckIn[];
   user: User;
